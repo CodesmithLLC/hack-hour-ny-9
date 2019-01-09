@@ -16,8 +16,27 @@
 //                     'fizzbuzz',
 //                     16 ]
 
-function fizzbuzz(num) {
+// I: number
+// O: array filled with 1 to argument number where every number divisible by 3 - fizz, 5 - buzz, 3 & 5 - fizzbuzz
+// C:
+// E: if num is empty or less than one - return empty array
 
+function fizzbuzz(num) {
+  let result = [];
+  for (let i = 1; i <= num; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      result.push('fizzbuzz');
+    } else if (i % 3 === 0) {
+      result.push('fizz');
+    } else if (i % 5 === 0) {
+      result.push('buzz');
+    } else {
+      result.push(i);
+    }
+  }
+  return result;
 }
+
+console.log(fizzbuzz(0));
 
 module.exports = fizzbuzz;
