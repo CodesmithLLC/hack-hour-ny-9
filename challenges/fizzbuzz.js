@@ -17,19 +17,29 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-  let result = [];
-  for (let i = 1; i <= num; i++) {
-    if (i % 15 === 0) {
-      result.push("fizzbuzz");
-    } else if (i % 5 === 0) {
-      result.push("buzz");
-    } else if (i % 3 === 0) {
-      result.push("fizz");
-    } else {
-      result.push(i);
-    }
+  // let result = [];
+  // for (let i = 1; i <= num; i++) {
+  //   if (i % 15 === 0) {
+  //     result.push("fizzbuzz");
+  //   } else if (i % 5 === 0) {
+  //     result.push("buzz");
+  //   } else if (i % 3 === 0) {
+  //     result.push("fizz");
+  //   } else {
+  //     result.push(i);
+  //   }
+  // }
+  if (num === 0) {
+    return [];
+  } else if (num % 15 === 0) {
+    return fizzbuzz(num-1).concat("fizzbuzz");
+  } else if (num % 5 === 0) {
+    return fizzbuzz(num-1).concat("buzz");
+  } else if (num % 3 === 0) {
+    return fizzbuzz(num-1).concat("fizz");
+  } else {
+    return fizzbuzz(num-1).concat(num);
   }
-
 }
 
 // console.log(fizzbuzz(16));
