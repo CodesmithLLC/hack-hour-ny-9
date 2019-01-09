@@ -16,8 +16,32 @@
 //                     'fizzbuzz',
 //                     16 ]
 
-function fizzbuzz(num) {
+// input: number
+// output: array
+// fizz on divisiable 3
+// buzz on divisiable 5
+// fizzbuzz on divisible 3 and 5
 
+function fizzbuzz(num) {
+  if (typeof num !== 'number' || undefined) return undefined;
+
+  if (num <= 0) return console.log('input positive number')
+
+  const result = [];
+
+  for (let i = 1; i <= num; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      result.push('fizzbuzz');
+    } else if (i % 3 === 0) {
+      result.push('fizz');
+    } else if (i % 5 === 0) {
+      result.push('buzz');
+    } else {
+      result.push(i);
+    }
+  }
+
+  return result;
 }
 
 module.exports = fizzbuzz;
