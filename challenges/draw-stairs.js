@@ -21,10 +21,10 @@ function drawStairs(n, stairs='',count=1) {
  for (let j=0; j<count; j++) {
     stairs+= '*'; 
  }
- stairs+= '\n' // at 6 => 5 nbsp and 1 star but at 5 => 4 spaces and 2 stars 
+ if (count !==n) stairs+= '\n' // at 6 => 5 nbsp and 1 star but at 5 => 4 spaces and 2 stars 
 
 return drawStairs(n-1,stairs, count+1)
 }
-console.log(drawStairs(6))
+// console.log(drawStairs(6))
 
 module.exports = drawStairs;
