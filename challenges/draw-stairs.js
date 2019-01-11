@@ -17,14 +17,12 @@
 // O: console.log of staircase of asterisks from left to right
 
 function drawStairs(n) {
-  let i = 1;
-  debugger;
-  let result = '';
-  while (i !== n + 1) {
-    result = result.concat(' '.repeat(n - i) + '*'.repeat(i)).concat('\n');
-    i += 1;
+  let stairs = '';
+  const step = '*';
+  for (let i = 1; i <= n; i++) {
+    stairs += `${' '.repeat(n - i) + step.repeat(i)}\n`;
   }
-  console.log(result);
+  console.log(stairs);
 }
 
 drawStairs(6);
