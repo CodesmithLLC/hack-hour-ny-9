@@ -14,8 +14,12 @@
 */
 
 function drawStairs(n) {
+    if (typeof n !== 'number') return console.error('The argument must be a number.');
+    if (n < 1 || n > 100) return console.error('The argument N must be 1 <= N <= 100');
 
+    for (let i = 1; i <= n; i++) {
+        console.log(' '.repeat(n - i) + '*'.repeat(i));
+    }
 }
-
 
 module.exports = drawStairs;
