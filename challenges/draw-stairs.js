@@ -15,18 +15,12 @@
 
 function drawStairs(n) {
     //concatenate n - 1 spaces on same line
-    let str = '';
-    for (let k = 1; k <= n; k++) {  //outer loop controls the line, outermost loop counter variable will be referenced by counters in inner loops
-        for (let i = n - k; i > 0; i--) {  //inner loop outputs each line
-            str += ' ';
-        }
-        for (let j = 1; j <= n ; j++) {
-            str += '*' 
-        }
-    
-    console.log(str);
+    let astk = '*', space = ' ';
 
+    for (let k = 1; k <= n; k++) {  //outer loop controls the line, outermost loop counter variable will be referenced by counters in inner loops
+        console.log(space.repeat(n-k).concat(astk.repeat(k)))
     }
+    
     //print 
 
 
