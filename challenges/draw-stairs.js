@@ -21,7 +21,7 @@ function drawStairs(n) {
     for (let i = 1; i < n; i++) {
         str += ' '.repeat(n - i) + '*'.repeat(i) + '\n';
     }
-    retu str + '*'.repeat(n);
+    return str + '*'.repeat(n);
 }
 
 module.exports = drawStairs;
