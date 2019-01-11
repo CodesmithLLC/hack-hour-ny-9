@@ -14,8 +14,9 @@
 */
 
 function drawStairs(n) {
-    //concatenate n - 1 spaces on same line
-    let astk = '*', space = ' ';
+
+    let astk = '*', 
+        space = ' ';
 
     for (let k = 1; k <= n; k++) {  //outer loop controls the line, outermost loop counter variable will be referenced by counters in inner loops
         console.log(space.repeat(n-k).concat(astk.repeat(k)))
