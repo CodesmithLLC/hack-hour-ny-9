@@ -19,7 +19,7 @@ function drawStairs(n) {
     while (n >= level) {
         let space = ' '.repeat(n - level);
         let asterisks = '*'.repeat(level);
-        console.log(space.concat(asterisks), 'in while');
+        console.log(space.concat(asterisks));
         level++
     }
 }
