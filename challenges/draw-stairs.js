@@ -18,11 +18,15 @@
 
 function drawStairs(n) {
   let i = 1;
+  debugger;
+  let result = '';
   while (i !== n + 1) {
-    console.log(' '.repeat(n - i) + '*'.repeat(i));
+    result = result.concat(' '.repeat(n - i) + '*'.repeat(i)).concat('\n');
     i += 1;
   }
+  console.log(result);
 }
-console.log(drawStairs(6));
+
+drawStairs(6);
 
 module.exports = drawStairs;
