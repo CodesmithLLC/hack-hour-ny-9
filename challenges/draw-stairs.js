@@ -26,3 +26,11 @@ function drawStairs(n) {
 console.log(drawStairs(6));
 
 module.exports = drawStairs;
+
+/*
+let spaces = n-1;
+let stars = *
+
+use string.repeat
+
+*/
