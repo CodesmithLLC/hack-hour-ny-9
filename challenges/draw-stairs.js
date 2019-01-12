@@ -18,7 +18,7 @@
 //add 1 star and substract 1 space;
 //return the row
 function drawStairs(n) {
-    let space = ' ';
+    let space = ' '; // the space can be n - 1;
     let star = '*';
     let row = '';
     let count = n - 1;
@@ -40,8 +40,24 @@ function drawStairs(n) {
 // function drawStairs(n) {
 //     let space = ' ';
 //     let star = '*';
+
+//     if (star.length > n) {
+        
+//     } else {
+
+//     }
 // }
 // console.log(drawStairs(6));
 
 
 module.exports = drawStairs;
+
+
+// solution
+// function drawStairs(n) {
+//     for (let i = 1; i <=n; i++) {
+//         const spaces = ' '.repeat(n - i);
+//         const stars = '*'.repeat(i);
+//         console.log(spaces + stars);
+//     }
+// }
