@@ -15,18 +15,14 @@
 
 function drawStairs(n) {
 
-    let astk = '*', 
-        space = ' ';
+    let astk = '*', space = ' ';
 
-    for (let k = 1; k <= n; k++) {  //outer loop controls the line, outermost loop counter variable will be referenced by counters in inner loops
+    for (let k = 1; k <= n; k++) { 
         console.log(space.repeat(n-k).concat(astk.repeat(k)))
     }
     
-    //print 
-
-
 }
-drawStairs(5);
+drawStairs(6);
 
 
 
