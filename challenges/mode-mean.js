@@ -12,7 +12,7 @@
 
 function modemean(array) {
 
-}
+
   let len = array.length;
   let mode = 0;
   let mean = (array.reduce((acc, curr) => acc+=curr, 0)) / len;
