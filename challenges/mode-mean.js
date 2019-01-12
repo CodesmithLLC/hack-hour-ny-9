@@ -12,7 +12,7 @@
 
 function modemean(array) {
 
-
+  if (array.length === 0) return false;
   let len = array.length;
   let mode = 0;
   let mean = (array.reduce((acc, curr) => acc+=curr, 0)) / len;
@@ -34,5 +34,6 @@ function modemean(array) {
 
 } 
 
-
+console.log(modemean([]));
+console.log(modemean([1,2,1]));
 module.exports = modemean;
