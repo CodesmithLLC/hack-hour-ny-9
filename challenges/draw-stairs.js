@@ -18,19 +18,11 @@ function drawStairs(n) {
   result[n] = '';
 
   for (let i = n - 1; i >= 0; i--) {
-    result[i] = '*';
+    console.log(result[i] = '*')
+    
   }
-  return result.join('')
 }
-
-console.log(drawStairs(6));
 
 module.exports = drawStairs;
 
-/*
-let spaces = n-1;
-let stars = *
-
-use string.repeat
-
-*/
+drawStairs(6)
