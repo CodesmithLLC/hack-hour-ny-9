@@ -17,7 +17,7 @@ console.log(drawStairs(6))
 function drawStairs(n) {
   var stairs = '*/n';
 
-  for(;et i = 2; i <= 6; i++){
+  for(let i = 2; i <= 6; i++){
     let row = makeRow(i);
     if (i === n){
     stairs += row;
