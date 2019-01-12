@@ -6,20 +6,20 @@
  drawStairs(6) ->          
      *
     **
-   ***
-  ****
+   *** ****
  *****
 ******
 
 */
 
 function drawStairs(n) {
+  for (let i = 1; i <= n; i++) {
     let str = '';
-    for (let i = 1; i <= n; i++) {
-      str += ' '.repeat(n-i) + '*'.repeat(i) + '\n';
-    }
+    str += ' '.repeat(n-i) + '*'.repeat(i);
     console.log(str)
+  }
 }
+drawStairs(6);
 
 
 module.exports = drawStairs;
