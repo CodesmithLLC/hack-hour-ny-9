@@ -22,13 +22,13 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-  let curr = head;
+  let fast = head;
   let slow;
-  while (curr) {
+  while (fast) {
     k -= 1;
     if (k === 0) slow = head;
     if (k < 0) slow = slow.next;
-    curr = curr.next;
+    fast = fast.next;
   }
   return slow ? slow.value : undefined;
 }
