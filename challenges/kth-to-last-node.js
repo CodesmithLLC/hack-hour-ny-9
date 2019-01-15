@@ -24,7 +24,7 @@ function Node(val) {
 function kthToLastNode(k, head) {
   let current = head;
   let count = k;
-  if (k === 0) return null;
+  if (k === 0) return undefined;
   //what if k is bigger than the list? just return null?
   let end = head;
   while (end.next) {
@@ -32,8 +32,9 @@ function kthToLastNode(k, head) {
     if (--count <= 0) current = current.next;
   }
   // console.log(count);
-  if (current === head) return head.value;
-  if (count > 0) return null;
+  // if (current === head) return head.value;
+  //if doesnt exist
+  if (count > 1) return undefined; 
   return current.value;
 }
 
@@ -48,6 +49,6 @@ function kthToLastNode(k, head) {
 // c.next = d;
 // d.next = e;
 
-// console.log(kthToLastNode(3,a))
+// console.log(kthToLastNode(0,a))
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
