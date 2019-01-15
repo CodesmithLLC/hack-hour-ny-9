@@ -32,6 +32,9 @@ function kthToLastNode(k, head) {
       current = current.next;
     }
   }
+  if (size <= k) {
+    return undefined;
+  }
   current = head;
   while (counter < size - k) {
     current = current.next;
@@ -53,4 +56,4 @@ b.next = c;
 c.next = d;
 d.next = e;
 
-console.log(kthToLastNode(2, a));
+console.log(kthToLastNode(9, a));
