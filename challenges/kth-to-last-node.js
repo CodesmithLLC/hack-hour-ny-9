@@ -22,8 +22,9 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-  //if linked list is empty
+  //establish pointer to current element
   let current = head;
+  //if linked list is empty
   if (!current) return undefined; 
   //iterate through the linked list to establish its length
   let length = 0;
@@ -40,10 +41,11 @@ function kthToLastNode(k, head) {
   if (k === length) return head.value;
   //if k is equal to length - 1 return the value of second node of linked list
   if (k === length - 1) return head.next.value;
+  
   let i = 0;
   while (current) {
     if (i === length - k) return this.value;
-    i+=1;    
+    i += 1;    
     current = current.next;
   }
 
