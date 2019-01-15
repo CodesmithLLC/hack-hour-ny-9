@@ -9,7 +9,6 @@
  *
  */
 
-
 function modemean(array) {
   if (array.length === 0) return undefined;
 
@@ -45,10 +44,7 @@ function modemean(array) {
   if (mean === mode) {
     return true;
   }
-
   return false;
-
 }
-
 
 module.exports = modemean;
