@@ -22,6 +22,31 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  //if linked list is empty
+  let current = head;
+  if (!current) return undefined; 
+  //iterate through the linked list to establish its length
+  let length = 0;
+  while (current) {
+    length += 1;
+    current = current.next;
+  }
+  //reset current to point to head
+  current = head;
+  //iterate through the linked list now with the target index
+  //handle edge case where k is greater than the length
+  if (k > length) return undefined;
+  //if k is equal to length return value of first node of linked list (i.e., the value of head)
+  if (k === length) return head.value;
+  //if k is equal to length - 1 return the value of second node of linked list
+  if (k === length - 1) return head.next.value;
+  let i = 0;
+  while (current) {
+    if (i === length - k) return this.value;
+    i+=1;    
+    current = current.next;
+  }
+
 
 }
 
