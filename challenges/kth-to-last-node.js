@@ -30,7 +30,7 @@ function kthToLastNode(k, head) {
     if (k < 0) slow = slow.next;
     curr = curr.next;
   }
-  return slow.value;
+  return slow ? slow.value : undefined;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
