@@ -16,30 +16,30 @@
  * kthToLastNode(2, a); -> returns 'D' (the value on the second to last node)
  */
 
-function Node(val) {
-  this.value = val;
-  this.next = null;
-}
+// function Node(val) {
+//   this.value = val;
+//   this.next = null;
+// }
 
-const a = new Node('A');
-const b = new Node('B');
-const c = new Node('C');
-const d = new Node('D');
-const e = new Node('E');
+// const a = new Node('A');
+// const b = new Node('B');
+// const c = new Node('C');
+// const d = new Node('D');
+// const e = new Node('E');
 
-a.next = b;
-b.next = c;
-c.next = d;
-d.next = e;
+// a.next = b;
+// b.next = c;
+// c.next = d;
+// d.next = e;
 
 function kthToLastNode(k, head) {
   let slow = head;
   let fast = head;
-  while (k > 0) {
+  let distance = 0;
+  while (distance < k) {
     if (!fast) return undefined;
     fast = fast.next;
-
-    k -= 1;
+    distance += 1;
   }
   if (!fast) return undefined;
   while (fast) {
