@@ -42,11 +42,11 @@ function kthToLastNode(k, head) {
     k -= 1;
   }
   if (!fast) return undefined;
-  while (fast) {
+  while (fast.next) {
     fast = fast.next;
     slow = slow.next;
   }
-  return slow ? slow.value : undefined;
+  return slow ? slow.next.value : undefined;
 }
 
 module.exports = { Node: Node, kthToLastNode: kthToLastNode };
