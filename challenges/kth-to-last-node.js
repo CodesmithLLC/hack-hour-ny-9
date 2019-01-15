@@ -26,9 +26,12 @@ function kthToLastNode(k, head) {
   let curNode = head;
   while (curNode !== null) {
     posRecords.push(curNode.value);
+    if (posRecords.length > k) {
+      posRecords.shift();
+    }
     curNode = curNode.next;
   }
-  return posRecords[posRecords.length - k];
+  return posRecords[0];
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
