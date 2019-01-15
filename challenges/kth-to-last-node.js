@@ -20,9 +20,30 @@ function Node(val) {
   this.value = val;
   this.next = null;
 }
-
-function kthToLastNode(k, head) {
-
+// singly linked list forward connections only
+// iterate and get length of list
+// iterate a second time maintain counter with index + 1
+// return when length - k === counter
+function kthToLastNode(k, head) {    
+  let length = getLength(head);
+  let count = 0;
+  current = head;
+  while (current) {
+    if(length - k === count){
+      return current.value;
+    }
+    count += 1;
+    current = current.next;
+  }
+}
+function getLength(head) {
+  let length = 0;
+  current = head;
+  while (current) {
+    length += 1;
+    current = current.next;
+  }
+  return length;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
