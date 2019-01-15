@@ -29,6 +29,7 @@ function kthToLastNode(k, head) {
   //iterate through the linked list to establish its length
   let length = 0;
   while (current) {
+    if (!current) break;
     length += 1;
     current = current.next;
   }
@@ -41,7 +42,7 @@ function kthToLastNode(k, head) {
   if (k === length) return head.value;
   //if k is equal to length - 1 return the value of second node of linked list
   if (k === length - 1) return head.next.value;
-  
+
   let i = 0;
   while (current) {
     if (i === length - k) return this.value;
