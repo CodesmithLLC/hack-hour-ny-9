@@ -41,8 +41,9 @@ function modemean(array) {
     })
     mean = Math.floor( sum/(array.length-1))
     for (let keys in numObj) {
-        count =  numObj[keys];
-        if (numObj[keys] > count) {
+        
+        if (count< numObj[keys]) {
+            console.log('hello')
             count =  numObj[keys]; 
             mode = keys;
         } else  {
@@ -55,10 +56,9 @@ function modemean(array) {
 
     }
 
-  
-   console.log("the mean is:", mean, "and mode:", mode)
+//    console.log("the mean is:", mean, "and mode:", mode)
    return (mean === mode) ? true : false;
 
 }
- console.log (modemean([1,2,3,4,4])) 
+//  console.log (modemean([1,2,3,4,4])) 
 module.exports = modemean;
