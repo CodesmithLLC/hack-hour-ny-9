@@ -33,20 +33,17 @@ c.next = d;
 d.next = e;
 
 function kthToLastNode(k, head) {
-  let slow = head;
+  let slow;
   let fast = head;
 
-  while (k > 0) {
-    if (!fast) return undefined;
-    fast = fast.next;
+  while (fast) {
     k -= 1;
-  }
-  if (!fast) return undefined;
-  while (fast.next) {
+    if (k === 0) slow = head;
+    if (k < 0) slow = slow.next;
     fast = fast.next;
-    slow = slow.next;
   }
-  return slow ? slow.next.value : undefined;
+
+  return slow ? slow.value : undefined;
 }
 
 module.exports = { Node: Node, kthToLastNode: kthToLastNode };
