@@ -57,3 +57,17 @@ c.next = d;
 d.next = e;
 
 console.log(kthToLastNode(5, a));
+
+/*
+let lead = head;
+let follow = head;
+let counter = 1;
+
+while (lead) {
+  lead=lead.next;
+  if (counter > k) follow = follow.next;
+  counter++
+}
+
+return k > counter ? 'out of range' : follow.value;
+*/
