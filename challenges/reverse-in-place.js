@@ -13,7 +13,7 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
-function reverseInPlace(array, i) {
+function reverseInPlace(array, i = 0) {
   if (array.length <= 0) return undefined;
 
   if (i > Math.floor(array.length / 2) || i === Math.floor(array.length / 2)) {
