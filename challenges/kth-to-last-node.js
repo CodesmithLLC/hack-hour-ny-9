@@ -36,6 +36,22 @@ function kthToLastNode(k, head) {
   return cache[length + 1 - k] || undefined;
 }
 
+
+// function kthToLastNode(k, head){
+//   let lead = head;
+//   let follow = head;
+//   let counter = 1;
+//
+//   while (lead) {
+//     lead = lead.next;
+//     //once
+//     if (counter > k) follow = follow.next;
+//     conter++;
+//   }
+//   return k > counter ? 'out of range' : follow.value;
+// }
+
+
 const a = new Node('A');
 const b = new Node('B');
 const c = new Node('C');
