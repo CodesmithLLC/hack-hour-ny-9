@@ -14,7 +14,19 @@
  */
 
 function reverseInPlace(array) {
-
+  //loop through the array and have a temp that remembers every element that is about to be changed
+  let temp;
+  let i = 0;
+  let j = array.length-1;
+  while (i < j) {
+    temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+    i++;
+    j--;
+  }
+  return array;
 }
 
+console.log(reverseInPlace([]));
 module.exports = reverseInPlace;
