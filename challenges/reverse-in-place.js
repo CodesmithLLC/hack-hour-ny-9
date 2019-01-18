@@ -1,7 +1,4 @@
-/* Write a function that calculates x^y, where x is given as the base and y is given as the power.
- * Use recursion!
- */
-
+'use strict';
 /**
  * Write a function to reverse an array in place
  *
@@ -16,10 +13,7 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
-const array = [1, 2, 3];
-//output = [3,2,1]
-
-function reverseInPlace(array: number[]) {
+function reverseInPlace(array) {
   let lo = 0;
   let hi = array.length - 1;
   while (lo < hi) {
@@ -31,3 +25,5 @@ function reverseInPlace(array: number[]) {
     hi -= 1;
   }
 }
+
+module.exports = reverseInPlace;
