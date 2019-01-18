@@ -16,10 +16,18 @@
 function reverseInPlace(array) {
     let temp;
     //create two pointers in memory, one each for the first and last elements of the array
-    for (let i = 0, j = array.length - 1 ; i < (array.length/2), j > (array.length/2); i++, j--) {
-        temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
+    if (array.length % 2 === 0)
+        for (let i = 0, j = array.length - 1 ; i <= (array.length/2), j >= (array.length/2) ; i++, j--) {
+            temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+    else {
+        for (let i = 0, j = array.length - 1 ; i < (array.length/2), j > (array.length/2) ; i++, j--) {
+            temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
     }
     return array;
 }
