@@ -17,10 +17,9 @@ function reverseInPlace(array) {
   let lo = 0;
   let hi = array.length - 1;
   while (lo < hi) {
-    let tempLo = array[lo];
-    let tempHi = array[hi];
-    array[lo] = tempHi;
-    array[hi] = tempLo;
+    let temp = array[lo];
+    array[lo] = array[hi];
+    array[hi] = temp;
     lo += 1;
     hi -= 1;
   }
