@@ -17,6 +17,8 @@ function isSubstring(s1, s2) {
 
 function stringRotation(s1, s2) {
   if (s1.length !== s2.length) return false;
+  if (s1.length === 1) return s1 === s2;
+
   const strLength = s1.length;
   const firstLetter = s1[0];
 
