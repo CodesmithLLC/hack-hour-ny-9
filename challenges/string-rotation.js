@@ -16,7 +16,23 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
+  if (s1.length !== s2.length) return false;
+  const strLength = s1.length;
+  const firstLetter = s1[0];
 
+  for (let i = 0; i < strLength; i++) {
+    if (firstLetter !== s2[i]) continue;
+
+    for (let j = 1; j < strLength; j++) {
+      const s2Index = j + i < strLength ? j + i : i + j - (strLength - 1) - 1;
+
+      if (s1[j] !== s2[s2Index]) break;
+
+      if (s1[j] === s2[s2Index] && j === strLength - 1) return true;
+    }
+  }
+
+  return false;
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
