@@ -18,16 +18,15 @@ function isSubstring(s1, s2) {
 function stringRotation(s1, s2) {
   if (s1.length !== s2.length) return false;
   if (s2[0] !== s1[0]) {
-    const s2Char = s2[0];
-    const index = s1.indexOf(s2Char);
+    const pivotIdx = s1.indexOf(s2[0]);
     s1 = s1.split('');
-    let right = s1.splice(index);
+    let right = s1.splice(pivotIdx);
     s1 = s1.join('');
     right = right.join('');
 
-    const result = right + s1;
+    const rotated = right + s1;
 
-    return isSubstring(result, s2);
+    return isSubstring(rotated, s2);
   }
   return isSubstring(s1, s2);
 }
