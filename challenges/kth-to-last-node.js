@@ -34,7 +34,7 @@ function kthToLastNode(k, head) {
   // console.log(count);
   // if (current === head) return head.value;
   //if doesnt exist
-  if (count > 1) return undefined; 
+  if (count >= 1) return undefined; 
   return current.value;
 }
 
@@ -52,3 +52,5 @@ function kthToLastNode(k, head) {
 // console.log(kthToLastNode(0,a))
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+
+
