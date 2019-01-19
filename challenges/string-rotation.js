@@ -16,14 +16,13 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-  // convert passed first string to an array for further manipulations
-  let rotated = s1.split('');
+  if (s1.length !== s2.length) return false;
 
-  // split the array on the middle and recombine, while switching places
-  // convert back to a string;
-  rotated = rotated.slice(Math.floor(rotated.length / 2))
-            .concat(rotated.slice(0, Math.floor(rotated.length / 2)))
-            .join('');
+  // find the middle of the first string
+  const mid = (Math.floor(s1.length / 2))
+
+  // rotate the first string
+  rotated = s1.slice(mid) + s1.slice(0, mid);
 
   // combine the original first string with its rotation        
   const doubleFirst = s1 + rotated;
@@ -31,8 +30,9 @@ function stringRotation(s1, s2) {
   // check if both strings have the same length and the 
   // second string corresponds to either the original string or 
   // its rotated version
-  return s1.length === s2.length && isSubstring(doubleFirst, s2);
+  return isSubstring(doubleFirst, s2);
 }
 
+console.log(stringRotation('hello', 'hello'))
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
