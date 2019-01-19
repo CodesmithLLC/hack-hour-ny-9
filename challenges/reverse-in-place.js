@@ -16,7 +16,7 @@
 function reverseInPlace(array) {
   let left = 0;
   let right = array.length - 1;
-
+ 
   while (left < right) {
     const temp = array[left];
     array[left] = array[right];
