@@ -21,6 +21,7 @@ function modemean(array) {
       return acc;
     }
   }, {});
+  // console.log(obj);
 
   let entries = Object.entries(obj);
   let maxCount = 0;
@@ -35,7 +36,5 @@ function modemean(array) {
   return mode == mean;
   // return Object.keys(obj)[values.indexOf(maxCount)] === mean;
 }
-// let arr = [1,1,1,1,1,1];
-// console.log(modemean(arr));
 
 module.exports = modemean;
