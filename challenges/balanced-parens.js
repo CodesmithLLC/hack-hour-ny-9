@@ -25,24 +25,28 @@
  */
 
 function balancedParens(input) {
-  const open = '({[<';
-  const close = ')}]>';
-  const resultObj = {
-    open: 0,
-    close: 0
-  };
+  const signs = '(){}[]';
+  const resultObj = {}
 
   for (let i = 0; i < input.length; i++) {
     const curChar = input[i];
-    if (open.indexOf(curChar) > -1) {
-      console.log('in open', curChar, open.indexOf(curChar))
-      resultObj.open += 1;
-    } else if (close.indexOf(curChar) > -1) {
-      console.log('in close', curChar, close.indexOf(curChar))
-      resultObj.close += 1;
+
+    if (resultObj[curChar] === undefined) {
+      resultObj[curChar] = 0;
+    }
+
+    if (signs.indexOf(curChar) > -1) {
+      resultObj[curChar] += 1;
     }
   }
-  return resultObj.open === resultObj.close ? true : false;
+
+  for (let j = 0; j < signs.length; j += 2) {
+    if (resultObj[signs[j]] !== resultObj[signs[j + 1]]) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 module.exports = balancedParens;
