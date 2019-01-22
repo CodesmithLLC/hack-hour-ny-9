@@ -25,7 +25,32 @@
  */
 
 function balancedParens(input){
+    // const bracketCount = { 'parens': 0, 'curly': 0, 'square': 0 };
+    let openBrackets = [];
 
+    for (let char of input) {
+        if (!['(', '{', '[', ']', ')', '}'].includes(char)) continue;
+
+        if (char === '(' || char === '{' || char === '[') {
+            openBrackets.push(char);
+            continue;
+        }
+
+        // if we get here, its because char is a closing bracket
+        const lastChar = openBrackets.pop();
+        if (char === ')') {
+            if (lastChar !== '(') return false;
+            continue;
+        } else if (char === '}') {
+            if (lastChar !== '{') return false;
+            continue;
+        } else if (char === ']') {
+            if (lastChar !== '(') return false;
+            continue;
+        }
+    }
+
+    return openBrackets.length === 0;
 }
 
 module.exports = balancedParens;
