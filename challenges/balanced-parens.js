@@ -42,8 +42,8 @@ function balancedParens(input) {
       curr = parens[left];
     } else return false;
   }
-  return true;
-}
 
+  return stack.length === 0 ? true : false;
+}
 
 module.exports = balancedParens;
