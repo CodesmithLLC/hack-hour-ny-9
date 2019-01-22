@@ -37,6 +37,8 @@ function balancedParens(input){
         }
 
         // if we get here, its because char is a closing bracket
+        if (lastChar.length === 0) return false;
+        
         const lastChar = openBrackets.pop();
         if (char === ')') {
             if (lastChar !== '(') return false;
