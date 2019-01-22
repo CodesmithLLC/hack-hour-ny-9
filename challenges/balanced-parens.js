@@ -46,7 +46,7 @@ function balancedParens(input){
             if (lastChar !== '{') return false;
             continue;
         } else if (char === ']') {
-            if (lastChar !== '(') return false;
+            if (lastChar !== '[') return false;
             continue;
         }
     }
