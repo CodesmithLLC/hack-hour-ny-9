@@ -26,19 +26,22 @@
 
 function balancedParens(input){
   let stack = [];
-  let parnls = { '[' : ']',
+  let parenls = {'[' : ']',
                  '(' : ')',
                  '{' : '}'
                }
+  let closing = '})]'
   for (let i = 0; i < input.length; i++) {
-    //push opening parens to stack
-    if (input[i] in parnls) 
-        stack.push(input[i]);
+    let char = input[i];
+    //push opening parens to stack and move on to next char
+    if (char in parenls) 
+        stack.push(char);
+        continue;
     //for the topmost stack element reject first non-matching parens
-    if (input[i] in parenls && parenls[input[i]] !== stack[stack.length - 1]) 
+    if (closing.indexOf(char) > 0 && char !== parenls(stack[stack.length - 1])) 
         return false;
     //pop first matching parens
-    if (input[i] in parenls && parenls[input[i]] === stack[stack.length - 1])  
+    if (closing.indexOf(char) > 0 && char === parenls(stack[stack.length - 1]))
         stack.pop();
   }
   
