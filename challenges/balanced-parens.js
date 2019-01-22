@@ -24,7 +24,7 @@
  *
  */
 
-function balancedParens(input){
+function balancedParens(input) {
     let openBrackets = [];
 
     for (let char of input) {
