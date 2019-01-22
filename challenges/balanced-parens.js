@@ -23,38 +23,33 @@
  *
  *
  */
-
-function balancedParens(input){
 //define string of parens
 //iterate through input
     //check if parens contains character in input
     //if open parens add to stack if closed parens pop from stack
 //return if stack.length === true
-const parens = '[]{}()';
-const open = '[{(';
-const close = ']})';
-const stack = [];
-if (input.length < 2) return false;
-for(let i = 0; i < input.length; i++){
-  if(parens.includes(input[i])){
-      if(open.includes(input[i])){
-          stack.push(input[i]);
-      }
-      if(close.includes(input[i])) {
-          if(stack[stack.length-1] === '[' && input[i] === ']'){
-              stack.pop()
-          }
-          if(stack[stack.length-1] === '{' && input[i] === '}'){
-            stack.pop()
-        }
-        if(stack[stack.length-1] === '(' && input[i] === ')'){
-            stack.pop()
-        }
-      }
+function balancedParens(input){
+    const parens = '[]{}()';
+    const open = '[{(';
+    const close = ']})';
+    const stack = [];
 
-  }
+    if (input.length < 2) return false;
+
+    for(let i = 0; i < input.length; i++){
+      if(parens.includes(input[i])){
+        if(open.includes(input[i])){
+            stack.push(input[i]);
+        }
+        if(close.includes(input[i])) {
+            if(stack[stack.length-1] === '[' && input[i] === ']' ||
+                stack[stack.length-1] === '{' && input[i] === '}' ||
+                stack[stack.length-1] === '(' && input[i] === ')'){
+                stack.pop()
+            }         
+        }
+      }
+    }
+    return stack.length === 0;
 }
-return stack.length === 0;
-}
-console.log(balancedParens("("));
 module.exports = balancedParens;
