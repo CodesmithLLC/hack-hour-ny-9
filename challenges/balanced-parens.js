@@ -23,7 +23,9 @@
  *
  *
  */
-function bracketChecker (string)
+function bracketChecker(string) {
+  // if there is a open character and no closing.  return false
+}
 
 function balancedParens(input) {
   countOpen = 0;
@@ -62,5 +64,5 @@ function balancedParens(input) {
     ? true
     : false;
 }
-console.log(balancedParens('[(]{)}'));
+console.log(balancedParens("[(]{)}"));
 module.exports = balancedParens;
