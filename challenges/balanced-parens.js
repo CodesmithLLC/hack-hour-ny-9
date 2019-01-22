@@ -24,8 +24,7 @@
  *
  */
 
-function balancedParens(input: string) {
-  debugger;
+function balancedParens(input) {
   const stack = [];
   for (let i = 0; i < input.length; i += 1) {
     if (input[i] === '[') stack.push(']');
@@ -41,4 +40,4 @@ function balancedParens(input: string) {
   return stack.length === 0;
 }
 
-console.log(balancedParens('[({})]'));
+module.exports = balancedParens;
