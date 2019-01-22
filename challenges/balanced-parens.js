@@ -25,7 +25,6 @@
  */
 
 function balancedParens(input){
-    // const bracketCount = { 'parens': 0, 'curly': 0, 'square': 0 };
     let openBrackets = [];
 
     for (let char of input) {
@@ -37,8 +36,8 @@ function balancedParens(input){
         }
 
         // if we get here, its because char is a closing bracket
-        if (lastChar.length === 0) return false;
-        
+        if (openBrackets.length === 0) return false;
+
         const lastChar = openBrackets.pop();
         if (char === ')') {
             if (lastChar !== '(') return false;
