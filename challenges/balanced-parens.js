@@ -25,7 +25,26 @@
  */
 
 function balancedParens(input){
+    const symbols = '(){}[]';
+    const filtered = input.split('').filter(e => symbols.indexOf(e) !== -1).join('');
+    if (filtered.length % 2 === 1) return false;
 
+    //case parens open close back to back
+    if (filtered[0] === '(' && filtered[1] === ')') {
+        if (filtered.length === 2) return true;
+        let newFiltered = filtered.slice(2, 4);
+        return balancedParens(newFiltered);
+    } else if (filtered[0] === '[' && filtered[1] === ']') {
+        if (filtered.length === 2) return true;
+        let newFiltered = filtered.slice(2, 4);
+        return balancedParens(newFiltered);
+    } else if (filtered[0] === '{' && filtered[1] === '}') {
+        if (filtered.length === 2) return true;
+        let newFiltered = filtered.slice(2, 4);
+        return balancedParens(newFiltered);   
+    }
+    
+    //case parens are nested (not solved yet)   
 }
 
 module.exports = balancedParens;
