@@ -24,16 +24,25 @@
  *
  */
 
-function balancedParens(input){
-  const resultObj = {};
+function balancedParens(input) {
+  const open = '({[<';
+  const close = ')}]>';
+  const resultObj = {
+    open: 0,
+    close: 0
+  };
 
   for (let i = 0; i < input.length; i++) {
     const curChar = input[i];
-
-    if (curChar === '(') {
-      resultObj[]
+    if (open.indexOf(curChar) > -1) {
+      console.log('in open', curChar, open.indexOf(curChar))
+      resultObj.open += 1;
+    } else if (close.indexOf(curChar) > -1) {
+      console.log('in close', curChar, close.indexOf(curChar))
+      resultObj.close += 1;
     }
   }
+  return resultObj.open === resultObj.close ? true : false;
 }
 
 module.exports = balancedParens;
