@@ -25,6 +25,29 @@
  */
 
 function balancedParens(input){
+    if (input.length === 0) return false;
+
+    input = input.replace(/[aA-zZ#:+&$~%=\s]/g, '')
+    //console.log(input)
+
+    let right = 0;
+    let left = 0;
+
+    for (let i = 0; i < input.length/2; i++) {
+        if(input[i] === '['|| input[i] === '(' || input[i] === '{') {
+        //console.log (input[i]); 
+        right++
+        }
+    }
+
+    for (let j = input.length-1; j >= input.length/2; j--) {
+        if(input[j] === ']'|| input[j] === ')' || input[j] === '}') {
+        //console.log (input[j]); 
+        left++
+        }
+    }
+
+    return left === right && left !== 0 && right !== 0 ? true : false;
 
 }
 
