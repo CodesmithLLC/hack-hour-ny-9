@@ -40,6 +40,7 @@ function balancedParens(input){
         continue;
     }
     //for the topmost stack element reject first non-matching parens
+    if (closing.indexOf(char) > 0 && stack.length === 0) {return false;}
     if (closing.indexOf(char) > 0 && char !== parenls[top]) {
         return false;
     }
