@@ -25,7 +25,15 @@
  */
 
 function balancedParens(input){
+  const resultObj = {};
 
+  for (let i = 0; i < input.length; i++) {
+    const curChar = input[i];
+
+    if (curChar === '(') {
+      resultObj[]
+    }
+  }
 }
 
 module.exports = balancedParens;
