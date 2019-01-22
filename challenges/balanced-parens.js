@@ -30,16 +30,15 @@ function balancedParens(input) {
 
   for (let i = 0; i < input.length; i++) {
     const curChar = input[i];
-
-    if (resultObj[curChar] === undefined) {
+    // create initial values for curChar if curChar is a bracket
+    if (resultObj[curChar] === undefined && signs.indexOf(curChar) > -1) {
       resultObj[curChar] = 0;
-    }
-
-    if (signs.indexOf(curChar) > -1) {
+    } else if (signs.indexOf(curChar) > -1) {
       resultObj[curChar] += 1;
     }
   }
 
+  // open bracket equals to the close bracket
   for (let j = 0; j < signs.length; j += 2) {
     if (resultObj[signs[j]] !== resultObj[signs[j + 1]]) {
       return false;
