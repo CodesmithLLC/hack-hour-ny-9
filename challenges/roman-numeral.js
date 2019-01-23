@@ -40,7 +40,7 @@ let output = '';
 if (n === 0) return output;
 //return immediately if value is in nums
 if (n in nums) return nums[n];
-if (n > 1000) return output.concat( romanNumeral ( Math.floor(n / 1000) ) );
+if (n > 1000) return ( romanNumeral ( Math.floor(n / 1000) ) ).concat('M');
 else {
   let closest = Infinity;
   //find the key in nums closest to (but not greater than) n
@@ -51,7 +51,7 @@ else {
     }
   }
   
-  return nums[key].concat( romanNumeral( n - key ) );
+  return nums[closest].concat( romanNumeral( n - closest ) );
   
   }
 }
