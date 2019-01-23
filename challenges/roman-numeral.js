@@ -29,6 +29,7 @@ function romanNumeral(n) {
     9:"IX",
     10:"X",
     40:"XL",
+    50:"L",
     90:"XC",
     100:"C",
     400:"CD",
@@ -42,12 +43,15 @@ function romanNumeral(n) {
       if (num-keys[i] >= 0) {
         num-=keys[i];
         result+=results[keys[i]];
+        // console.log("num is now " + num);
+        // console.log("key added " + keys[i]);
+        break;
       }
     }
   }
   return result;
 }
 
-// console.log(romanNumeral(440));
+console.log(romanNumeral(884));
 
 module.exports = romanNumeral;
