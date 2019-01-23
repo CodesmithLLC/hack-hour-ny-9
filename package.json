@@ -29,5 +29,8 @@
     "type": "git",
     "url": "git+https://github.com/CodesmithLLC/hack-hour-ny-9.git"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint-config-airbnb-standard": "^2.1.6"
+  }
 }
