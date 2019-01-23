@@ -47,4 +47,30 @@ function balancedParens(input){
     //case parens are nested (not solved yet)   
 }
 
+//better solution (use a stack)
+function balancedParens(input){
+    const matches = {'[' : ']', '{' : '}', '(' : ')'};
+    const stack = [];
+
+    for (let i = 0; i < input.length; i += 1) {
+        char = input[i];
+        if (char in matches) {
+            stack.push(char);
+        } else if (char === ']' || char === ')' || char === '}') {
+            if (matches[stack.pop()] !== char) {
+                return false;
+            }
+        }
+    }
+    return !stack.length;
+}
+
+//use the replace method
+function balancedParens(input){
+    let input
+    while ('{}' || '[]' || '()') {
+        input = input.replace('{}', '')
+    }
+}
+
 module.exports = balancedParens;
