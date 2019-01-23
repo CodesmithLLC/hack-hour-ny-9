@@ -40,7 +40,7 @@ function romanNumeral(n) {
   let resultStr = '';
 
   for (let i = 0; i < conversions.length; i++) {
-    if (inputNum === 0) return;
+    if (inputNum === 0) return resultStr;
     const curConKey = Object.keys(conversions[i])[0];
     const curConKeyInt = parseInt(curConKey);
     const curConValue = conversions[i][curConKey];
