@@ -41,7 +41,7 @@ if (n === 0) return output;
 //return immediately if value is in nums
 if (n in nums) return nums[n];
 if (n > 1000 && n % 1000 === 0) return ( romanNumeral ( Math.floor(n / 1000) ) ).concat('M');
-if (n > 1000 && n % 1000 !== 0) return ( romanNumeral ( Math.floor(n / 1000) ) ).concat(romanNumeral ( n % 1000 ) );
+if (n > 1000 && n % 1000 !== 0) return ( romanNumeral ( n - ( n % 1000 ) ) ).concat(romanNumeral ( n % 1000 ) );
   else {
   let closest = Infinity;
   let value;
