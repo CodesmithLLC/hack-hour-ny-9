@@ -47,7 +47,7 @@ if (n > 1000 && n % 1000 !== 0) return ( romanNumeral ( Math.floor(n / 1000) ) )
   //find the key in nums closest to (but not greater than) n
   for (let i = 0; i < Object.keys(nums).length; i++) {
     if (Object.keys(nums)[i+1] > Object.keys(nums)[i] && Object.keys(nums)[i+1] !== undefined) {
-      closest = nums[Object.keys(nums)[i+1]];
+      closest = nums[Object.keys(nums)[i]];
       break;
     }
   }
