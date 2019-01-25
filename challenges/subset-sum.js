@@ -9,7 +9,27 @@
  */
 
 function subsetSum(array, target) {
+    for (let i = 0; i < array.length; i++) {
+        const subsetSizeN = nSizeSubsetSum(array.slice(), i);
+        if (subsetSizeN.includes(target)) return true;
+    }    
 
+    return false;
+}
+
+function nSizeSubsetSum(currArr, subsetSize = 1) {
+    if (subsetSize === 1) return currArr.slice();
+    
+    const finalSet = new Set();
+
+    for (let i = 0; i < currArr.length; i++) {
+        const sliceArr = currArr.slice();
+        sliceArr.splice(i, 1);
+        const possiblePrevPerm = nSizeSubsetSum(sliceArr, subsetSize - 1);
+        possiblePrevPerm.forEach(el => finalSet.add(currArr[i] + el));
+    }   
+
+    return Array.from(finalSet);
 }
 
 module.exports = subsetSum;
