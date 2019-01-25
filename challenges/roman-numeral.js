@@ -40,7 +40,7 @@ let output = '';
 if (n === 0) return output;
 //return immediately if value is in nums
 if (n in nums) return nums[n];
-if (n > 1000) return ('M').concat( romanNumeral ( n - 1000 ) )
+
 else {
   let closest = Infinity;
   let value;
