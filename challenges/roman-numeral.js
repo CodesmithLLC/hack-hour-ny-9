@@ -33,7 +33,8 @@ function romanNumeral(n) {
               400 : 'CD',
               500 : 'D',
               900 : 'CM',
-             1000 : 'M' }
+             1000 : 'M',
+             10000 : 'MMMMMMMMMM'}
 
 //loop over given object keys to find least number closest to n
 let output = '';
