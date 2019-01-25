@@ -9,7 +9,9 @@
  */
 
 function subsetSum(array, target) {
-    for (let i = 0; i < array.length; i++) {
+    if (array.length === 1) return array[0] === target;
+
+    for (let i = 1; i <= array.length; i++) {
         const subsetSizeN = nSizeSubsetSum(array.slice(), i);
         if (subsetSizeN.includes(target)) return true;
     }    
@@ -19,6 +21,7 @@ function subsetSum(array, target) {
 
 function nSizeSubsetSum(currArr, subsetSize = 1) {
     if (subsetSize === 1) return currArr.slice();
+    if (subsetSize === currArr.length) return [currArr.reduce((a, b) => a += b, 0)];
     
     const finalSet = new Set();
 
