@@ -14,7 +14,16 @@
  */
 
 function binToDec(binary) {
-
+  if (binary.length === 0) return undefined;
+  let binaryExp = 0
+  let result = 0;
+  for (let i = binary.length - 1; i >= 0; i--) {
+    if (binary[i] == 1) {
+      result += (2 ** binaryExp);
+    }
+    binaryExp++
+  }
+  return result;
 }
 
 module.exports = binToDec;
