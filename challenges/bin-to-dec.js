@@ -16,7 +16,7 @@
 function binToDec(binary) {
   let decimal = 0;
   for (let i = binary.length - 1, j = 0; i >= 0; i--, j++) {
-    if (binary[i]) decimal += Math.pow(2, j);
+    if (binary[i] !== '0') decimal += Math.pow(2, j);
   }
   return decimal;
 }
