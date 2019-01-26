@@ -9,7 +9,10 @@
  */
 
 function subsetSum(array, target) {
-
+  if (array.index0f(target) >= 0 || target === 0) return true;
+  if (!array) return false;
+  //either include an array element in solution or not
+  else return subsetSum(array.slice(1), target - array[0]) || subsetSum(array.slice(1) , target) ;
 }
 
 module.exports = subsetSum;
