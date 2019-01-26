@@ -9,14 +9,9 @@
  */
 
 function subsetSum(array, target) {
-  if (target < Math.min(...array)) return false;
-  //if target is a value in the input array, return true
-  if (array.index0f(target) >= 0 ) return true;
-  else { 
-    //iterate over the array
-    for (let i = array.length - 1; i >= 0 ; i--) {
-      return subsetSum( array, target - array[i] )
-  }
+  if (target === 0 ) return true;
+  if (array.length === 0) return false;
+  else return subsetSum(array.slice(1), target - array[0]) || subsetSum(array.slice(1), target)
 }
 
 module.exports = subsetSum;
