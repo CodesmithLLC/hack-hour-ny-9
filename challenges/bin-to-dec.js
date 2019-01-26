@@ -14,7 +14,15 @@
  */
 
 function binToDec(binary) {
-
+    let sum = 0;
+    binary = binary.split('').reverse()
+  
+    return binary.reduce((acc, num, index)=>{
+      if (num === '1') {
+        acc += Math.pow(2, index)
+      }
+      return acc;
+    },0)
 }
 
 module.exports = binToDec;
