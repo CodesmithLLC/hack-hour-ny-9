@@ -15,7 +15,15 @@
 
 function drawStairs(n) {
 
+    let astk = '*', space = ' ';
+
+    for (let k = 1; k <= n; k++) { 
+        console.log(space.repeat(n-k).concat(astk.repeat(k)))
+    }
+    
 }
+drawStairs(6);
+
 
 
 module.exports = drawStairs;
