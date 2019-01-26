@@ -14,7 +14,13 @@
  */
 
 function binToDec(binary) {
-
+  //establish a count to keep track of digits seen
+  let count = 0;
+  function recursive (binary, counter) {
+      if (binary.length === 0) return 0;
+      else return (2 * counter) + recursive(binary.slice(-1), counter + 1);
+  }
+  recursive(binary, count)
 }
 
 module.exports = binToDec;
