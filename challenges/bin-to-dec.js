@@ -14,7 +14,16 @@
  */
 
 function binToDec(binary) {
-
+  let realBinary = binary.replace(/^0+/, ''); 
+  if (realBinary === '') return 0;
+  let sum = 0;
+  realBinary = realBinary.split("");
+  for (let i = 0; i < realBinary.length; i++) {
+    if (realBinary[i] === '1') sum+= Math.pow(2, realBinary.length-1-i);
+  }
+  return sum;
 }
+
+// console.log(binToDec('000010'))
 
 module.exports = binToDec;
