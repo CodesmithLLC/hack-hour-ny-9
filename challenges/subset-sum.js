@@ -9,7 +9,20 @@
  */
 
 function subsetSum(array, target) {
-
+ array = array.sort()
+ console.log(array)
+ let total = 0
+    for(let i = 0; i< array.length; i++){
+        if(total > target){
+            total = 0
+            array = array.slice(1)
+            console.log(array)
+        } else {
+            total += array[i]
+            console.log(total)
+        }
+    }
 }
+console.log(subsetSum([3, 34, 4, 12, 5, 12], 32))
 
 module.exports = subsetSum;
