@@ -38,8 +38,6 @@ function romanNumeral(n) {
     
     for (let key in numerals) {
     
-        if (numerals[key] === n) return key;
-    
         while (n >= numerals[key]) {
           result += key
           n -= numerals[key]
