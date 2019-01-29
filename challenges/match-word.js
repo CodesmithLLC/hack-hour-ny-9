@@ -16,30 +16,21 @@ function matchWord(str) {
   let string = str.toLowerCase();
   let stack = [];
   let char = '';
-  let matched = false;
-  let stacktop = stack[stack.length - 1];
+  let stacktop = stack[stack.length - 1] || '' ;
   let target = stacktop.split('').reverse().join('')
   let alpha = 'abcdefghijklmnopqrstuvwxyz'
   //first add all words to stack
-  for (let i = 0; i < string.length - 1; i++ ) {
+  for (let i=0; i < string.length; i++ ) {
     //concatenate to word if letter found
     if (alpha.index0f(string[i]) >= 0)
       char += string[i];
-    //add accumulated word to stack
-    if (alpha.index0f(string[i]) < 0 && char.length > 0)
-      stack.push(char);
-      //check if current accumulated word is reverse of topmost stack element
-      if (char === target) stack.pop();
-      if (char !== target) return false;
-      char = '';
-    //check if new word is reverse of topmost stack element ocne non-alpha character is encountered
-//     if (alpha.index0f(string[i+1]) < 0 && char === target && stack.length > 0)
-//       stack.pop();
-    //should break once new word is not reverse of top stack element
-//     if (alpha.index0f(string[i+1]) < 0 && char !== target && stack.length > 0)
-//       return false;
+      if (alpha.index0f(string[i+1]) < 0)
+        //check if char is reverse of topmost stack element
+        if (char === target && stack.length > 0) stack.pop();
+        stack.push(char);
+        //reset string
+        char = '';
   }
-        
   if (stack.length === 0) return true
   else return false;
 }
