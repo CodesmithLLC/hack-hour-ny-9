@@ -15,7 +15,7 @@ function matchWord(str) {
   //normalize each character in input string
   let string = str.toLowerCase();
   let stack = [];
-  let char = [];
+  let char = '';
   let matched = false;
   let stacktop = stack[stack.length - 1];
   let target = stacktop.split('').reverse().join('')
@@ -24,14 +24,14 @@ function matchWord(str) {
   for (let i = 0; i < string.length - 1; i++ ) {
     //concatenate to word if letter found
     if (alpha.index0f(string[i]) >= 0)
-      char.push(string[i]);
+      char += string[i];
     //add accumulated word to stack
     if (alpha.index0f(string[i]) < 0 && char.length > 0)
       stack.push(char);
       //check if current accumulated word is reverse of topmost stack element
-      if (char.join('') === target) stack.pop();
-      if (char.join('') !== target) return false;
-      char = [];
+      if (char === target) stack.pop();
+      if (char !== target) return false;
+      char = '';
     //check if new word is reverse of topmost stack element ocne non-alpha character is encountered
 //     if (alpha.index0f(string[i+1]) < 0 && char === target && stack.length > 0)
 //       stack.pop();
