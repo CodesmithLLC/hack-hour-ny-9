@@ -1,7 +1,7 @@
 // Some languages have "if" statements that are closed by "fi" instead of curly brackets. Or they close a "case" with "esac",
-//i.e. the same keyword backwards. for this problem we'll check that all words in a string are "closed". Write a function that
-//takes a string and returns true if every word is closed by its backwards counterpart. Words must be separated by space or
-//punctuation.
+// i.e. the same keyword backwards. for this problem we'll check that all words in a string are "closed". Write a function that
+// takes a string and returns true if every word is closed by its backwards counterpart. Words must be separated by space or
+// punctuation.
 
 // matchWord('__END_DNE-----');  -> true
 // matchWord('__ENDDNE__');  -> false       (not separated by a space)
@@ -12,7 +12,7 @@
 
 // if string is empty return true
 // want all the words separated by a space or puncution
-//if string.match(/[a-z]/i) concat word
+// if string.match(/[a-z]/i) concat word
 // else push word clear build up
 // iterate to center check first reverse equal to last
 
@@ -23,30 +23,29 @@ function matchWord(str) {
   str.toLowerCase();
   let word = '';
   let words = [];
-  for (let i = 0; i < str.length; i++) {
-    if (str[i].match(/[a-z]/i)) {
-      word += str[i];
-      console.log(word);
+  words = getLetters();
+  end = words.length - 1;
+  for (let i = 0; i < words.length / 2; i++) {
+    if (words[i] !== words[end]) {
+      return false;
     }
-    if ((!str[i].match(/[a-z]/i) && word.length >= 1) || i === str.length - 1) {
-      words.push(word);
-      console.log(word);
-      word = '';
-    }
+    end -= 1;
   }
-  let start = 0;
-  let rev = words[start]
-    .split('')
-    .reverse()
-    .join();
-  console.log(rev);
-  while (words.length > 1) {
-    console.log(words[start]);
-    // if (words[start] === words[words.length - 1]) {
-    //   words.pop();
-    //   words.shift();
-    // }
+  return true;
+
+  function getLetters() {
+    for (let i = 0; i < str.length; i++) {
+      if (str[i].match(/[a-z]/i)) {
+        word += str[i];
+      }
+      if ((!str[i].match(/[a-z]/i) && word.length >= 1) || i === str.length - 1) {
+        for (let i = 0; i < word.length; i++) {
+          words.push(word[i]);
+        }
+        word = '';
+      }
+    }
+    return words;
   }
 }
-console.log(matchWord('--kola--alok'));
 module.exports = matchWord;
