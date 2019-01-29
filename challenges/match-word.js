@@ -11,7 +11,31 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+  const letters = /^[A-Za-z]+$/;
+  const words = [];
+  let currWord = '';
+  
+  for (let char of str) {
+    if (char.match(letters)) {
+      currWord += char;
+    } else if (currWord.length > 0) {
+      words.push(currWord);
+      currWord = '';
+    }
+  }
+  if (currWord.length > 0) words.push(currWord);
 
+  const wordToClose = [];
+  for (let word of words) {
+    const reversedWord = word.split('').reverse().join('');
+    if (wordToClose[wordToClose.length - 1] !== reversedWord) {
+      wordToClose.push(word);
+    } else {
+      wordToClose.pop();
+    }
+  }
+
+  return (wordToClose.length === 0);
 }
 
 module.exports = matchWord;
