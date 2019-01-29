@@ -14,7 +14,23 @@
  */
 
 function binToDec(binary) {
+<<<<<<< HEAD
+    let sum = 0;
+    let digit = 1;
+    for (let i = binary.length - 1; i >= 0; i--) {
+        if (binary[i] === '1') {
+            sum += digit;
+        } else if (binary[i] !== '0' && binary[i] !== '1') {
+            return "Error: Not in binary format"
+        }
+        digit *= 2;
+    }
+    return sum;
+}
+
+=======
 
 }
+>>>>>>> a79c3e123114216308f3df832c9e2a5cd2fe802c
 
 module.exports = binToDec;
