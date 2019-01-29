@@ -17,7 +17,7 @@ function matchWord(str) {
   
   for (let char of str) {
     if (char.match(letters)) {
-      currWord += char;
+      currWord += char.toLowerCase();
     } else if (currWord.length > 0) {
       words.push(currWord);
       currWord = '';
