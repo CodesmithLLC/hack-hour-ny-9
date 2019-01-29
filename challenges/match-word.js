@@ -11,7 +11,19 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+  if (str.length === 0) return true;
+  let arr = str.match(/[a-z]+/ig);
+  if (arr.length % 2 === 1) return false;
+  let stack = [];
+  let i = 0;
+  
+  for (let i = 0; i < arr.length; i++) {
+    if (stack[stack.length-1] !== arr[i].split("").reverse().join("").toUpperCase()) stack.push(arr[i].toUpperCase());
+    else stack.pop();
+  }
+  return stack.length === 0;
 }
+//
+// console.log(matchWord('__ENDDNE__'));
 
 module.exports = matchWord;
