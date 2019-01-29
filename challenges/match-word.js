@@ -26,23 +26,26 @@ function matchWord(str) {
   for (let i = 0; i < str.length; i++) {
     if (str[i].match(/[a-z]/i)) {
       word += str[i];
-    } else {
-      if (word.length >= 1) {
-        words.push(word);
-        console.log(word);
-      }
+      console.log(word);
+    }
+    if ((!str[i].match(/[a-z]/i) && word.length >= 1) || i === str.length - 1) {
+      words.push(word);
+      console.log(word);
+      word = '';
     }
   }
   let start = 0;
+  let rev = words[start]
+    .split('')
+    .reverse()
+    .join();
+  console.log(rev);
   while (words.length > 1) {
-    let rev = words[start]
-      .split('')
-      .reverse()
-      .join();
-    if (rev === words[words.length - 1]) {
-      words.pop();
-      words.shift();
-    }
+    console.log(words[start]);
+    // if (words[start] === words[words.length - 1]) {
+    //   words.pop();
+    //   words.shift();
+    // }
   }
 }
 console.log(matchWord('--kola--alok'));
