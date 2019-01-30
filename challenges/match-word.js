@@ -22,26 +22,29 @@ function matchWord(str) {
   //first add all words to stack
   for (let i=0; i < string.length; i++ ) {
     let s = string[i];
+    console.log(s, char, stack)
+    console.log(alpha.includes(s))
     if (alpha.includes(s)) {
-      char += string[i];
-      if (string[i+1] !== undefined && !alpha.includes(string[i+1])) {
-        //check if char is reverse of topmost stack element
-        if (stack.length > 0) {
-          let target = stack[stack.length - 1].split('').reverse().join('');
-          if (target === char) {
-            stack.pop();
-          }
-        }
-        else {
-          stack.push(char);
-          char = '';
-        }
-      }
+        char += string[i];
     }
-  }
+    if (!alpha.includes(s) && alpha.includes(string[i-1]) && string[i-1] !== undefined) {
+        console.log(char)
+        if (stack.length > 0 && char.length > 0) {
+            let target = stack[stack.length - 1].split('').reverse().join('');
+            if (target === char) {
+                stack.pop();
+            }
+            char = '';
+        }
+        if (stack.length === 0 && char.length > 0) {
+            stack.push(char);
+            char = '';
+        }
+    }
+}
 
   if (stack.length === 0) return true
   else return false;
+  
 };
-
 module.exports = matchWord;
