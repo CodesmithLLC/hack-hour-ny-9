@@ -3,10 +3,11 @@
  */
 
 function highestProduct(array) {
+  if (!Array.isArray(array) || array.length < 3) return 0;
+
   let maxProd = Number.NEGATIVE_INFINITY;
   
   function dfs(array, index, currProd, count) {
-
     if (count === 3) {
       if (currProd > maxProd) maxProd = currProd;
       return;
