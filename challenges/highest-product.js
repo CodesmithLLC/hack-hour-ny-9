@@ -3,7 +3,8 @@
  */
 
 function highestProduct(array) {
-
+  const sorted = array.sort((a, b) => { return b - a });
+  return sorted[0] * sorted[1] * sorted[2];
 }
 
 
