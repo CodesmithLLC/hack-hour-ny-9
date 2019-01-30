@@ -9,7 +9,7 @@ function highestProduct(array) {
   
   array.splice(array.indexOf(arrayOfMax[0]), 1);
   let arrayCopy = array.slice();
-  
+
   // we need to check if the product of the smallest 2 is 
   // greater than that of the greatest 2
   const twoMin = [];
@@ -43,5 +43,4 @@ function highestProduct(array) {
   return arrayOfMax.reduce((a, b) => a * b);
 }
 
-console.log(highestProduct([1, 2, -10, 1,-2, 100]))
 module.exports = highestProduct;
