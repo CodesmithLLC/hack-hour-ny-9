@@ -12,32 +12,53 @@
 
 function matchWord(str) {
   if (str.length === 0) return true;
-  //normalize each character in input string
   let string = str.toLowerCase();
   let stack = [];
   let char = '';
   let alpha = 'abcdefghijklmnopqrstuvwxyz';
-//   console.log(alpha)
   
-  //first add all words to stack
   for (let i=0; i < string.length; i++ ) {
     let s = string[i];
     // console.log(s, char, stack)
     // console.log(alpha.includes(s))
-    if (alpha.includes(s)) {
+    if (alpha.includes(s) && string[i+1] !== undefined) {
         char += string[i];
     }
+    if (alpha.includes(s) && string[i+1] === undefined) {
+        char += string[i];
+        if (stack.length > 0 && char.length > 0) {
+            let target = stack[stack.length - 1].split('').reverse().join('');
+            // console.log(s, target)
+            if (target === char) {
+                stack.pop();
+                char = '';
+            }
+            else {
+                stack.push(char);
+                char = '';
+            }
+
+        }
+        if (stack.length === 0 && char.length > 0) {
+            stack.push(char);
+            char = '';
+        }
+    }
+
     if (!alpha.includes(s) && alpha.includes(string[i-1]) && string[i-1] !== undefined) {
         // console.log(char, stack)
         if (stack.length > 0 && char.length > 0) {
             let target = stack[stack.length - 1].split('').reverse().join('');
+            // console.log(s, target)
             if (target === char) {
                 stack.pop();
+                char = '';
             }
             else {
                 stack.push(char);
+                char = '';
             }
-            char = '';
+
         }
         if (stack.length === 0 && char.length > 0) {
             stack.push(char);
