@@ -30,7 +30,7 @@ function binToDec(binary) {
     .reverse()
     .join("");
   for (let i = 0; i < binary.length; i++) {
-    add = add += binary[i] * nth(2, i);
+    add += binary[i] * nth(2, i);
   }
   return add;
 }
