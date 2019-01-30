@@ -7,6 +7,7 @@
  */
 
 function highestProduct(array) {
+  if (!Array.isArray(array) || array.length < 3) return 0;
   array.sort((a, b) => a - b);
 
   let maxProduct = 0;
