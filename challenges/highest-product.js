@@ -5,17 +5,13 @@
 function highestProduct(array) {
     if (array.length < 3 || !Array.isArray(array)) return 0;
     //find all negatives first
-    let negatives = [];
-    array.forEach(el => {
-        if (el < 0) {
-            negatives.push(el);
-        }
-    })
+    let negatives = array.filter(el => el < 0).sort((a,b) => a-b);
+
     //console.log(negatives);
     //if at least two negatives exist push their absolute values to the sorted array
     if (negatives.length > 1) {
-        array.push(Math.abs(negatives[negatives.length - 1]), 
-                      Math.abs(negatives[negatives.length - 2]))
+        array.push(Math.abs(negatives[0]), 
+                   Math.abs(negatives[1]))
     }
 
     //console.log(array)
@@ -25,6 +21,5 @@ function highestProduct(array) {
 
     return sorted[0] * sorted[1] * sorted[2];    
 }
-
 
 module.exports = highestProduct;
