@@ -20,7 +20,6 @@
  */
 
 function romanNumeral(n) {
-  let num = n;
   let result = "";
   let results = {
     1:"I",
@@ -38,20 +37,25 @@ function romanNumeral(n) {
     1000:"M"
   }
   let keys = Object.keys(results);
-  while (num > 0) {
-    for (let i = keys.length-1; i >= 0; i--) {
-      if (num-keys[i] >= 0) {
-        num-=keys[i];
-        result+=results[keys[i]];
-        // console.log("num is now " + num);
-        // console.log("key added " + keys[i]);
-        break;
-      }
+  for (let i = keys.length-1; i >= 0; i--) {
+    while (n>=keys[i])  {
+      n-=keys[i];
+      result+=results[keys[i]];
     }
   }
+  //old method
+  // while (n)  {
+  //   for (let i = keys.length-1; i >= 0; i--) {
+  //     if (n>=keys[i]) {
+  //       n-=keys[i];
+  //       result+=results[keys[i]];
+  //       break;
+  //     }
+  //   }
+  // }
   return result;
 }
 
-// console.log(romanNumeral(884));
+// console.log(romanNumeral(1002));
 
 module.exports = romanNumeral;
