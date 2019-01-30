@@ -22,8 +22,6 @@ function matchWord(str) {
   //first add all words to stack
   for (let i=0; i < string.length; i++ ) {
     let s = string[i];
-    console.log(s, char, stack)
-    console.log(alpha.includes(s))
     if (alpha.includes(s)) {
       char += string[i];
       if (string[i+1] !== undefined && !alpha.includes(string[i+1])) {
@@ -36,7 +34,6 @@ function matchWord(str) {
         }
         else {
           stack.push(char);
-          console.log(char);
           char = '';
         }
       }
