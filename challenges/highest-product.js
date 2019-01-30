@@ -3,7 +3,7 @@
  */
 
 function highestProduct(array) {
-    if (array.length === 0) return 0;
+    if (array.length < 3 || !Array.isArray(array)) return 0;
 
     array = array.sort((a, b) => a - b);
   
