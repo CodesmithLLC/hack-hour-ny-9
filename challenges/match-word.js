@@ -11,28 +11,40 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-  if (str.length == 0) return true;
+  if (str.length === 0) return true;
   //normalize each character in input string
   let string = str.toLowerCase();
   let stack = [];
   let char = '';
-  let stacktop = stack[stack.length - 1] || '' ;
-  let target = stacktop.split('').reverse().join('')
-  let alpha = 'abcdefghijklmnopqrstuvwxyz'
+  let alpha = 'abcdefghijklmnopqrstuvwxyz';
+//   console.log(alpha)
+  
   //first add all words to stack
   for (let i=0; i < string.length; i++ ) {
-    //concatenate to word if letter found
-    if (alpha.index0f(string[i]) >= 0)
+    let s = string[i];
+    console.log(s, char, stack)
+    console.log(alpha.includes(s))
+    if (alpha.includes(s)) {
       char += string[i];
-      if (alpha.index0f(string[i+1]) < 0)
+      if (string[i+1] !== undefined && !alpha.includes(string[i+1])) {
         //check if char is reverse of topmost stack element
-        if (char === target && stack.length > 0) stack.pop();
-        stack.push(char);
-        //reset string
-        char = '';
+        if (stack.length > 0) {
+          let target = stack[stack.length - 1].split('').reverse().join('');
+          if (target === char) {
+            stack.pop();
+          }
+        }
+        else {
+          stack.push(char);
+          console.log(char);
+          char = '';
+        }
+      }
+    }
   }
+
   if (stack.length === 0) return true
   else return false;
-}
+};
 
 module.exports = matchWord;
