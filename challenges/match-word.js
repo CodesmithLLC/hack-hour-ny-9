@@ -11,36 +11,24 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-  const map = {
-    end: 'dne',
-    if: 'fi',
-    for: 'rof',
-    while: 'elihw',
-    try: 'yrt'
-  };
-  str = str
-    .replace(/[^\w\s]|_/g, function($1) {
-      return ' ' + $1 + ' ';
-    })
-    .replace(/[ ]+/g, ' ')
-    .split(' ');
-  // str = str.toLowerCase();
-  // console.log(str)
+  let arr = str.match(/[a-z]+/gi);
+  if (arr.length % 2 === 1) return false;
   const stack = [];
-  const values = Object.values(map);
-  for (let i = 0; i < str.length; i += 1) {
-    if (str[i] in map) {
-      if (str[i + 1] !== map[str[i]]) {
-        stack.push(map[str[i]]);
-      }
-    } else if (values.includes(str[i])) {
-      const pop = stack.pop();
-      if (pop !== str[i]) {
-        return false;
-      }
+  for (let i = 0; i < arr.length; i += 1) {
+    if (
+      stack[stack.length - 1] !==
+      arr[i]
+        .split('')
+        .reverse()
+        .join('')
+        .toUpperCase()
+    ) {
+      stack.push(arr[i].toUpperCase());
+    } else {
+      stack.pop();
     }
+    return stack.length === 0;
   }
-  return stack.length === 0;
 }
 
 console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'));
