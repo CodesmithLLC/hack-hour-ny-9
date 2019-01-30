@@ -30,7 +30,6 @@ function binToDec(binary) {
   binary = binary.split('');
 
   for (let i = binary.length - 1; i !== -1; i -= 1) {
-    debugger;
     if (binary[i] === '1') {
       total += map[index];
       index += 1;
@@ -41,4 +40,13 @@ function binToDec(binary) {
   return total;
 }
 
+const binToDec2 = binary => {
+  let len = binary.length;
+  let dec = 0;
+  let BASE = 2;
+  for (let i = 0; i < len; i += 1) {
+    dec += binary[i] * Math.power(BASE, len - 1 - i);
+  }
+  return dec;
+};
 module.exports = binToDec;
