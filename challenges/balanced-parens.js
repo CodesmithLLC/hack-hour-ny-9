@@ -50,8 +50,7 @@ function balancedParens(input){
         break;
     }
   }
-  if (stck.length > 0) return false;
-  return true;
+  return stck.length;
 }
 
 // console.log(balancedParens('function() { telescopes.awesome();'))

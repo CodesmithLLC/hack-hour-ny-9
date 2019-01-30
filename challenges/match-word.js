@@ -15,8 +15,6 @@ function matchWord(str) {
   let arr = str.match(/[a-z]+/ig);
   if (arr.length % 2 === 1) return false;
   let stack = [];
-  let i = 0;
-  
   for (let i = 0; i < arr.length; i++) {
     if (stack[stack.length-1] !== arr[i].split("").reverse().join("").toUpperCase()) stack.push(arr[i].toUpperCase());
     else stack.pop();

@@ -18,27 +18,7 @@ function isSubstring(s1, s2) {
 function stringRotation(s1, s2) {
   if (s1 === s2) return true;
   if (s1.length != s2.length) return false;
-  let newStr = s1.repeat(2);
-  return isSubstring(newStr, s2); 
-  // let falseIndex;
-  // for (let i = 0; i < s1.length; i++) {
-  //   if (s1[i] != s2[i]) {
-  //     falseIndex = i;
-  //     break;
-  //   }
-  // }
-  // let stopIndex;
-  // let trueIndex = s1.indexOf(s2[falseIndex]);
-  // for (let i = trueIndex; i < s1.length; i++) {
-  //   if (s1[i] !== s2[falseIndex++]) {
-  //     stopIndex = i;
-  //     break;
-  //   }
-  // }
-  // for (let i = 0; i <= stopIndex; i++) {
-  //   if ()
-  // }
-  
+  return isSubstring(s1.repeat(2), s2); 
 }
 
 // console.log(stringRotation("hello", "llohe"))
