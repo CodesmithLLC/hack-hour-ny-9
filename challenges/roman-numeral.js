@@ -17,6 +17,8 @@
  * 
  */
 
+ //make remainder and array starting @ greatest
+
 console.log(romanNumeral(33));
 
 function romanNumeral(n) {
