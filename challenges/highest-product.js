@@ -19,12 +19,8 @@ function highestProduct(array) {
   if (sortedAbs[0] * sortedAbs[1] < 0) return sorted.slice(sorted.length - 3).reduce((acc, curr) => acc * curr, 1);
   return 0;
   //[-200, 100, 50, -60]
-
-  // for (let i = 0; i < sorted.length; i++) {
-  //   if ()
-  // }
 }
-
+//
 // console.log(highestProduct([-100, -90, -5, -3, -2, 4, 6, 10, 12]));
 
 
