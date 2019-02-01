@@ -3,45 +3,28 @@
  */
 
 //  One way
-function highestProduct1(array) {
-    let biggest = array[0];
-    let output = []
-    let index;
-    let newArr;
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] > biggest) {
-            biggest = array[i]
-            index = i
-        }
-    }
-    output.push(biggest)
-    newArr = array.splice(index, 1)
-    biggest = array[0]
-
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] > biggest) {
-            biggest = array[i]
-            index = i
-        }
-    }
-    output.push(biggest)
-    newArr = array.splice(index, 1)
-    biggest = array[0]
-
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] > biggest) {
-            biggest = array[i]
-            index = i
-        }
-    }
-    output.push(biggest)
-    return output;
-}
-
-module.exports = highestProduct;
-
-
 function highestProduct(array) {
-    array = array.sort()
-    return (array.splice(array.length - 3, 3))
+    let output = 1
+    let neg = [];
+    let pos = [];
+    let highest;
+    if (array.length < 3) {
+        return 0
+    } else {
+        for (let num in array) {
+            if (array[num] < 0) {
+                neg.push(array[num])
+            } else {
+                pos.push(array[num])
+            }
+        }
+        console.log(pos, neg)
+        for (let n in neg) {
+            neg[n] = neg[n] * (-1)
+        }
+        console.log(neg.sort())
+
+    }
 }
+
+console.log(highestProduct([-3, -9, -2, -4, -6, 3, 6, 8, 7]))
