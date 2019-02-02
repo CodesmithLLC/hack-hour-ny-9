@@ -8,6 +8,29 @@
 
 function Stack() {
   // body...
+  this.stack = {};
+  this.length = 0;
+  this.max = null;
+
+  this.push = (value) => {
+    if (value > this.max) this.max = value;
+    this.stack[this.length] = value;
+    return ++this.length;
+  }
+
+  this.pop = () => {
+    let removed = this.stack[--this.length];
+    delete this.stack[this.length];
+    if (this.max === removed) {
+      let newMax = Object.values(this.stack).sort((a, b) => b - a)[0];
+      this.max = newMax;
+    }
+    return removed;
+  }
+
+  this.getMax = () => {
+    return this.max;
+  }
 }
 
 module.exports = Stack;
