@@ -8,6 +8,8 @@
 
 function Stack() {
   this.stack = [];
+  this.removed = 0;
+  this.max = 0;
 
   this.push = (element)=> {
     if (!element) return 'nothing to push';
@@ -17,15 +19,22 @@ function Stack() {
     }
   }
 
+  this.setMax = ()=>{
+    let sorted = this.stack.sort((a, b) => a - b);
+    this.max = sorted[sorted.length-1];
+    return this.max;
+  }
+
   this.pop = (element)=>{
-    let removed = this.stack[this.stack.length-1];
+    this.removed = this.stack[this.stack.length-1];
     this.stack.pop();
-    return removed;
+    return this.removed;
   }
 
   this.getMax = ()=>{
-    let sorted = this.stack.sort((a, b) => a - b);;
-    return sorted[sorted.length-1];
+    let order = this.stack.sort((a, b) => a - b);
+    console.log(order)
+    return order[order.length-1] !== this.max ? this.max : order[order.length-1];
   }
 }
 
