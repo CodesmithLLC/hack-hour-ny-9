@@ -7,7 +7,23 @@
  */
 
 function Stack() {
-  // body...
+    let args = Array.from(arguments);
+    let len=0;
+    let stack = [];
+    let max = Math.max();
+    let push = () => {
+      stack.push(args);
+      let i = args.sort((a,b) => b-a);
+      if (max < i[0]) max = i[0];
+      return len + args.length;
+    }
+    let pop = () => {
+       stack = stack.slice(-1);
+       let max = Math.max(stack);
+       return stack[stack.length - 1]
+    }
+    let getMax = () => return Math.max(stack);
+    
 }
 
 module.exports = Stack;
