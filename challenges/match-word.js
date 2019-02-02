@@ -40,4 +40,18 @@ function matchWord(str) {
     return true;
 }
 
+// function matchWord(str) {
+//     const keywords = str.match(/[a-zA-Z]+/g) || [];
+//     console.log(keywords);
+//     const wordStack = [];
+//     for (let word of keywords) {
+//         if (word.split('').reverse().join('').toLowerCase() === (wordStack[0] || '').toLowerCase()) 
+//             wordStack.shift();
+//         else {
+//             wordStack.unshift(word);
+//         }
+//     }
+//     return !wordStack.length;
+// }
+
 module.exports = matchWord;
