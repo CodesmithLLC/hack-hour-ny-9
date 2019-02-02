@@ -5,12 +5,21 @@
  * BONUS: Do this in place
  */
 
-function Node(val) {
-  this.value = val;
-  this.next = null;
-}
-
 function zip(l1, l2) {
-};
+    let queue = [];
+    let current1 = l1;
+    let current2 = l2;
+    while (current1 || current2) {
+        queue.push(current1);
+        current1 = current1.next;
+        queue.push(current2);
+        current2 = current2.next;
+    }
+    for (let i=0; i < queue.length; i++) {
+        if (queue[i+1])
+            queue[i].next = queue[i+1];
+    }
+
+}
 
 module.exports = {Node: Node, zip: zip};
