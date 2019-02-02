@@ -29,6 +29,7 @@ class Stack {
   }
 
   getMax() {
+    if (this.length === 0) return undefined;
     return Math.max(...this.values);
   }
 }
