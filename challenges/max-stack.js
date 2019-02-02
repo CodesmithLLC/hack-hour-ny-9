@@ -18,7 +18,9 @@ function Stack() {
   }
 
   this.pop = (element)=>{
-    return this.stack[this.stack.length-1];
+    let removed = this.stack[this.stack.length-1];
+    this.stack.pop();
+    return removed;
   }
 
   this.getMax = ()=>{
