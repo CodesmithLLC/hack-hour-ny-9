@@ -14,8 +14,10 @@ class Stack {
   }
 
   push(value) {
+    if (value === undefined) return this.length;
     this.values = [...this.values, value];
     this.length++;
+    return this.length;
   }
 
   pop() {
