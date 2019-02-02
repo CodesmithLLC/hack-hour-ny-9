@@ -14,17 +14,17 @@
  */
 
 function reverseInPlace(array) {
-console.log(array.length /2)
-console.log(Math.floor(array.length/2))
-let swap1;
-let swap2;
-    for(let i = 0; i < array.length/2; i++){
-        swap1 = array[array.length - (i+1)]
+    console.log(array.length / 2)
+    console.log(Math.floor(array.length / 2))
+    let swap1;
+    let swap2;
+    for (let i = 0; i < array.length / 2; i++) {
+        swap1 = array[array.length - (i + 1)]
         swap2 = array[i]
         array[i] = swap1
-        array[array.length - (i+1)] = swap2
+        array[array.length - (i + 1)] = swap2
     }
-return array;
+    return array;
 }
 
 module.exports = reverseInPlace;

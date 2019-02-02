@@ -17,15 +17,15 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-let output = []
-    for(let i = 1; i <= num; i++){
-        if(i % 3 ===0){
-            if(i % 5 ===0){
+    let output = []
+    for (let i = 1; i <= num; i++) {
+        if (i % 3 === 0) {
+            if (i % 5 === 0) {
                 output.push('fizzbuzz')
             } else {
                 output.push('fizz')
             }
-        } else if (i % 5 ===0){
+        } else if (i % 5 === 0) {
             output.push('buzz')
         } else {
             output.push(i)

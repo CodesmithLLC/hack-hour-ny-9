@@ -16,6 +16,7 @@ let theMean = array[0]
         theMean += array[i]
     }
     theMean = theMean/array.length
+    console.log(theMean)
     
 let counting = {}
     for(let i = 0; i<array.length; i++){
@@ -28,8 +29,10 @@ let counting = {}
         }
         
     }
+  
 let arr = Object.keys(counting)
 let theMode = arr[0]
+
 
     for(let j = 0; j < arr.length; j++){
         if(theMode < counting[arr[j]]){
@@ -46,3 +49,4 @@ let theMode = arr[0]
 
 module.exports = modemean;
 
+console.log(modemean([9]))
