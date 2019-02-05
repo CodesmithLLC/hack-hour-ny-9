@@ -16,7 +16,7 @@ function Node(value) {
 
 function reverseLinkedList(head) {
     // let llToAr = [];
-    if (!head) return;
+    if (!head) return head;
     let tempHead = new Node(head.value);
     let currentTemp = tempHead;
     let currentReal = head;
