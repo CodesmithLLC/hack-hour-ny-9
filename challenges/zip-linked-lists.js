@@ -11,6 +11,13 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+  let head;
+  let current;
+  if(l1) head = l1;
+  else head = l2;
+  current = head;
+  current.next = 
+
 };
 
 module.exports = {Node: Node, zip: zip};
