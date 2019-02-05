@@ -24,6 +24,7 @@ function reverseLinkedList(head) {
     for (let i=arr.length-1; i>0; i--) {
         arr[i].next = arr[i-1];
     }
+    return arr;
 }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
