@@ -31,6 +31,7 @@ function highestProduct(array) {
     }
     return highest;  
   }
+  console.log(highestProduct([-10,1,2,3]))
 
 
 
