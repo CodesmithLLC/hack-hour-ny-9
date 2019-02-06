@@ -18,6 +18,8 @@ l2.next = new Node(5);
 l2.next.next = new Node(6);
 
 function zip(l1, l2) {
+  if (!l1) return l2;
+  if (!l2) return l1;
   let l1curr = l1;
   let l2curr = l2;
   let l1next;
