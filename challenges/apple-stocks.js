@@ -14,7 +14,7 @@
 
 function bestProfit(stock_prices_yesterday) {
   let prices = stock_prices_yesterday;
-  debugger;
+  if (prices.length === 0 || prices.length === 1) return 0;
   let sold = prices[prices.length - 1];
   let maxProfit = 0;
   for (let i = prices.length - 2; i >= 0; i -= 1) {
