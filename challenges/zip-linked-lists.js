@@ -13,24 +13,22 @@ function Node(val) {
 function zip(l1, l2) {
   if (!l1) return l2;
   if (!l2) return l1;
-  const l3 = l1;
+  const head = l1;
 
-  let previous = l1;
+  let temp = l1;
   l1 = l1.next;
 
-  while (l1 || l2) {
-    if (l2) {
+  while (l1 && l2) {
       previous.next = l2;
       previous = l2;
       l2 = l2.next;
-    }
-    if (l1) {
+      
       previous.next = l1;
       previous = l1;
       l1 = l1.next;
-    }
   } 
-  return l3;
+  temp.next = l2 ? l2 : l1;
+  return head;
 };
 
 module.exports = {Node: Node, zip: zip};
