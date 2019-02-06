@@ -15,26 +15,15 @@ function Node(value) {
 
 function reverseLinkedList(head) {
   let curr = head;
-  let prev = curr.next;
-  let prevPrev = curr.next.next;
-  let newHead;
+  let prev = null;
+  let next;
 
-  while(prevPrev){
-    console.log('______________before_____________')
-    console.log('curr', curr)
-    console.log('prev', prev)
-    console.log('prevPrev', prevPrev)
-    prev.next = Object.assign({},curr);
-    curr = prev;
-    prev = prevPrev;
-    prevPrev = prevPrev.next;
-    
-    console.log('______________after_____________')
-    console.log('curr', curr)
-    console.log('prev', prev)
-    console.log('prevPrev', prevPrev)
+  while (curr) {
+    next = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = next;
   }
-  console.log('last', prev)
   return prev;
 }
 
