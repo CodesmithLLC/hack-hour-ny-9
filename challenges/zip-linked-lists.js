@@ -10,12 +10,70 @@ function Node(val) {
   this.next = null;
 }
 
-function zip(l1, l2) {
-  if (l1){
-    let list = Node(l1)
-    return list
-  };
+// In place; O(n) time complexity; O(1) space complexity
+function zip (l1, l2) {
+
+	// 1. Handle edge cases;
+  if(!l1) return l2;
+	if(!l2) return l1;
+
+	// 2. Initialize pointers (using meaningful naming conventions!)
+	// In JS, any value that is not referenced by something else will be automatically garbage collected by the engine
+	// We use pointers so...
+	// 	1) data stays referenced so it is not garbage collected 
+	//	2) and we can access that data at some future point in time
+  let head = l1;
+	let current = l1;
+  let node1 = l1.next;
+	let node2 = l2;
+	
+	// 3. Figure out your base case and do work;
+  while (node1 && node2) {
+		// In our order of operations, we typically save a reference to something first, 
+		// ...then handle its reassignment, so data isn't dereferenced!
+    current.next = node2;
+    node2 = node2.next;
+    current = current.next;
+    current.next = node1;
+    node1 = node1.next;
+    current = current.next;
+	}
+	
+	// 4. Cleanup
+  current.next = node2 ? node2 : node1;
+  return head;
 }
+
+
+// function zip(l1, l2) {
+//   if (!l1) return l2;
+//   if (!l2) return l1;
+
+//   //we need 4 pointers
+//   // In JS, any value that is not referenced by something else will be garbage collected by the engine
+//   // We use pointers to maintain references to data so...
+//   //  1. they are not garbage collected
+//   //   2,. we can access them at some future point in time
+
+//   let head = l1;
+//   let current = l1;
+
+//   let node1 = l1.next;
+//   let node2 = l2;
+//   while (node1 && node2) {
+//     current.next = node2;
+//     node2 = node2.next;
+//     current = current.next;
+//     current.next = node1;
+//     node1 = node1.next;
+//     current = current.next;
+//   }
+//   current.head = node2 ? node2 : node1;
+//   return head; 
+// } 
+
+
+
 
 console.log(zip(5, 6))
 
