@@ -14,7 +14,19 @@
  */
 
 function mergeArrays(arr1, arr2) {
-
+  let i = 0;
+  let j = 0;
+  let sortedArr = [];
+  while (arr1[i] || arr2[j]) {
+    if (!arr2[j] || arr1[i] < arr2[j]) sortedArr.push(arr1[i++]);
+    else sortedArr.push(arr2[j++])
+  }
+  return sortedArr;
 }
+
+var my_array = [];
+var another_array = [];
+
+console.log(mergeArrays(my_array, another_array));
 
 module.exports = mergeArrays;
