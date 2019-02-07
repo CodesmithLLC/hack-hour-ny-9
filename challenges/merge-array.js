@@ -31,24 +31,13 @@ function mergeArrays(arr1, arr2) {
     }
     currIdx += 1;
   }
-  if (i < arr1len) {
-    while (i < arr1len) {
-      result[currIdx] = arr1[i];
-      i += 1;
-      currIdx += 1;
-    }
-  } else {
-    while (j < arr2len) {
-      result[currIdx] = arr1[j];
-      j += 1;
-      currIdx += 1;
-    }
-  }
-  return result;
+  return i < arr1len
+    ? result.concat(arr1.slice(i))
+    : result.concat(arr2.slice(j));
 }
 
-var my_array = [3, 4, 6, 10, 11, 15, 21];
-var another_array = [1, 5, 8, 12, 14, 19];
+// var my_array = [3, 4, 6, 10, 11, 15, 21];
+// var another_array = [1, 5, 8, 12, 14, 19];
 
 console.log(mergeArrays(my_array, another_array));
 //  -> [1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19, 21]
