@@ -14,32 +14,22 @@
 
 function bestProfit(stock_prices_yesterday) {
   if (!Array.isArray(stock_prices_yesterday)) return 0;
-  let maxProfit = -Infinity;
-  let min = Infinity;
+  let maxProfit = 0;
   let previousPrice = stock_prices_yesterday[0]
+  let min = previousPrice;
   let currPrice;
 
   for (let i = 1; i < stock_prices_yesterday.length; i++) {
     currPrice = stock_prices_yesterday[i];
-    if (!currPrice || isNaN(currPrice)) return 0;
-    if (currPrice < previousPrice && min < Infinity) {
+    if (currPrice < previousPrice) {
       maxProfit = Math.max(maxProfit, previousPrice - min);
     }
+
     if (currPrice < min)  min = currPrice;
     previousPrice = currPrice;
   }
   maxProfit = Math.max(maxProfit, previousPrice - min)
   return maxProfit;
 }
-
-const stock_prices_yesterday = [];
-stock_prices_yesterday[1] = 1
-stock_prices_yesterday[2] = 2
-stock_prices_yesterday[3] = 0
-stock_prices_yesterday[1] = 'hello'
-stock_prices_yesterday[5] = 5
-
-console.log(bestProfit(stock_prices_yesterday));
-
 
 module.exports = bestProfit;
