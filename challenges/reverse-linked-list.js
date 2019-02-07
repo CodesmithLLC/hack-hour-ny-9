@@ -8,6 +8,8 @@
  *
  */
 
+
+
 function Node(value) {
     this.value = value;
     this.next = null;
@@ -20,14 +22,14 @@ function reverseLinkedList(head) {
     current = head.next
     after = current.next
 
-    a = head.value
+    a = head
     while (current) {
         current.next = a
         a = current.value
         current = after
         after = after.next
     }
-    head.next = current.value
+    head.value = null;
 }
 
 module.exports = { Node: Node, reverseLinkedList: reverseLinkedList };
