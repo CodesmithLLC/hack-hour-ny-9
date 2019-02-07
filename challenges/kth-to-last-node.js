@@ -52,4 +52,23 @@ function kthToLastNode(k, head) {
 
 }
 
+// function kthToLastNode(k, head) {
+
+//   let lead = head;
+//   let follow = head;
+//   let counter = 1;
+
+//   while (lead) {
+//     lead = lead.next;
+//     if (counter > k) follow = follow.next;
+//     counter++;
+//   }
+
+//   return k > counter ? 'out of range' : follow.value;
+
+// }
+
+
+
+
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
