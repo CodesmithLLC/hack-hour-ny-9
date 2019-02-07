@@ -11,6 +11,13 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-};
+  if (l1.value === undefined) return l2;
+  if (l2.value === undefined) return l1;
 
-module.exports = {Node: Node, zip: zip};
+  let l1Next = l1.next;
+  l1.next = l2.value;
+  let l2Next = l2.next;
+  l1Next.next = newNode.next = l2.value;
+}
+
+module.exports = { Node: Node, zip: zip };
