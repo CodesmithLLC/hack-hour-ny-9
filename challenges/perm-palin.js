@@ -24,9 +24,4 @@ function permPalin(str) {
     .length <= 1;
 }
 
-console.log(permPalin('ababtt'));
-console.log(permPalin('cbaba'));
-console.log(permPalin('cbac'));
-console.log(permPalin('a'));
-
 module.exports = permPalin;
