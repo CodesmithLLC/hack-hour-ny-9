@@ -26,9 +26,7 @@ function mergeArrays(arr1, arr2) {
             output.push(arr1[i])
             return output
         }
-
     } else if (arr1[0] === undefined && arr2[0] !== undefined) {
-
         console.log("check")
         console.log(arr1)
         console.log(arr2)
@@ -38,7 +36,7 @@ function mergeArrays(arr1, arr2) {
         }
     }
 
-    console.log(arr1[0] === undefined && arr2[0] !== undefined)
+    // console.log(arr1[0] === undefined && arr2[0] !== undefined)
 
 
     if (arr1[0] < arr2[0]) {
