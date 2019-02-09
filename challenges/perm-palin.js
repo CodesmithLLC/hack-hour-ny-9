@@ -18,12 +18,15 @@ function permPalin(str) {
         return acc;
       }, {});
   
-  console.log('count:', count);
-
   return Object
     .values(count)
     .filter(n => n % 2)
     .length <= 1;
 }
+
+console.log(permPalin('ababtt'));
+console.log(permPalin('cbaba'));
+console.log(permPalin('cbac'));
+console.log(permPalin('a'));
 
 module.exports = permPalin;
