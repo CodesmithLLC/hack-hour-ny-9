@@ -51,8 +51,6 @@ function numToWords(num) {
     1000000000000000, 'Quadrillion',
   ]
 
-  console.log('check:', numbers[0][0])
-
   const quantifiers = {
     1: 'One',
     2: 'Two',
@@ -70,33 +68,16 @@ function numToWords(num) {
   let wholePart = 0;
   let remainder = 0;
   for (let i = numbers.length - 1; i >= 0; i -= 2) {
-    console.log(numbers[i - 1])
     remainder = num % numbers[i - 1];
     num -= remainder;
-    console.log('remainder', remainder);
     wholePart = num / numbers[i - 1];
     num = remainder;
-    console.log('whole part:', wholePart);
     if (wholePart > 0) {
       if (toQuantify.includes(numbers[i - 1])) result += quantifiers[wholePart];
       result += numbers[i];
-      console.log('result', result);
     } 
   }
   return result ? result : 'zero';
 }
-
-//  console.log(numToWords(0));
-//  console.log(numToWords(43));
-//  console.log(numToWords(2999));
-//  console.log(numToWords(15));
- console.log(numToWords(2483579411));
-  // -> 'TwoBillionFourHundredEightyThreeMillionFiveHundredSeventyNineThousandFourHundredEleven'
-//  console.log(numToWords(300525151340440));
-  // -> 'ThreeHundredTrillionFiveHundredTwentyFiveBillionOneHundredFiftyOneMillionThreeHundredFortyThousandFourHundredForty'
-//  console.log(numToWords(92120000000000000));
-  // -> 'NintyTwoQuadrillionOneHundredTwentyTrillion'
-
-
 
 module.exports = numToWords;

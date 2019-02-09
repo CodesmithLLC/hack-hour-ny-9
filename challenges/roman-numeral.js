@@ -18,7 +18,6 @@
  */
 
 function romanNumeral(n) {
-<<<<<<< HEAD
   const symbolsArr = [
     1, 'I', 4, 'IV', 5, 'V', 9, 'IX', 10, 'X', 40, 'XL', 50, 'L',
     90, 'XC', 100, 'C', 400, 'CD', 500, 'D', 900, 'CM', 1000, 'M',
@@ -42,9 +41,4 @@ function romanNumeral(n) {
 }
 
 
-=======
-
-}
-
->>>>>>> 3cb7af14d7a8c29c2b5f52a14fe09524164a3cce
 module.exports = romanNumeral;
