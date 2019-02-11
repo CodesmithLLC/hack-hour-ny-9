@@ -16,8 +16,20 @@
  * BONUS: Do this in place
  */
 
-function rotateGrid(grid, n) {
+// [0,0] ==> [n,0], [0,1] ==> [n-1,0], [0,2] ==> [n-2,0]... //
 
+function rotateGrid(grid, n) {
+  let output = [];
+  for (let i=0; i < n; i++) {
+    output.push([])
+  }
+  for (let i=0; i < n; i++) {
+    for (let j=n-1; j >= 0; j--) {
+      output[i].push(grid[j][i])
+    }
+  }
+  
+  return output;
 }
 
 module.exports = rotateGrid;
