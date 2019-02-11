@@ -13,7 +13,18 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+  if (!Array.isArray(stock_prices_yesterday)) return 0;
+  if (stock_prices_yesterday.length === 0) return 0;
+  if (stock_prices_yesterday.length === 1) return stock_prices_yesterday[0];
+  let difference = Number.NEGATIVE_INFINITY;
+  let lowest = Infinity;
+  for (let i = 0; i < stock_prices_yesterday.length; i++) {
+    if (stock_prices_yesterday[i] < lowest) lowest = stock_prices_yesterday[i];
+    else if (stock_prices_yesterday[i] - lowest > difference) difference = stock_prices_yesterday[i] - lowest;
+  }
+  return difference > 0 ? difference : 0;
 }
+//
+// console.log(bestProfit([100, 90, 80, 60, 80, 100, 50]));
 
-module.exports = bestProfit;
+// module.exports = bestProfit;
