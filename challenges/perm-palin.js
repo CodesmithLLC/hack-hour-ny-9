@@ -10,36 +10,21 @@
  */
 
 function permPalin(str) {
-  // debugger;
-  if (str.length < 2) return true;
-  if (str.length < 3) {
-    if (
-      str
-        .split('')
-        .reverse()
-        .join('') === str
-    )
-      return true;
+  let map = {};
+  let countOdds = 0;
+  for (let char of str) {
+    if (map[char]) map[char] += 1;
+    map[char] = 1;
   }
-  let pal = false;
-
-  function dfs(initialStr, tempStr, index) {
-    if (tempStr.length >= 3) {
-      if (
-        tempStr
-          .split('')
-          .reverse()
-          .join('') === tempStr
-      ) {
-        pal = true;
-        return;
-      }
+  const chars = Object.keys(map);
+  for (let j = 0; j < chars.length; j += 1) {
+    const char = chars[j];
+    if (map[char] % 2 === 1) {
+      countOdds += 1;
     }
-
-    return dfs(initialStr, tempStr.concat(initialStr[index]), index + 1);
+    if (countOdd > 2) return false;
   }
-  dfs(str, '', 0);
-  return pal;
+  return true;
 }
 
 console.log(permPalin('cbaba'));
