@@ -19,13 +19,13 @@ function permPalin(str) {
       cache[str[i]]++;
     }
   }
-  console.log(cache);
+
   for (let letter in cache) {
-    console.log(cache[letter]);
     if (cache[letter] % 2 !== 0) {
       odd.push(letter);
     }
   }
+
   if (odd.length > 1) {
     return false;
   }
