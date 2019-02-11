@@ -17,7 +17,23 @@
  */
 
 function rotateGrid(grid, n) {
-
+    let outerArr = [];
+    let innerArr = []; //to be reset
+  
+      //get the first element of every array. Starting from the last array. push these three into an array. push that array into an array.
+      //get the second element of every array. push these three into an array. push that array into an array.
+      //get the third element of every array. push these three into an array. push that array into an array.
+    for ( let i = 0; i < n; i++){
+        for ( let j = n; j > 0; j--){
+            innerArr.push(grid[j-1][i])
+        }
+        outerArr.push(innerArr);
+        innerArr = [];
+    }
+    return outerArr;
 }
-
+//  let sampleGrid = [   [1, 2, 3], [4, 5, 6], [7, 8, 9]  ]
+                  
+//                   console.log(rotateGrid(sampleGrid, 3));
+                 
 module.exports = rotateGrid;
