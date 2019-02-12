@@ -17,6 +17,29 @@
  */
 
 function rotateGrid(grid, n) {
+    let mergedArr = [];
+
+    for (let i = 0; i < grid.length; i++){
+      //console.log(grid[i])
+      mergedArr = mergedArr.concat(grid[i]);
+      //console.log(mergedArr);
+    }
+    console.log(mergedArr);
+
+    let row = 0;
+    let column = n-1;
+    for (let i = 0; i < mergedArr.length; i++) {
+      if (row > n-1) {
+        row = 0;
+        column--;
+      } 
+      grid[row][column] = mergedArr[i];
+      row++;
+    }
+
+    console.log(grid);
+
+
 
 }
 

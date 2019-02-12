@@ -21,7 +21,7 @@ function permPalin(str) {
       let test = str.slice(i,i+3);
       if (isPallindrome(test)) return true;
     }
-return false;
+  return false;
 }
 
 module.exports = permPalin;
