@@ -3,18 +3,57 @@
  */
 
 
-function Stack() {
+class Stack {
+  constructor() {
+    this.values = [];
+  }
 
+  pop() {
+    return this.values.shift();
+  }
+
+  push(value) {
+    return this.values.push(value);
+  }
 }
 
 
 /**
 * Queue Class
-*/
+*/  4
+// [1, 2, 3, 4] 
+// [1, 2, 1, 3, 2, 1, 4, 3, 2, 1]
 
+class Queue {
+  constructor() {
+    this.queue = new Stack();
+    this.reversedStack = new Stack();
+  }
 
-function Queue() {
+  push(value) {
+    this.reversedStack = new Stack();
+    this.reversedStack.push(value);
+    
+    for (let i = this.queue.values.length - 1; i >= 0; i--) {
+      this.reversedStack.push(this.queue.values[i]);
+    }
 
+    this.queue.push(value);
+
+    return value;
+  }
+
+  pop() {
+    const popedValue = this.reversedStack.pop();
+
+    this.queue = new Stack();
+    for (let i = this.reversedStack.values.length - 1; i >= 0; i--) {
+      this.queue.push(this.reversedStack.values[i]); 
+    }
+
+    return popedValue;
+  }
 }
+
 
 module.exports = {Stack: Stack, Queue: Queue};
