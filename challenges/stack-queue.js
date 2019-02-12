@@ -9,6 +9,8 @@ class Stack {
   }
 
   pop() {
+    if (this.values.length === 0) return undefined;
+    
     return this.values.shift();
   }
 
@@ -30,7 +32,7 @@ class Queue {
     this.reversedStack = new Stack();
   }
 
-  push(value) {
+  enqueue(value) {
     this.reversedStack = new Stack();
     this.reversedStack.push(value);
     
@@ -43,7 +45,9 @@ class Queue {
     return value;
   }
 
-  pop() {
+  dequeue() {
+    if (this.queue.length === 0) return undefined;
+
     const popedValue = this.reversedStack.pop();
 
     this.queue = new Stack();
