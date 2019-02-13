@@ -4,7 +4,8 @@
 
 
 function Stack() {
-
+  this.storage = []
+  this.index = 0
 }
 
 
@@ -14,7 +15,18 @@ function Stack() {
 
 
 function Queue() {
-
+  this.in = new Stack;
+  this.out = new Stack;
 }
 
-module.exports = {Stack: Stack, Queue: Queue};
+Queue.prototype.enqueue = function (value) {
+  this.in.push(value);
+  return this.in.index + this.out.index;
+}
+
+Queue.prototype.dequeue = function () {
+  if (this)
+}
+
+
+module.exports = { Stack: Stack, Queue: Queue };
