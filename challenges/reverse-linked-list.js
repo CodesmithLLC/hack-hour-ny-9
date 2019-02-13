@@ -14,6 +14,19 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
+    const reversedList;
+    const tempArr = [];
+    if (head.value !== undefined) {
+        tempArr.unshift(head);
+    }
+    while (head.next !== null) {
+        head = head.next;
+        tempArr.unshift(head);
+    }
+
+    tempArr.forEach((ele) => {
+
+    })
 
 }
 
