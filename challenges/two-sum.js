@@ -20,7 +20,7 @@ function twoSum(arr, n) {
   }
 
   for (let g = 0; g < neg.length; g++) {
-    if (arr.indexOf(n - neg[n]) !== -1) {
+    if (arr.indexOf(n - neg[g]) !== -1) {
       return true;
     }
   }
