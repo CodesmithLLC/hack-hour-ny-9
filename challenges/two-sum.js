@@ -8,19 +8,25 @@ function twoSum(arr, n) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] > 0) {
       pos.push(arr[i]);
+      console.log(arr[i]);
     } else {
       neg.push(arr[i]);
+      console.log(arr[i]);
     }
   }
 
   for (let p = 0; p < pos.length; p++) {
-    if (arr.indexOf(n - pos[p]) !== -1) {
+    if (pos.indexOf(n - pos[p]) !== -1 && pos.indexOf(n - pos[p]) !== p) {
+      return true;
+    } else if (neg.indexOf(n - pos[p]) !== -1) {
       return true;
     }
   }
 
   for (let g = 0; g < neg.length; g++) {
-    if (arr.indexOf(n - neg[g]) !== -1) {
+    if (neg.indexOf(n - neg[g]) !== -1 && neg.indexOf(n - neg[g]) !== g) {
+      return true;
+    } else if (pos.indexOf(n - neg[g]) !== -1) {
       return true;
     }
   }
@@ -28,3 +34,5 @@ function twoSum(arr, n) {
 }
 
 module.exports = twoSum;
+
+console.log(twoSum([2, 4, 5, -3, -10, 20], 4));
