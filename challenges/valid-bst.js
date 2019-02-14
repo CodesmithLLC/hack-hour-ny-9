@@ -18,17 +18,17 @@ function validBST(tree) {
  
   // tree with single node should be valid BST
   if (!tree.left && !tree.right) return true;
+  if (tree.left.value > tree.value) return false;
+  if (tree.right.value < tree.value) return false;
  
   // explore left subtree (if one exists)
   if (tree.left) {
-    if (tree.left.value > tree.value) return false;
-    return validBST(tree.left);
+    validBST(tree.left);
   }
  
   // explore right subtree (if one exists)
    if (tree.right) {
-    if (tree.right.value < tree.value) return false;
-    return validBST(tree.right);
+    validBST(tree.right);
   }
     
   return validBST(tree.left) && validBST(tree.right);
