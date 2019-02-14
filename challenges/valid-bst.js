@@ -15,32 +15,32 @@ function BinaryTree(val) {
 // Assume that each value in the tree is unique
 // should return true when left and right subtrees return true
 function validBST(tree) {
-  
-  function recurse(tree, arr) {
+ 
+  // establish an output array closed over by the exterior function
+  let arr = [];
+ 
+  function recurse(tree) {
    
-    if (!tree.left && !tree.right) {
-      return [tree.value]
-    }
+    if (!tree.left && !tree.right) arr.push(tree.value)
+     
     // if left tree exists recurse until deepest leftmost descendant is reached
-    if (tree.left) {
-      recurse(tree.left, arr);
-    }
+   
+    if (tree.left) recurse(tree.left);
+   
     arr.push(tree.value)
-    // if right tree exists recurse until deepest rightmost descendant is reached   
-    if (tree.right) {
-      recurse(tree.right, arr);
-    }
    
-    return arr;
-
+    // if right tree exists recurse until deepest rightmost descendant is reached
+   
+    if (tree.right) recurse(tree.right);
+  
   }
-
-  let output = recurse(tree, []);
-  for (let i=0; i < output.length; i++) {
+ 
+  for (let i=0; i < arr.length; i++) {
    
-    if (output[i] > output[i+1]) {return false}
+    if (arr[i] > arr[i+1]) return false
    
   }
+ 
   return true;
 }
 
