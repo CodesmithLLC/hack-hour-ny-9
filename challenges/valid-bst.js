@@ -30,7 +30,7 @@ function validBST(tree) {
         }
     }
 
-    return true;
+    return validBST(tree.left) + validBST(tree.right);
 
 }
 
