@@ -13,14 +13,19 @@ function BinaryTree(val) {
 }
 
 // Assume that each value in the tree is unique
+// should return true when left and right subtrees return true
 function validBST(tree) {
-  if (!tree.left && !tree.right) return true;
-  // recurse into the left and right subtrees to verify that BST constraints are satisfied
-  if (tree.left.value > tree.value || tree.right.value < tree.value) return false;
-  // recursively traverse left subtree if one exists
-  if (tree.left) validBST(tree.left)
-  // recursively traverse right subtree if one exists
-  if (tree.right) validBST(tree.right)
+  // explore left subtree (if one exists)
+  if (tree.left)
+    if (tree.left.value > tree.value) return false;
+    else return validBST(tree.left)
+ 
+ // explore right subtree (if one exists)
+  if (tree.right)
+    if (tree.right.value < tree.value) return false;
+    else return validBST(tree.right)
+    
+  return true;
   
 }
 
