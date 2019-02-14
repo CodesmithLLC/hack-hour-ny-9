@@ -22,13 +22,13 @@ function validBST(tree) {
   // explore left subtree (if one exists)
   if (tree.left) {
     if (tree.left.value > tree.value) return false;
-    validBST(tree.left);
+    return validBST(tree.left);
   }
  
   // explore right subtree (if one exists)
    if (tree.right) {
     if (tree.right.value < tree.value) return false;
-    validBST(tree.right);
+    return validBST(tree.right);
   }
     
   return validBST(tree.left) && validBST(tree.right);
