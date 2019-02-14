@@ -3,7 +3,17 @@
  */
 
 function twoSum(arr, n) {
+  if (arr.length < 2) return 'error - must have at least two elmements';
 
+  let cache = {};
+
+  for (let i = 0; i <arr.length; i++){
+    if(arr[i] in cache) return true;
+    let diff = n - arr[i];
+    cache[diff] = arr[i];
+    console.log(cache)
+  }
+  return false;
 }
 
 module.exports = twoSum;
