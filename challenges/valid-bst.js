@@ -16,7 +16,7 @@ function validBST(tree) {
     const result = [];
     function buildInOrder(root) {
         if (root.left) buildInOrder(root.left);
-        result.push(root);
+        result.push(root.value);
         if (root.right) buildInOrder(root.right);
     }
     buildInOrder(tree);
