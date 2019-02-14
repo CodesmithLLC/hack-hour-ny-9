@@ -15,24 +15,22 @@ function BinaryTree(val) {
 // Assume that each value in the tree is unique
 // should return true when left and right subtrees return true
 function validBST(tree) {
- 
-  // tree with single node should be valid BST
-  if (!tree.left && !tree.right) return true;
- 
-  // explore left subtree (if one exists)
-  if (tree.left) {
-    if (tree.left.value > tree.value) return false;
-    else return true;
-  }
- 
-  // explore right subtree (if one exists)
-   if (tree.right) {
-    if (tree.right.value < tree.value) return false;
-    else return true;
-  }
-    
-  return validBST(tree.left) && validBST(tree.right);
   
+  function recurse(tree, output) {
+   
+    if (!tree.left && !tree.right) {return []}
+    if (tree.left) {return output.concat(recurse(tree.left, output))}
+    if (tree.right) {return output.concat(recurse(tree.right, output))}
+
+  }
+
+  let output = recurse(tree, []);
+  for (let i=0; i < output.length; i++) {
+   
+    if (output[i] > output[i+1]) {return false}
+   
+  }
+  return true;
 }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
