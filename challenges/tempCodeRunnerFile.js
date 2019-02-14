@@ -1,54 +1,31 @@
-/**
- * Create a stack.Then create a queue using two stacks.
- */
 
-function Stack() {
-  this.inventory = [];
-  this.length = 0;
+function BinaryTree(val) {
+  this.value = val;
+  this.left = null;
+  this.right = null;
 }
 
-Stack.prototype.push = function(value) {
-  this.inventory.push(value);
-  this.length += 1;
-  return this;
-};
-
-Stack.prototype.pop = function() {
-  const popped = this.inventory.pop();
-  this.length -= 1;
-  return popped;
-};
-
-// const stackOne = new Stack();
-// console.log(stackOne.push(1).push(2));
-// const test = stackOne.pop();
-// console.log(test);
-// console.log(stackOne.length);
-
-/**
- * Queue Class
- */
-
-function Queue() {
-  this.stackOne = new Stack();
-  this.stackTwo = new Stack();
-}
-
-Queue.prototype.enqueue = function(value) {
-  this.stackOne.push(value);
-  return this;
-};
-
-Queue.prototype.dequeue = function() {
-  while (this.stackOne.length) {
-    const popped = this.stackOne.pop();
-    this.stackTwo.push(popped);
+function validBST(tree) {
+  const result = [];
+  function inOrder(root) {
+    if (!root) return result;
+    if (root.left) inOrder(root.left);
+    result.push(root.value);
+    if (root.right) inOrder(root.right);
   }
-  return this.stackTwo.pop();
-};
+  inOrder(tree);
 
-const test = new Queue();
-test.enqueue(1).enqueue(2);
-console.log(test.dequeue());
+  for (let i = 0; i < result.length - 1; i += 1) {
+    if (result[i] > result[i + 1]) return false;
+  }
+  return true;
+}
 
-module.exports = { Stack: Stack, Queue: Queue };
+var treeOne = new BinaryTree(5);
+treeOne.left = new BinaryTree(3);
+treeOne.left.left = new BinaryTree(1);
+treeOne.left.right = new BinaryTree(4);
+treeOne.right = new BinaryTree(3);
+
+// console.log(treeOne);
+console.log(validBST(treeOne));
