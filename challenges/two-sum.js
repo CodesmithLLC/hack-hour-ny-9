@@ -3,7 +3,13 @@
  */
 
 function twoSum(arr, n) {
+  for (let i = 0; i < arr.length; i++) {
+    const arrWithoutIthNum = arr.slice();
+    arrWithoutIthNum.splice(i, 1);
+    if (arrWithoutIthNum.includes(n - arr[i])) return true;
+  }
 
+  return false;
 }
 
 module.exports = twoSum;
