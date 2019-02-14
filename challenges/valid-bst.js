@@ -16,11 +16,22 @@ function BinaryTree(val) {
 // should return true when left and right subtrees return true
 function validBST(tree) {
   
-  function recurse(tree, output) {
+  function recurse(tree, arr) {
    
-    if (!tree.left && !tree.right) {return []}
-    if (tree.left) {return output.concat(recurse(tree.left, output))}
-    if (tree.right) {return output.concat(recurse(tree.right, output))}
+    if (!tree.left && !tree.right) {
+     return [tree.value]
+    }
+    // if left tree exists recurse until deepest leftmost descendant is reached
+    if (tree.left) {
+     recurse(tree.left, arr);
+    }
+    arr = arr.concat(tree.value)
+    // if right tree exists recurse until deepest rightmost descendant is reached   
+    if (tree.right) {
+     recurse(tree.right, arr);
+    }
+   
+    return arr;
 
   }
 
