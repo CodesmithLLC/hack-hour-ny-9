@@ -12,8 +12,15 @@ function BinaryTree(val) {
     this.right = null;
 }
 
+// Assume that each value in the tree is unique
 function validBST(tree) {
-
+  // recurse into the left and right subtrees to verify that BST constraints are satisfied
+  if (tree.left.value > tree.value || tree.right.value < tree.value) return false;
+  // recursively traverse left subtree if one exists
+  if (tree.left) validBST(tree.left)
+  // recursively traverse right subtree if one exists
+  if (tree.right) validBST(tree.right)
+  
 }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
