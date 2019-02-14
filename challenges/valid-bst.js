@@ -19,16 +19,16 @@ function validBST(tree) {
   function recurse(tree, arr) {
    
     if (!tree.left && !tree.right) {
-     return [tree.value]
+      return [tree.value]
     }
     // if left tree exists recurse until deepest leftmost descendant is reached
     if (tree.left) {
-     recurse(tree.left, arr);
+      recurse(tree.left, arr);
     }
-    arr = arr.concat(tree.value)
+    arr.push(tree.value)
     // if right tree exists recurse until deepest rightmost descendant is reached   
     if (tree.right) {
-     recurse(tree.right, arr);
+      recurse(tree.right, arr);
     }
    
     return arr;
