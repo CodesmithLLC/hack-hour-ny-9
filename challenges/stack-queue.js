@@ -51,5 +51,47 @@ function Dequeue() {
    return st2.pop();
 }
 
+// ============================================================= Joel's =============================
+
+function Stack() {
+  this.storage = {};
+  this.index = 0;
+}
+
+Stack.prototype.push = function(value) {
+  this.storage[this.index++] = value;
+  return this.index;
+}
+
+Stack.prototype.pop = function(){
+  let output = this.storage[--this.index];
+  delete this.storage[this.index]
+  return output;
+}
+
+/**
+ * Queue Class
+ */
+function Queue() {
+  this.in = new Stack();
+  this.out = new Stack();
+}
+
+Queue.prototype.enqueue = function(value){
+  this.in.push(value);
+  return this.in.index + this.out.index;
+}
+
+Queue.prototype.dequeue = function(){
+  if(this.out.index > 0) return this.out.pop();
+  while(this.in.index > 1){
+      this.out.push(this.in.pop());
+  }
+  return this.in.pop();
+}
+
+const stack = new Stack();
+const queue = new Queue();
+
 
 module.exports = {Stack: Stack, Queue: Queue};
