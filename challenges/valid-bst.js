@@ -20,8 +20,12 @@ function validBST(tree) {
     if (tree.right) {
         if (tree.right.value <= tree.value) return false;
     }
-    if (!validBST(tree.left)) return false;
-    if (!validBST(tree.right)) return false;
+    if (tree.left) {
+        if (!validBST(tree.left)) return false;
+    }
+    if (tree.right) {
+        if (!validBST(tree.right)) return false;
+    }
     return true;
 }
 
