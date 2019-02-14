@@ -16,9 +16,9 @@ function validBST(tree) {
   function helper(tree) {
     if (!tree) return;
     const left = helper(tree.left)
-    if (left && left > tree.value) return false;
+    if (left === false || left && left >= tree.value) return false;
     const right = helper(tree.right)
-    if (right && right < tree.value) return false;
+    if (right === false || right && right <= tree.value) return false;
     return tree.value;
   }
   return helper(tree) !== false;
