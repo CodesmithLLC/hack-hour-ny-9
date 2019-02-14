@@ -66,4 +66,4 @@ function numToWords(num) {
 
 module.exports = numToWords;
 
-console.log(numToWords(955))
+console.log(numToWords(55))
