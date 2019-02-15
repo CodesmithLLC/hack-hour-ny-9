@@ -12,13 +12,13 @@ function BinaryTree(val) {
     this.right = null;
 }
 
-function validBST(tree) {
+function validBST(tree, arr = []) {
 
     if (tree.left) {
         if (tree.value < tree.left.value) {
             return false;
         } else {
-            return validBST(tree.left);
+            return validBST(tree.left, arr);
         }
     }
 
@@ -30,7 +30,7 @@ function validBST(tree) {
         }
     }
 
-    return validBST(tree.left) + validBST(tree.right);
+    return true;
 
 }
 
