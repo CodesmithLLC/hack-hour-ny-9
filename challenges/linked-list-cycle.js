@@ -33,7 +33,12 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
-
+  try {
+    JSON.stringify(head);
+    return true;
+  } catch(err) {
+    return false;
+  }
 }
 
 module.exports = {Node: Node, hasCycle: hasCycle}
