@@ -40,5 +40,5 @@ function hasCycle(head) {
     return true;
   }
 }
-JSON.stringify(null)
+
 module.exports = {Node: Node, hasCycle: hasCycle}
