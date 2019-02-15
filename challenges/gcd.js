@@ -8,8 +8,11 @@
  */
 
 function gcd(a, b) {
-  const start = Math.floor(Math.min(a, b) / 2);
-
+  const min = Math.min(a, b);
+  
+  if (a % min === 0 && b % min === 0) return min;
+  
+  const start = Math.floor(min / 2);
   for (let i = start; i >= 1; i--) {
     if (a % i === 0 && b % i === 0) return i;
   }
