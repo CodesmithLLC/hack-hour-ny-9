@@ -34,6 +34,8 @@ function validBST(tree) {
      
   }
  
+  recurse(tree, prev);
+ 
   return true;
 }
 
