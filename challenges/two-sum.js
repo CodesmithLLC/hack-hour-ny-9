@@ -11,4 +11,31 @@ function twoSum(arr, n) {
     return false;
 }
 
+//========================christine=========================================
+
+// Hash
+function twoSum(arr, n) {
+    const nums = {};
+    for (let i = 0; i < arr.length; i++) {
+      if (nums[n - arr[i]]) return true;
+      
+      nums[arr[i]] = 1;
+    } 
+    return false;
+  }
+  // Sort, then an optimized for loop
+  function twoSum(arr, n) {
+    arr.sort(function (a, b) {return a - b});
+    let current;
+    for (let i = 0, j = arr.length - 1; i < arr.length && j >= 0; ) {
+      current = arr[i] + arr[j];
+      if (current === n) return true;
+      
+      if (current > n) j--
+      else i++
+    }
+    return false;
+  }
+  
+
 module.exports = twoSum;
