@@ -8,7 +8,19 @@
  */
 
 function gcd(a, b) {
-
+  // let bigger = Math.max(a, b);
+  let aArray = [];
+  let bArray = [];
+  for (let i = 1; i <= a; i++) {
+    if (a % i === 0) aArray.push(i);
+  }
+  for (let j = 1; j <= b; j++) {
+    if (b % j === 0) bArray.push(j);
+  }
+  let result = aArray.filter((num) => bArray.includes(num));
+  return result[result.length - 1];
 }
+
+// console.log(gcd(10, 9));
 
 module.exports = gcd;
