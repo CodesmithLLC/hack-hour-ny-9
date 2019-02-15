@@ -8,7 +8,11 @@
  */
 
 function gcd(a, b) {
+  const start = Math.floor(Math.min(a, b) / 2);
 
+  for (let i = start; i >= 1; i--) {
+    if (a % i === 0 && b % i === 0) return i;
+  }
 }
 
 module.exports = gcd;
