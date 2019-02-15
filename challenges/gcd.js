@@ -8,6 +8,14 @@
  */
 
 function gcd(a, b) {
+  if (a === 0) {
+    return b;
+  }
+
+  if (b === 0) {
+    return a;
+  }
+
   const remainder = a % b;
   if (remainder === 0) {
     return b;
@@ -15,5 +23,4 @@ function gcd(a, b) {
     return gcd(b, remainder);
   }
 }
-
 module.exports = gcd;
