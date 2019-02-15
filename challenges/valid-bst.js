@@ -14,23 +14,16 @@ function BinaryTree(val) {
 
 function validBST(tree) {
     const result = [];
-    let valid = true;
     function inOrder(tree) {
-      if (!tree) return result;
-      if (tree.left) {
-        inOrder(tree.left)
-      }
-      if (tree.value < result[result.length - 1]){
-        valid = false;
-      }
-      result.push(tree.value)
-  
-      if (tree.right) {
-        inOrder(tree.right)
-      }
+        if (tree.left) inOrder(tree.left)
+        result.push(tree.value);
+        if (tree.right) inOrder(tree.right);
     }
-    inOrder(root)
-    return valid;
+    inOrder(tree)
+    console.log(result);
+    const test = [...result].sort((a,b) => a-b);
+    console.log(test);
+    return result.toString() === test.toString();
 }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
