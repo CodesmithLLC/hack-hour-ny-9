@@ -11,25 +11,16 @@ function BinaryTree(val) {
   this.right = null;
 }
 
-function validBST(tree) {
-  let parent = tree.value;
-  let childLeft = parent.left.value;
-  let childRight = parent.right.value;
-
-  if (childLeft) {
-    if (parent <= childLeft) {
-      return false;
-    } else {
-      parent = childLeft;
-    }
-  } else if (childRight) {
-    if (parent >= childRight) {
-      return false;
-    } else {
-      parent = childRight;
-    }
+function validBST(tree, minval, maxval) {
+  if (tree == null) {
+    return true;
   }
-  return true;
+  return (
+    (minval == null || minval <= tree.value) &&
+    (maxval == null || maxval >= tree.value) &&
+    validBST(tree.left, minval, tree.value) &&
+    validBST(tree.right, tree.value, maxval)
+  );
 }
 
 module.exports = { BinaryTree: BinaryTree, validBST: validBST };
