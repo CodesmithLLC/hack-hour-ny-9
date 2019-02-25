@@ -1,19 +1,11 @@
-
-function gcd(a, b) {
-  let gcd = -Infinity;
-  const map = new Map();
-  for (let i = 1; i <= a; i += 1) {
-    if (a % i === 0) {
-      map.set(i, true);
-    }
+function countTwos(num) {
+  let count = 0;
+  for (let i = 0; i <= num; i += 1) {
+    const twos = i.toString().split('2').length - 1;
+    console.log(twos);
+    count += twos;
   }
-  console.log(map);
-  for (let i = 1; i <= b; i += 1) {
-    if (b % i === 0 && map.has(i) && i > gcd) {
-      gcd = i;
-    }
-  }
-  return gcd;
+  return count;
 }
 
-console.log(gcd(24, 6));
+console.log(countTwos(3));
