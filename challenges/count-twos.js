@@ -10,7 +10,13 @@
 
 
 function countTwos(num) {
+  let twoCount = 0;
+  for (let i = 1; i <= name; i++) {
+    const arrayOfDigits = String(i).split('');
+    twoCount += arrayOfDigits.filter(el => el === '2').length;
+  }
 
+  return twoCount;
 }
 
 module.exports = countTwos;
