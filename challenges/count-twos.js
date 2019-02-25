@@ -11,7 +11,7 @@
 
 function countTwos(num) {
   let twoCount = 0;
-  for (let i = 1; i <= name; i++) {
+  for (let i = 1; i <= num; i++) {
     const arrayOfDigits = String(i).split('');
     twoCount += arrayOfDigits.filter(el => el === '2').length;
   }
