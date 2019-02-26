@@ -25,6 +25,24 @@ function gcd(a, b) {
     }
     return arr.pop();
 }
+//========================================raph====================================================
+// brute force solution
+function gcd(a, b) {
+    const smaller = Math.min(a, b);
+    for (let divisor = smaller; divisor > 0; divisor--) {
+      if (a % divisor === 0 && b % divisor === 0) return divisor;
+    }
+    return 1;
+   }
+   //============================================raph=============================================
+   //euclidean algorithm
+function gcd(a, b) {
+    let greater = Math.max(a,b);
+    let smaller = Math.min(a,b);
+    if (smaller === 0) return greater;
+    return gcd(smaller, greater % smaller);
+}
+
 
 console.log(gcd(10,8))
 console.log(gcd(10,9))
