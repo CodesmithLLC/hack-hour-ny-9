@@ -18,7 +18,27 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-
+  let op1 = '', op2 = '';
+  let curr1 = l1;
+  let curr2 = l2;
+  // if one linked list is empty
+  if (!l2) return l1;
+  if (!l1) return l2;
+  while (curr1 || curr2) {
+    if (curr1) op1.concat(curr1.value.toString());
+    if (curr2) op2.concat(curr2.value.toString());
+  }
+  let sum = (parseInt(op1) + parseInt(op2)).toString().split('');
+  // finally create a linked list from the nodes by defining next pointers
+  let node = sum.map(el => new Node(el));
+  for (let i=0; i < node.length - 1; i++) {
+    // set next value of node
+    node[i].next = node[i+1]
+  }
+  // return a handle to the head of the linked list
+  return node[0]
 }
-
+    
+    
+    
 module.exports = {Node: Node, addLinkedList: addLinkedList};
