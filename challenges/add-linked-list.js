@@ -50,6 +50,10 @@ function addLinkedList(l1, l2) {
     if (currL1) currL1 = currL1.next;
     if (currL2) currL2 = currL2.next;
   }
+  
+  if (carriedValue === 1) {
+    currSumLL.next = new Node(1);
+  }
 
   return sumLLHead;
 }
