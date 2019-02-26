@@ -18,7 +18,40 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  let carriedValue = 0;
+  let currL1 = l1;
+  let currL2 = l2;
+  let sumLLHead = null;
+  let currSumLL;
+  
+  while (currL1 || currL2) {
+    let currSum = 0;
+    if (currL1) currSum += currL1.value;
+    if (currL2) currSum += currL2.value;
+    if (carriedValue === 1) {
+      currSum += 1;
+      carriedValue = 0;
+    }
 
+    if (currSum > 9) {
+      carriedValue = 1;
+      currSum -= 10;
+    }
+
+    const newNode = new Node(currSum);
+    
+    if (!sumLLHead) {
+      sumLLHead = currSumLL = newNode;
+    } else {
+      currSumLL.next = newNode;
+      currSumLL = currSumLL.next;
+    }
+    
+    if (currL1) currL1 = currL1.next;
+    if (currL2) currL2 = currL2.next;
+  }
+
+  return sumLLHead;
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
