@@ -13,7 +13,24 @@ function BinaryTree(value) {
   this.right = null;
 }
 
-function superbalanced(tree) {
+function superbalanced(curNode) {
+  if (curNode.value === null) return true;
+
+  function checkBalance(curNode) {
+    if (curNode.left && !curNode.right) {
+      if (curNode.left.left || curNode.left.right) {
+        return false;
+      }
+    } else if (curNode.right && !curNode.left) {
+      if (curNode.right.left || curNode.right.right) {
+        return false;
+      }
+    }
+
+    return checkBalance(curNode.left) && checkBalance(curNode.right);
+  }
+
+  return checkBalance(curNode);
 
 }
 
