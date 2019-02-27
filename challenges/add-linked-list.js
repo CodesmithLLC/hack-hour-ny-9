@@ -31,10 +31,13 @@ function addLinkedList(l1, l2) {
     
     sum = l1.value + l2.value + carried;
     carried = 0;
-    
+
     if (sum > 9) {
       sum -= 10;
-      carried = 1;
+      if (!l1.next) {
+        l1.next = new Node(1);
+      } 
+      else carried = 1;
     }
     
     l1.value = sum;
@@ -45,17 +48,7 @@ function addLinkedList(l1, l2) {
   }
 
   if (l2) l1Prev.next = l2;
-
   return l1Head;
 }
-const l1 = new Node(2);
-const l2 = new Node(5);
-l1.next = new Node(1);
-l2.next = new Node(9);
-l1.next.next = new Node(5);
-l2.next.next = new Node(2);
-l2.next.next.next = new Node(3);
-
-console.log(addLinkedList(l1, l2));
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
