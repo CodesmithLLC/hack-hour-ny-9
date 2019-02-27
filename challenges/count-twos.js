@@ -11,38 +11,26 @@
 
 function countTwos(num) {
   let result = 0;
-  const numStr = num.toString();
+  let numStr = num.toString();
   const length = numStr.length;
 
-  for (let i = 0; i < length; i++) {
-    if (num < 10) {
-      if (num >= 2) result += 1;
-      break;
-    }
-    const curTenToPow = Math.pow(10, length - i - 1);
-    const nextTenToPow = Math.pow(10, length - i - 2);
-    const wholePart = Math.floor(num / curTenToPow);
-    console.log('curTenToPow', curTenToPow);
-    console.log('nextTenToPow', nextTenToPow);
-    console.log('wholePart', wholePart);
-    if (wholePart === 2) {
-      result += num % curTenToPow;
-      console.log('result', result);
-    }
-    result += wholePart * nextTenToPow;
-    console.log('result', result);
-    num = num % curTenToPow;
-  }
+  numStr = '0'.concat(numStr)
+  let prevNum = 0;
+
+  for (let i = 1; i <= length; i++) {
+    prevNum += Number(numStr[i - 1]);
+    const curNum = Number(numStr[i]);
+    
+    const tenToCurPow = Math.pow(10, length - i);
+    if (curNum > 2) prevNum += 1;
+    result += tenToCurPow * prevNum;
+
+    if (curNum === 2) result += Number(numStr.slice(i + 1)) + 1;
+
+    prevNum *= 10;
+  }  
   return result;
 }
-
-// console.log(countTwos(1));
-// console.log(countTwos(3) );
-console.log(countTwos(13));
-// console.log(countTwos(226)) ;
-console.log(countTwos(999)) ;
-// console.log(countTwos(11420));
-
 
 
 module.exports = countTwos;
