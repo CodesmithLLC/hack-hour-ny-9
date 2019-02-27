@@ -18,7 +18,7 @@ function superbalanced(tree) {
     if (!node) return 0;
     return 1 + Math.max(getHeight(node.left), getHeight(node.right));
   }
-  if (Math.abs(getHeight(node.left) - getHeight(node.right) > 1)) return false;
+  if (Math.abs(getHeight(tree.left) - getHeight(tree.right) > 1)) return false;
   return true;
 }
 
