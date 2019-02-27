@@ -34,9 +34,7 @@ function addLinkedList(l1, l2) {
 
     if (sum > 9) {
       sum -= 10;
-      if (!l1.next) {
-        l1.next = new Node(1);
-      } 
+      if (!l1.next) l1.next = new Node(1);
       else carried = 1;
     }
     
