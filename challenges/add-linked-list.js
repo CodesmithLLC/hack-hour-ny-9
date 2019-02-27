@@ -19,15 +19,12 @@ function Node(val) {
 
 function addLinkedList(l1, l2) {
   //   debugger;
+  if (!l1) return l2;
+  if (!l2) return l1;
   let carry = false;
 
-  const start = l1.value + l2.value;
-  let l3 = new Node(start);
-  const l3Head = l3;
-  l1 = l1.next;
-  l2 = l2.next;
-  while (l1 && l2) {
-    let add = l1.value + l2.value;
+  const addNode = (node1, node2) => {
+    let add = node1.value + node2.value;
     if (carry) {
       if (add === 9) {
         add = 0;
@@ -40,14 +37,22 @@ function addLinkedList(l1, l2) {
       carry = true;
       add -= 10;
     }
+    return add;
+  };
+  let l3 = new Node();
+  const l3Head = l3;
 
+  while (l1 && l2) {
+    const add = addNode(l1, l2);
     const newNode = new Node(add);
     l3.next = newNode;
     l3 = l3.next;
     l1 = l1.next;
     l2 = l2.next;
   }
-  return l3Head;
+  if (l1) {
+  }
+  return l3Head.next;
 }
 
 module.exports = { Node: Node, addLinkedList: addLinkedList };
