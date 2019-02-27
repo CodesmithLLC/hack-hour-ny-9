@@ -24,5 +24,4 @@ function countTwos(num) {
   }
 }
 
-console.log(countTwos(10), 'background: red', 'color: black');
 module.exports = countTwos;
