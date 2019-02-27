@@ -20,32 +20,17 @@ function countTwos(num) {
   for (let i = 1; i <= length; i++) {
     prevNum += Number(numStr[i - 1]);
     const curNum = Number(numStr[i]);
-    // console.log('prevNum', prevNum);
-    // console.log('curNum', curNum);
     
     const tenToCurPow = Math.pow(10, length - i);
-    let multiplier = prevNum;
-    if (curNum > 2) multiplier += 1;
-    result += tenToCurPow * multiplier;
-    // console.log('tenToCurPow', tenToCurPow);
-    // console.log('multiplier', multiplier);
-    // console.log('result', result);
+    if (curNum > 2) prevNum += 1;
+    result += tenToCurPow * prevNum;
 
     if (curNum === 2) result += Number(numStr.slice(i + 1)) + 1;
 
     prevNum *= 10;
-
   }  
   return result;
 }
-
-// console.log(countTwos(1));
-// console.log(countTwos(3) );
-// console.log(countTwos(13));
-// console.log(countTwos(226)) ;
-// console.log(countTwos(1000)) ;
-// console.log(countTwos(11420));
-
 
 
 module.exports = countTwos;
