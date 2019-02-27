@@ -14,7 +14,12 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
+  return Math.abs(treeHeight(tree.left) - treeHeight(tree.right)) < 2;
 
+  function treeHeight(tree) {
+    if (tree === null) return 0;
+    return Math.max(treeHeight(tree.left), treeHeight(tree.right)) + 1;
+  }
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
