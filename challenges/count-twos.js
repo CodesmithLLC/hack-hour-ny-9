@@ -12,9 +12,8 @@
 function countTwos(num) {
   let total = 0;
   for (let i = 1; i <= num; i++) {
-    if ((i + '').indexOf('2') > -1) {
-      total++;
-    }
+    let twos = i.toString().split('').filter(num => num == 2).length;
+    count += twos;
   }
   return total;
 }
@@ -22,3 +21,14 @@ function countTwos(num) {
 module.exports = countTwos;
 
 console.log(countTwos(1000))
+
+/*
+function countTwos(num) {
+  let count = 0;
+  for (let i = 0; i <= num; i++) {
+    let twos = i.toString().split('').filter(num => num == 2).length;
+    count += twos;
+  }
+  return count;
+}
+*/
