@@ -55,4 +55,29 @@ function addLinkedList(l1, l2) {
   return l3Head.next;
 }
 
+var addNode2 = (l1, l2) => {
+  let currNode = new Node();
+  const head = currNode;
+  let sum = 0;
+  while (l1 || l2 || sum) {
+    if (l1) {
+      l1 += l1.value;
+      l1 = l1.next;
+    }
+    if (l2) {
+      l2 += l2.value;
+      l2 = l2.next;
+    }
+    if (sum > 9) {
+      currNode.next = new Node(sum % 10);
+      sum = 1;
+    } else {
+      currNode.next = new Node(sum);
+      sum = 0;
+    }
+    currNode = currNode.next;
+  }
+  return head.next;
+};
+
 module.exports = { Node: Node, addLinkedList: addLinkedList };
