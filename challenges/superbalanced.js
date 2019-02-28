@@ -13,8 +13,19 @@ function BinaryTree(value) {
   this.right = null;
 }
 
-function superbalanced(tree) {
+const maxDepth = root => {
+  if (!root) return 0;
 
+  const left = maxDepth(root.left);
+  const right = maxDepth(root.right);
+
+  return Math.max(left, right);
+};
+function superbalanced(tree) {
+  const left = maxDepth(tree.left);
+  const right = maxDepth(tree.right);
+
+  return Math.abs(left - right) < 2;
 }
 
-module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
+module.exports = { BinaryTree: BinaryTree, superbalanced: superbalanced };
