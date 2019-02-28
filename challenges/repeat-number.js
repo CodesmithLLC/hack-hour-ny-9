@@ -11,7 +11,11 @@
  */
 
 function repeatNumbers(array) {
-
+  const objOfNums = {};
+  for (let num of array) {
+    if (objOfNums[String(num)] === true) return num;
+    else objOfNums[String(num)] = true;
+  }
 }
 
 module.exports = repeatNumbers;
