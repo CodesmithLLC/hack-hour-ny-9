@@ -11,7 +11,10 @@
  */
 
 function repeatNumbers(array) {
-
+    const targetSum = 0.5 * ((array.length)-1) * array.length;
+    // reduce contributes O(n) time complexity
+    const arraySum = array.reduce((acc, curr) => acc+=curr, 0);
+    return arraySum - targetSum;
 }
 
 module.exports = repeatNumbers;
