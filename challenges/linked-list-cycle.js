@@ -33,16 +33,44 @@ var Node = function (value) {
 }
 
 function hasCycle(head) {
-  let allNodes = [];
-  let current = head;
-  while (current) {
-    if (allNodes.includes(current)) return true;
-    allNodes.push(current);
-    current = current.next;
+  let one = head;
+  let two = head;
+  let three = head;
+  // let isCycle = false;
+  while (one && two && three) {
+    one = one.next;
+    two = two.next.next;
+    if (one === two) return true;
   }
+  // if (isCycle) {
+  //   while (three) {
+  //     if (three === one && three === two) return three;
+  //     else {
+  //       three = three.next;
+  //       one = three;
+  //       two = three;
+  //       while (one && two && three) {
+  //         one = one.next;
+  //         two = two.next.next;
+  //         if (one === two) break;
+  //       }
+  //     }
+  //   }
+  // }
   return false;
-
 }
+
+// function hasCycle(head) {
+//   let allNodes = [];
+//   let current = head;
+//   while (current) {
+//     if (allNodes.includes(current)) return true;
+//     allNodes.push(current);
+//     current = current.next;
+//   }
+//   return false;
+
+// }
 
 // var node1 = new Node('1');
 // var node2 = node1.next = new Node('2');
