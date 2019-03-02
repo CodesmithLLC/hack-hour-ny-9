@@ -27,13 +27,24 @@
  *
  */
 
-var Node = function(value) {
+var Node = function (value) {
   this.value = value;
   this.next = null;
 }
 
 function hasCycle(head) {
-
+  let current;
+  let cache = {}
+  current = this.value
+  while (current) {
+    if (!(cache.hasOwnProperty(current))) {
+      cache[current] = current.next
+      current = this.value.next
+    } else if (cache.hasOwnProperty(current)) {
+      return true;
+    }
+  }
+  return false;
 }
 
-module.exports = {Node: Node, hasCycle: hasCycle}
+module.exports = { Node: Node, hasCycle: hasCycle }
