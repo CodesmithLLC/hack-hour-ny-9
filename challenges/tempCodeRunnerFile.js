@@ -1,7 +1,13 @@
-function repeatNumbers(array) {
-  const nSum = ((array.length - 1) * (1 + (array.length - 1))) / 2;
-  const arraySum = array.reduce((acc, curr) => acc + curr);
-  console.log(nSum, arraySum);
+function sumMultiples3Or5Below1000() {
+  let sum = 0;
+  const arr = [];
+  for (let i = 0; i <= 1000; i += 1) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      sum += i;
+    }
+  }
+
+  return sum;
 }
 
-console.log(repeatNumbers([1, 3, 2, 3]));
+console.log(sumMultiples3Or5Below1000());
