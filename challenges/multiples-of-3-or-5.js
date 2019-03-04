@@ -7,14 +7,17 @@
 
 function sumMultiples3Or5Below1000() {
   let sum = 0;
-  let threeSum = 0, fiveSum = 0;
+  let threeSum = 0, fiveSum = 0, fifteenSum = 0;
   for (let i = 0; i < 1000; i+=3) {
     threeSum += i;
   }
   for (let j = 0; j < 1000; j+=5) {
     fiveSum += j;
   }
-  sum = threeSum + fiveSum;
+  for (let k = 0; k < 1000; k+=15) {
+    fifteenSum += k;
+  }  
+  sum = threeSum + fiveSum - fifteenSum;
   return sum;
 }
 
@@ -30,6 +33,9 @@ function sumMultiplesXOrYBelowZ(x, y, z) {
   for (let j = 0; j < z; j+=y) {
     ySum += j;
   }
+  for (let j = 0; j < z; j+=y) {
+    ySum += j;
+  }  
   sum = xSum + ySum;
   return sum;
 }
