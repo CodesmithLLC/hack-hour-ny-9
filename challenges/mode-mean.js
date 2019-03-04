@@ -9,52 +9,43 @@
  *
  */
 
-
 function modemean(array) {
-  let sum = 0;
-  let count = {};
-
-  array.forEach((num)=> {
-    sum += num;
-    if(!count[num]) count[num] = 1;
-    else count[num] += 1;
-  })
-
-  let average = Math.floor(sum/array.length)
-  let modes = [];
-  let final = 0;
-
-  for(let key in count) {
-    if (count[key]>1) {
-      console.log(count[key])
-      modes.push([key,count[key]]);
-    }
-  }
-
-  let sorted = modes.sort();
-
-  for (let i = 0; i <sorted.length-1; i++) {
-    if(sorted[i+1][1] > sorted[i][1]) {
-      final = sorted[i][0];
-      console.log(final)
-    }
-    else if (sorted[i+1][1] < sorted[i][1]) {
-      final = sorted[i][0]
-    }
-    else if (sorted[i][1] == sorted[i+1][1]) {
-      if(sorted[i][0] > sorted[i+1][0]) {
-        final = sorted[i][0];
+  const mode = { value: Number.NEGATIVE_INFINITY, count: 0 };
+  const mean = { value: 0, sum: 0 };
+  const cache = {};
+  for (let i = 0; i < array.length; i += 1) {
+    const value = array[i];
+    mean.sum += value;
+    // i + 1 === number of elements so far
+    mean.value = mean.sum / (i + 1);
+    // check to see if current number is in cache
+    if (value in cache) {
+      cache[value] += 1;
+      // if count is greater than the mode's count OR if the counts are equal and the number is greater than the mode
+      if (
+        cache[value] > mode.count ||
+        (cache[value] === mode.count && value >= mode.value)
+      ) {
+        // reassign the mode
+        mode.value = value;
+        mode.count = cache[value];
       }
-      else {
-        final = sorted[i+1][0]
+    } else {
+      // if not, add the number as a property on the cache and set its value to 1
+      cache[value] = 1;
+      // but what if the mode's count is equal to 1 but the current value is greater?
+      // [1,2,3,4,5] -> mode === 5
+      if (value > mode.value && mode.count === 1) {
+        // reassign the mode
+        mode.value = value;
+        // no need to reassign mode's count because it remains 1
       }
     }
   }
-  return final === average;
-
+  // Math.floor the mean per the requirements and check if they're equal
+  return mode.value === Math.floor(mean.value);
 }
 
 module.exports = modemean;
-
 
 //[2,4,5,7,5]
