@@ -17,4 +17,29 @@ function superbalanced(tree) {
 
 }
 
+
+
+
+
+
+
+
+
+//===================================raph===============================================
+function superBalanced(node) {
+  // Null nodes are balanced and serve as base case
+  if (node === null) {
+    return true;
+  }
+  // Difference between max depth of left and right trees must be <= 1
+  // Use recursion to check all subtrees
+  return ((maxDepth(node.left) - maxDepth(node.right) <= 1) && superBalanced(node.left) && superBalanced(node.right));
+}
+
+// Helper function to find greatest depth in tree
+function maxDepth(node) {
+  if (node === null) return 0;
+  return 1 + Math.max(maxDepth(node.left), maxDepth(node.right));
+}
+
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
