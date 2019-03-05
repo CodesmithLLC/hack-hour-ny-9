@@ -1,13 +1,13 @@
-function sumMultiples3Or5Below1000() {
-  let sum = 0;
-
-  for (let i = 0; i < 1000; i += 1) {
-    if (i % 3 === 0 || i % 5 === 0) {
-      sum += i;
-    }
+function maxSubarray(arr) {
+  let max = arr[0];
+  let runningMax = arr[0];
+  for (let i = 1; i < arr.length; i += 1) {
+    runningMax = Math.max(runningMax + arr[i], arr[i]);
+    max = Math.max(runningMax, max);
+    console.log('running', runningMax);
+    console.log('max', max);
   }
-
-  return sum;
+  return max;
 }
 
-console.log(sumMultiples3Or5Below1000());
+console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]));
