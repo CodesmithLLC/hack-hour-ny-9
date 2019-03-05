@@ -6,13 +6,14 @@
 // below 1000 and return that sum.
 
 function sumMultiples3Or5Below1000() {
-  let sum = 0;
+  // let sum = 0;
 
-  for (let i = 0; i < 1000; i += 1) {
-    if (i % 3 === 0 || i % 5 === 0) {
-      sum += i;
-    }
-  }
+  // for (let i = 0; i < 1000; i += 1) {
+  //   if (i % 3 === 0 || i % 5 === 0) {
+  //     sum += i;
+  //   }
+  // }
+  const sum = 0.5 * (1000 * (1000 + 1));
 
   return sum;
 }
