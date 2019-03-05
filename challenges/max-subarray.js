@@ -9,7 +9,8 @@
 
 function maxSubarray(arr) {
   if (arr.length === 1) return arr[0];
-  if (!arr.filter(el => el > 0)) return Math.min(arr);
+  if (arr.filter(el => el > 0).length === arr.length) return arr.reduce((acc, curr)=> acc += curr, 0);
+  if (arr.filter(el => el < 0).length === arr.length) return Math.max(arr);  
   // keep running currentMax
   let currentMax = arr[0];
   let i = 1;
