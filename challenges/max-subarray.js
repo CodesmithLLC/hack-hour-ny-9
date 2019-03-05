@@ -10,7 +10,7 @@
 function maxSubarray(arr) {
   let currMax = -Infinity;
   for (let i = 0; i < arr.length; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
+    for (let j = i; j < arr.length; j++) {
       const currSum = arr.slice(i, j + 1).reduce((a, b) => a + b);
       currMax = Math.max(currSum, currMax);
     }
