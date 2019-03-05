@@ -26,17 +26,23 @@ function sumMultiples3Or5Below1000() {
 // and returns the sum of multiples of x and y below z
 function sumMultiplesXOrYBelowZ(x, y, z) {
   let sum = 0;
-  let xSum = 0, ySum = 0;
+  let xSum = 0, ySum = 0, zSum=0;
+  function gcd (x,y) {
+    if (x === y) return x;
+    if (x > y) return gcd(x-y, y)
+    else return gcd(x, y-x)
+  }
+  let d = (x * y)/gcd(x,y);
   for (let i = 0; i < z; i+=x) {
     xSum += i;
   }
   for (let j = 0; j < z; j+=y) {
     ySum += j;
   }
-  for (let j = 0; j < z; j+=y) {
-    ySum += j;
+  for (let k = 0; k < z; k+=d) {
+    zSum += k;
   }  
-  sum = xSum + ySum;
+  sum = xSum + ySum - zSum;
   return sum;
 }
 
