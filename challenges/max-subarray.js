@@ -8,7 +8,20 @@
  */
 
 function maxSubarray(arr) {
+  if (arr.length === 0) return 0;
 
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    let sliced = arr.slice(i, arr.length);
+    for (let j = i; j < sliced.length; j++) {
+      sliced.reduce((acc, num) => {
+        acc = acc + num;
+        if (acc > sum) sum = acc;
+        return acc;
+      });
+    }
+  }
+  return sum;
 }
 
 module.exports = maxSubarray;
