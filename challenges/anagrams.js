@@ -13,7 +13,18 @@
   */
 
 function anagrams(string) {
-
+    let output = [];
+    function recurse(str, partialResult) {
+        if (str.length === 0) {
+            output.push(partialResult);
+            return;
+        }
+        for (let i=0; i < str.length; i++) {
+            recurse(str.slice(0,i) + str.slice(i+1), partialResult.concat(str[i]));
+        }
+        return output;
+    }
+    return recurse(string, '');
 }
 
 module.exports = anagrams;
