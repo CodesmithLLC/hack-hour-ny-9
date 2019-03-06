@@ -11,16 +11,28 @@ function maxSubarray(arr) {
   if (arr.length === 1) return arr[0];
   if (arr.filter(el => el > 0).length === arr.length) return arr.reduce((acc, curr)=> acc += curr, 0);
   if (arr.filter(el => el < 0).length === arr.length) return Math.max(...arr);  
-  let currentMax = arr[0];
-  let i = 1;
-  while (i < arr.length) {
-    if (currentMax < arr[i]) {
-      currentMax = arr[i];
+//   let currentMax = arr[0];
+//   let i = 1;
+//   while (i < arr.length) {
+//     if (currentMax < arr[i]) {
+//       currentMax = arr[i];
+//     }
+//     else {
+//       currentMax += arr[i] ;
+//     }
+//     i++;
+//   }
+  let currentMax = Math.max();
+  let sum = 0;
+  for (let i=0; i < arr.length; i++) {
+    for (let j=i; i < arr.length; j++) {
+      for (let k=i; k <= j; k++) {
+        sum += arr[k];
+        if (currentMax < sum) {
+          currentMax = sum;
+        }
+      }
     }
-    else {
-      currentMax += arr[i] ;
-    }
-    i++;
   }
 
   return currentMax;
