@@ -13,6 +13,8 @@
   */
 
 function anagrams(string) {
+  if (string.length === 0) return [];
+
   let permArray = string.split('').map((letter, i) => {
     const lettersToUse = string.split('');
     lettersToUse.splice(i, 1);
@@ -46,5 +48,4 @@ function anagrams(string) {
   }
 }
 
-console.log(anagrams('abc'));
 module.exports = anagrams;
