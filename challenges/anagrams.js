@@ -13,10 +13,13 @@
   */
 
 function anagrams(string) {
+    if (string.length === 0) return [];
     let output = [];
     function recurse(str, partialResult) {
         if (str.length === 0) {
-            output.push(partialResult);
+            if (output.indexOf(partialResult) < 0) {
+                output.push(partialResult);
+            }
             return;
         }
         for (let i=0; i < str.length; i++) {
