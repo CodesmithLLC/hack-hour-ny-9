@@ -22,15 +22,26 @@
  */
 
 function EventEmitter() {
-
+    this.events = [];
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-
+  // register a function in the event registry if it's new
+  for (let event of this.events) {
+    if (event.funcName === funcName) break;
+    else {
+      let event = {"funcName": funcName, : "func": func}
+      this.events.push(event);    
+    }
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+  // when an event is triggered, see if any function(s) associated with the event exist(s) in the events list
+  // run the function(s) if so
+  for (let event of this.events) {
+    if (event.funcName === funcName) {
+      event.funcName(...args);
+    }
 };
 
 module.exports = EventEmitter;
