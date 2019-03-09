@@ -15,7 +15,7 @@ function findInOrderedSet(arr, target) {
   if (target < Math.min(arr) || target > Math.max(arr)) return false;
   let mid = arr.length % 2 === 0 ? arr.length/2 : Math.floor(arr.length/2)
   // base case
-  if (arr.length === 0) return true;
+  if (arr.length === 1 && arr[0] === target) return true;
   if (target > mid) findInOrderedSet(arr.slice(mid), target)
   if (target < mid) findInOrderedSet(arr.slice(0,mid), target)
   return false;
