@@ -11,8 +11,13 @@ findInOrderedSet(nums, 2);  -> false
 
 
 function findInOrderedSet(arr, target) {
+  if (arr.length === 0) return false;
+  
+  const midPoint = Math.floor(arr.length / 2);
+  if (arr[midPoint] === target) return true;
 
+  if (target > arr[midPoint]) return findInOrderedSet(arr.slice(midPoint + 1), target);
+  else return findInOrderedSet(arr.slice(0, midPoint), target);
 }
-
 
 module.exports = findInOrderedSet;
