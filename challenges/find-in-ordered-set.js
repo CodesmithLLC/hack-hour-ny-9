@@ -9,10 +9,15 @@ findInOrderedSet(nums, 2);  -> false
 
  */
 
-
 function findInOrderedSet(arr, target) {
+  let mid = Math.floor(arr.length / 2);
 
+  if (arr[mid] === target) return true;
+  else if (arr[mid] > target)
+    return findInOrderedSet(arr.slice(0, mid), target);
+  else if (arr[mid] < target)
+    return findInOrderedSet(arr.slice(mid + 1), target);
+  return false;
 }
-
 
 module.exports = findInOrderedSet;
