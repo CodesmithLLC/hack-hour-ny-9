@@ -13,9 +13,9 @@ findInOrderedSet(nums, 2);  -> false
 function findInOrderedSet(arr, target) {
   // binary search
   if (target < Math.min(arr) || target > Math.max(arr)) return false;
-  let mid = arr.length % 2 === 0 ? Math.ceil(arr.length/2) : Math.floor(arr.length/2)
+  let mid = arr.length % 2 === 0 ? arr.length/2 : Math.floor(arr.length/2)
   if (target === mid) return true;
-  if (target > mid) findInOrderedSet(arr.slice(mid+1), target)
+  if (target > mid) findInOrderedSet(arr.slice(mid), target)
   if (target < mid) findInOrderedSet(arr.slice(0,mid), target)
   return false;
 }
