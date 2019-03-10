@@ -50,17 +50,18 @@ function addLinkedList(l1, l2) {
       resultCurr = resultCurr.next;
     }
   }
+  if (carry > 0) resultCurr.next = new Node(carry);
   return resultLL;
 }
 
-let node = new Node(2);
-node.next = new Node(1);
-node.next.next = new Node(5);
+// let node = new Node(2);
+// node.next = new Node(1);
+// node.next.next = new Node(8);
 
-let node2 = new Node(5);
-node2.next = new Node(9);
-node2.next.next = new Node(2);
+// let node2 = new Node(5);
+// node2.next = new Node(9);
+// node2.next.next = new Node(5);
 
-console.log(addLinkedList(node, node2));
+// console.log(addLinkedList(node, node2).next);
 
 module.exports = { Node: Node, addLinkedList: addLinkedList };
