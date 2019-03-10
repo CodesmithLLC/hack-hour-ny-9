@@ -27,8 +27,8 @@ function addLinkedList(l1, l2) {
   let resultCurr = resultLL;
   while (curr1 || curr2) {
     if (curr1 && curr2) {
-      if (curr1.value + curr2.value >= 10) {
-        resultCurr.value = (curr1.value + curr2.value) % 10 + carry;
+      if (curr1.value + curr2.value + carry >= 10) {
+        resultCurr.value = (curr1.value + curr2.value + carry) % 10;
         carry = 1;
       } else {
         resultCurr.value = curr1.value + curr2.value + carry;
@@ -54,6 +54,20 @@ function addLinkedList(l1, l2) {
   return resultLL;
 }
 
+function convertNumToLinked(num) {
+
+  let numStr = num.toString();
+  let result = new Node(Number(numStr[0]));
+  let curr = result;
+  for (let i = 1; i < numStr.length; i++) {
+    curr.next = new Node(Number(numStr[i]))
+    curr = curr.next;
+  }
+  return result;
+}
+
+// console.log(convertNumToLinked(1234));
+
 // let node = new Node(2);
 // node.next = new Node(1);
 // node.next.next = new Node(8);
@@ -61,7 +75,7 @@ function addLinkedList(l1, l2) {
 // let node2 = new Node(5);
 // node2.next = new Node(9);
 // node2.next.next = new Node(5);
-
-// console.log(addLinkedList(node, node2).next);
+// console.log(convertNumToLinked(123456).next.next.next.next);
+console.log(addLinkedList(convertNumToLinked(918724981724), convertNumToLinked(812498127389)).next.next.next.next);
 
 module.exports = { Node: Node, addLinkedList: addLinkedList };
