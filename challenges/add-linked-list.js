@@ -52,13 +52,13 @@ function addLinkedList(l1, l2) {
   return resultLL
 }
 
-let node = new Node(9);
-node.next = new Node(9);
-node.next.next = new Node(5);
+// let node = new Node(9);
+// node.next = new Node(9);
+// node.next.next = new Node(5);
 
-let node2 = new Node(8);
-node2.next = new Node(8);
+// let node2 = new Node(8);
+// node2.next = new Node(8);
 
-console.log(addLinkedList(node, node2));
+// console.log(addLinkedList(node, node2));
 
 module.exports = { Node: Node, addLinkedList: addLinkedList };
