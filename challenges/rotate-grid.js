@@ -18,8 +18,8 @@
 
 function rotateGrid(grid, n) {
   let result = [];
-  for (let k = 0; k < 3; k++) {
-    result.push(new Array(3))
+  for (let k = 0; k < n; k++) {
+    result.push(new Array())
   }
   for (let row = 0; row < n; row++) {
     for (let col = 0; col < n; col++) {
