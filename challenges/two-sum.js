@@ -3,7 +3,14 @@
  */
 
 function twoSum(arr, n) {
-
+  let allNums = {};
+  for (let i = 0; i < arr.length; i++) {
+    if (allNums[arr[i]]) return true;
+    allNums[n - arr[i]] = true;
+  }
+  return false;
 }
+
+console.log(twoSum([13, 5, 8, 12, 11, 2, 1], 26))
 
 module.exports = twoSum;
