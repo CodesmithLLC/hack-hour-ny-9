@@ -17,15 +17,25 @@
  */
 
 function rotateGrid(grid, n) {
-  let result = [];
-  for (let k = 0; k < n; k++) {
-    result.push(new Array())
-  }
+  // let result = [];
+  // for (let k = 0; k < n; k++) {
+  //   result.push(new Array())
+  // }
+  //
+  /* DO IT IN PLACE */
+  let queue = [];
   for (let row = 0; row < n; row++) {
     for (let col = 0; col < n; col++) {
-      result[row][col] = grid[n - col - 1][row];
+      queue.push(grid[n - col - 1][row]);
+      grid[row][col] = grid[n - col - 1][row];
     }
   }
+  // for (let row = 0; row < n; row++) {
+  //   for (let col = 0; col < n; col++) {
+  //     queue.push(grid[n - col - 1][row]);
+  //     result[row][col] = grid[n - col - 1][row];
+  //   }
+  // }
   return result;
 }
 
