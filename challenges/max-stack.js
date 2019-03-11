@@ -17,6 +17,7 @@ function Stack() {
       this.max = value;
     }
     this.length += 1;
+    return this.length;
   };
   this.pop = () => {
     if (this.length > 0) {
