@@ -19,6 +19,4 @@ function repeatNumbers(array) {
   return actualSum - sum;
 }
 
-console.log(repeatNumbers([1, 2, 3, 4, 4]));
-
 module.exports = repeatNumbers;
