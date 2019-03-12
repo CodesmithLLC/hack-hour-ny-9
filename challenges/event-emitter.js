@@ -34,3 +34,30 @@ EventEmitter.prototype.trigger = function(funcName, ...args) {
 };
 
 module.exports = EventEmitter;
+//==================================raph====================================
+
+
+function EventEmitter() {
+    // Set store for events and functions
+    this.events = {};
+  }
+  
+  EventEmitter.prototype.on = function(event, func) {
+    // If event exists, push onto array
+    if (this.events[event]) {
+      this.events[event].push(func);
+    }
+    // Else assign event to a new array with function as first element
+    else {
+      this.events[event] = [func];
+    }
+  };
+  
+  EventEmitter.prototype.trigger = function(event, ...args) {
+    // If event exists, run every function for event
+    if (this.events[event]) {
+      this.events[event].forEach(func => {
+        func(...args);
+      });
+    } else return undefined;
+  };
