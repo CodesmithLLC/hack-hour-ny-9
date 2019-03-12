@@ -8,7 +8,6 @@
 
 function Stack() {
   this.storage = [];
-  this.length = 0;
   this.max = -Infinity;
 
   this.push = (value) => {
@@ -16,17 +15,18 @@ function Stack() {
     if (value > this.max) {
       this.max = value;
     }
-    this.length += 1;
-    return this.length;
+    return this.storage.length;
   };
+
   this.pop = () => {
-    if (this.length > 0) {
-      this.length -= 1;
-      const popped = this.storage.pop();
-      this.max = Math.max(...this.storage);
-      return popped;
+    if (this.length === 0) {
+      return undefined;
     }
+    const popped = this.storage.pop();
+    this.max = Math.max(...this.storage);
+    return popped;
   };
+
   this.getMax = () => this.max;
 }
 
