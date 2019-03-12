@@ -4,46 +4,69 @@
 
 
 function Stack() {
-  this.stck = [];
-
-  Stack.prototype.push = (val) => {
-    this.stck[this.stck.length] = val;
+  this.stack = [];
+  this.push = (val) => {
+    this.stack.push(val);
+    // console.log(this.stack);
   }
-
-  Stack.prototype.pop = () => {
-    if (this.stck.length > 0) {
-      this.returnValue = this.stck[this.stck.length - 1];
-      this.stck.length = this.stck.length - 1;
+  this.pop = () => {
+    if (this.stack.length > 0) {
+      let returnValue = this.stack[this.stack.length - 1];
+      this.stack.length = this.stack.length - 1;
       return returnValue;
     }
     return undefined;
   }
-
 }
+
+// let stack1 = new Stack();
+// stack1.push("hi");
+// console.log(stack1.stack);
 
 /**
 * Queue Class
 */
 
-
 function Queue() {
-  this.stck1 = new Stack();
-  this.stck2 = new Stack();
+  this.stack1 = new Stack();
+  this.stack2 = new Stack();
 
-  Queue.prototype.enqueue = (val) => {
-    this.stck1.push(val);
+  this.enqueue = (val) => {
+    this.stack1.push(val);
   }
-  Queue.prototype.dequeue = () => {
-    if (this.stck1.length === 0) return undefined;
-    if (this.stck2.length === 0) stck2.push(stck1.stck[0]);
 
-    if (this.stck2.length > 0) {
-      while (this.stck1.length > 0) {
-        this.stck2.push(this.stck1.pop());
-      }
+  this.dequeue = () => {
+    if (this.stack2.stack.length > 0) return this.stack2.pop();
+    else {
+      if (this.stack1.length === 0) return;
+      while (this.stack1.stack.length > 0) this.stack2.push(this.stack1.pop());
+      return this.stack2.pop();
     }
-    return this.stck2.pop();
   }
+
+  // this.enqueue = (val) => {
+  //   console.log('stack1', this.stack1.stack);
+  //   console.log('stack2', this.stack2.stack);
+  //   if (this.stack1.stack.length === 0) {
+  //     this.stack1.push(val);
+  //   }
+  //   else this.stack2.push(val);
+  // }
+  // this.dequeue = () => {
+  //   // console.log('stack', this.stack1.stack);
+  //   if (this.stack1.stack.length === 0) return undefined;
+  //   let returnValue = this.stack1.pop();
+  //   while (this.stack2.stack.length > 0) this.stack1.push(this.stack2.pop());
+  //   while (this.stack1.stack.length > 1) this.stack2.push(this.stack1.pop());
+  //   return returnValue;
+  // }
 }
 
+// let que = new Queue();
+// que.enqueue(5);
+// que.enqueue(6);
+// que.enqueue(7);
+// console.log(que.dequeue());
+// console.log(que.dequeue());
+// console.log(que.dequeue());
 module.exports = { Stack: Stack, Queue: Queue };
