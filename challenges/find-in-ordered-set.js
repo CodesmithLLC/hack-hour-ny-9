@@ -23,7 +23,6 @@ function findInOrderedSet(arr, target) {
   }
   return findInOrderedSet(arr, target)
 }
-console.log(findInOrderedSet([1, 4, 6, 7, 9, 17, 45], 2))
 
 
 module.exports = findInOrderedSet;
