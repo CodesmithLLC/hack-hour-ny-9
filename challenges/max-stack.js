@@ -27,7 +27,12 @@ function Stack() {
     return popped;
   };
 
-  this.getMax = () => this.max;
+  this.getMax = () => {
+    if (this.length === 0) {
+      return undefined;
+    }
+    return this.max;
+  };
 }
 
 module.exports = Stack;
