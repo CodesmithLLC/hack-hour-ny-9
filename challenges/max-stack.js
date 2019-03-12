@@ -28,7 +28,7 @@ function Stack() {
   };
 
   this.getMax = () => {
-    if (this.length === 0) {
+    if (this.storage.length === 0) {
       return undefined;
     }
     return this.max;
