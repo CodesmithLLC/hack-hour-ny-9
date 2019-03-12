@@ -10,7 +10,22 @@
  *
  */
 function uniqueNumber(array) {
+  let cache = {}
+  for (let i = 0; i < array.length; i++) {
+    if (cache[array[i]]) {
+      cache[array[i]] += 1
+    } else {
+      cache[array[i]] = 1
+    }
+  }
 
+  for (let i in cache) {
+    if (cache[i] === 1) {
+      return i;
+    }
+  }
 }
+
+console.log(uniqueNumber([1, 2, 1, 3, 3]))
 
 module.exports = uniqueNumber;
