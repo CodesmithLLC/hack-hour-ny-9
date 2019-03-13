@@ -10,7 +10,28 @@
  */
 
 function getAllProducts(array) {
+  if (array.length === 0) return [];
+  let isZero = false;
 
+  const nonZeroProduct = array.reduce((accm, curr) => {
+    if (curr !== 0) return accm * curr;
+    else {
+      isZero = true;
+      return accm;
+    }
+  }, 1);
+
+  if (isZero) {
+    return [nonZeroProduct, 0];
+  }
+
+  const productsSet = new Set();
+  for (let num of array) {
+    if (num === 0) productsSet.add(0);
+    else productsSet.add(nonZeroProduct / num);
+  }
+
+  return Array.from(productsSet);
 }
 
 module.exports = getAllProducts;
