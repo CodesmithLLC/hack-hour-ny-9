@@ -10,7 +10,7 @@
  */
 
 function getAllProducts(array) {
-  if (array.length === 0) return [];
+  if (array.length === 0) return [0];
   if (array.filter(el => el === 0).length === 1) return [array.reduce((acc, curr) => curr === 0 ? acc : acc*curr, 1), 0];
   if (array.filter(el => el === 0).length > 1) return [0];
   let products = [];
@@ -21,8 +21,6 @@ function getAllProducts(array) {
   const set = new Set(products);
   return Array.from(set);
 }
-  
-getAllProducts([1, 7, 3, 4]);
   
   
 module.exports = getAllProducts;
