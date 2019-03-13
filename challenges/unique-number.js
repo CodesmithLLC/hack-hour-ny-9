@@ -16,16 +16,21 @@ function uniqueNumber(array) {
   //   return acc += curr;
   // }, 0);
   //o(n) just use an object to store the count times and at the end return the one with 1 count
-  let obj = {};
+  // let obj = {};
+  // for (let i = 0; i < array.length; i++) {
+  //   if (obj[array[i]]) obj[array[i]]++;
+  //   else obj[array[i]] = 1;
+  // }
+  // for (key in obj) {
+  //   // console.log(key, obj[key]);
+  //   if (obj[key] === 1) return key;
+  // }//
+  // return;
+  let result = 0;
   for (let i = 0; i < array.length; i++) {
-    if (obj[array[i]]) obj[array[i]]++;
-    else obj[array[i]] = 1;
+    result = result ^ array[i];
   }
-  for (key in obj) {
-    // console.log(key, obj[key]);
-    if (obj[key] === 1) return key;
-  }//
-  return;
+  return result;
   //o(1) pointers?
   // for (let i = 0; i < array.length; i++) {
   //   let index = Math.abs(array[i]) - 1;
