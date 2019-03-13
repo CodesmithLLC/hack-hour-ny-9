@@ -10,6 +10,7 @@
  */
 
 function getAllProducts(array) {
+  if (array.length === 0) return [];
   if (array.filter(el => el === 0).length === 1) return [array.reduce((acc, curr) => curr === 0 ? acc : acc*curr, 1), 0];
   if (array.filter(el => el === 0).length > 1) return [0];
   let products = [];
