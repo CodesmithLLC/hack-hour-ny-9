@@ -24,7 +24,7 @@ function uniqueNumber(array) {
   for (key in obj) {
     // console.log(key, obj[key]);
     if (obj[key] === 1) return key;
-  }
+  }//
   return;
   //o(1) pointers?
   // for (let i = 0; i < array.length; i++) {
