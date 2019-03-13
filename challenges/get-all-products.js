@@ -29,9 +29,12 @@ function getAllProducts(array) {
   let products = [];
   const product = array.reduce((acc, curr) => acc*curr, 1);
   for (let i=0; i < array.length; i++) {
-    products.push(product/array[i]);
+    const p = product/array[i];
+    if (products.indexOf(p) < 0) {
+      products.push(p);
+    }
   }
-  return Array.from(new Set(products));
+  return products;
 }
   
 module.exports = getAllProducts;
