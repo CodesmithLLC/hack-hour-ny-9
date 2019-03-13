@@ -27,10 +27,9 @@ function getAllProducts(array) {
   if (array.filter(el => el === 0).length === 1) return [array.reduce((acc, curr) => curr === 0 ? acc : acc*curr, 1), 0];
   if (array.filter(el => el === 0).length > 1) return [0];
   let products = [];
-  else {
-    const product = array.reduce((acc, curr) => acc*curr, 1);
-    for (let i=0; i < array.length; i++) {
-      products.push(product/array[i]);
+  const product = array.reduce((acc, curr) => acc*curr, 1);
+  for (let i=0; i < array.length; i++) {
+    products.push(product/array[i]);
   }
   return products;
 }
