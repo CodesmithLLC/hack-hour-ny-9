@@ -31,7 +31,7 @@ function getAllProducts(array) {
   for (let i=0; i < array.length; i++) {
     products.push(product/array[i]);
   }
-  return products;
+  return Array.from(new Set(products));
 }
   
 module.exports = getAllProducts;
