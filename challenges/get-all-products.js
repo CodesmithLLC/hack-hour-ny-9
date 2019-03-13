@@ -9,18 +9,30 @@
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
 
+// function getAllProducts(array) {
+//   if (array.length === 0) return [0];
+//   if (array.filter(el => el === 0).length === 1) return [array.reduce((acc, curr) => curr === 0 ? acc : acc*curr, 1), 0];
+//   if (array.filter(el => el === 0).length > 1) return [0];
+//   let products = [];
+//   for (let i=0; i < array.length; i++) {
+//     let prodArray = array.slice(0,i).concat(array.slice(i+1));
+//     products.push(prodArray.reduce((acc, curr) => acc*curr, 1));
+//   }
+//   const set = new Set(products);
+//   return Array.from(set);
+// }
+
 function getAllProducts(array) {
   if (array.length === 0) return [0];
   if (array.filter(el => el === 0).length === 1) return [array.reduce((acc, curr) => curr === 0 ? acc : acc*curr, 1), 0];
   if (array.filter(el => el === 0).length > 1) return [0];
   let products = [];
-  for (let i=0; i < array.length; i++) {
-    let prodArray = array.slice(0,i).concat(array.slice(i+1));
-    products.push(prodArray.reduce((acc, curr) => acc*curr, 1));
+  else {
+    const product = array.reduce((acc, curr) => acc*curr, 1);
+    for (let i=0; i < array.length; i++) {
+      products.push(product/array[i]);
   }
-  const set = new Set(products);
-  return Array.from(set);
+  return products;
 }
-  
   
 module.exports = getAllProducts;
