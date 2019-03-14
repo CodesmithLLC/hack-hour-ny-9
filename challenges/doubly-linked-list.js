@@ -36,10 +36,10 @@ LinkedList.prototype.remove = function (val) {
   if (this.head.val === val && this.tail.val === val) {
     this.head = null;
     this.tail = null;
-  } else if (head.val === val) {
+  } else if (this.head.val === val) {
     this.head = this.head.next;
     this.head.prev = null;
-  } else if (tail.val === val) {
+  } else if (this.tail.val === val) {
     this.tail = this.tail.prev;
     this.tail.next = null;
   } else {
@@ -52,5 +52,12 @@ LinkedList.prototype.remove = function (val) {
     }
   }
 };
+
+let ll = new LinkedList();
+
+ll.add(5);
+ll.add(7);
+ll.add(8);
+ll.add(7);
 
 module.exports = LinkedList;
