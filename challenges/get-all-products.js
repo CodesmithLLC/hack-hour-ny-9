@@ -10,7 +10,19 @@
  */
 
 function getAllProducts(array) {
-
+  let product = array.reduce((curr, acc) => {
+    return acc * curr;
+  }, 1)
+  let result = [];
+  array.forEach(num => {
+    result.push(product / num);
+  });
+  return result;
+  // return array.reduce((curr, acc) => {
+  //   acc.push(product / curr);
+  //   return acc;
+  // }, [])
 }
+// console.log(getAllProducts([1, 7, 3, 4]))
 
 module.exports = getAllProducts;
