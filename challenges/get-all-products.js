@@ -14,10 +14,14 @@ function getAllProducts(array) {
   if (array.length === 0) return [0];
 
   const results = [];
+  let zeroIsFound = false;
 
   const totalMultipleNoZeros = array.reduce((total, num) => {
     if (num !== 0) total *= num;
-    else results.push(0);
+    else if (!zeroIsFound) {
+      zeroIsFound = true;
+      results.push(0);
+    } 
     return total
   }, 1);
 
