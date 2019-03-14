@@ -17,7 +17,7 @@ function Node(val) {
 Adds a node to the end of the list
  */
 LinkedList.prototype.add = function (val) {
-  if (!head && !tail) {
+  if (!this.head && !this.tail) {
     let newNode = new Node(val);
     this.head = newNode
     this.tail = newNode
@@ -43,7 +43,7 @@ LinkedList.prototype.remove = function (val) {
     this.tail = this.tail.prev;
     this.tail.next = null;
   } else {
-    let curr = head.next;
+    let curr = this.head.next;
     while (curr) {
       if (curr.val === val) {
         curr.next.prev = curr.prev;
