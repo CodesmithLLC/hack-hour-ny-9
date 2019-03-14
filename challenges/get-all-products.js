@@ -10,13 +10,25 @@
  */
 
 function getAllProducts(array) {
-  let product = array.reduce((curr, acc) => {
-    return acc * curr;
-  }, 1)
+  if (array.length === 0) return [0];
+  //DOESNT WORK WITH ZEROES
+  // let product = array.reduce((curr, acc) => {
+  //   return acc * curr;
+  // }, 1)
+  // let result = [];
+  // array.forEach(num => {
+  //   if ()
+  //   result.push(product / num);
+  // });
+  let product;
   let result = [];
-  array.forEach(num => {
-    result.push(product / num);
-  });
+  for (let i = 0; i < array.length; i++) {
+    product = 1;
+    for (let j = 0; j < array.length; j++) {
+      if (j !== i) product *= array[j];
+    }
+    result.push(product);
+  }
   return result;
   // return array.reduce((curr, acc) => {
   //   acc.push(product / curr);
