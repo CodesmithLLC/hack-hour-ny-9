@@ -11,17 +11,21 @@
 
 function getAllProducts(array) {
   if (!Array.isArray(array)) return [];
+  if (array.length === 0) return [0];
 
   const results = [];
-  for (let i = 0; i < array.length; i++) {
-    results.push(
-      array.reduce((total, num, j) => {
-        if (i !== j) total *= num;
-        return total
-    }, 1))
-  };
 
-  return results
+  const totalMultipleNoZeros = array.reduce((total, num) => {
+    if (num !== 0) total *= num;
+    else results.push(0);
+    return total
+  }, 1);
+
+  array.forEach(num => {
+    if (num !== 0) results.push(totalMultipleNoZeros / num);
+  })
+
+  return results;
 }
 
 module.exports = getAllProducts;
