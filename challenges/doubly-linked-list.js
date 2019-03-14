@@ -18,8 +18,9 @@ Adds a node to the end of the list
  */
 LinkedList.prototype.add = function (val) {
   if (!head && !tail) {
-    this.head = new Node(val);
-    this.tail = new Node(val);
+    let newNode = new Node(val);
+    this.head = newNode
+    this.tail = newNode
   } else {
     let newNode = new Node(val);
     this.tail.next = newNode;
