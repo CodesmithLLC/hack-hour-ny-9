@@ -35,7 +35,7 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
   for (let i = 0; i < x.length; i++) {
     // distance between tyus/destination and i-th circle center
     const tyusDistance = Math.sqrt(Math.pow(x[i] - start_x, 2) + Math.pow(y[i] - start_y, 2));
-    const destinationDistance = Math.sqrt(Math.pow(x[i] - end, 2) + Math.pow(y[i] - end, 2));
+    const destinationDistance = Math.sqrt(Math.pow(x[i] - end_x, 2) + Math.pow(y[i] - end_y, 2));
 
     if (tyusDistance < r[i] && destinationDistance < r[i]) continue;
 
@@ -45,4 +45,8 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
   return circleCount;
 }
 
+const x = [1, 3];
+const y = [1, 4];
+const r = [1, 1];
+console.log(circleCountry(x, y, r, 1.5, 1, 3, 3.5));
 module.exports = circleCountry;
