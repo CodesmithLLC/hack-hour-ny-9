@@ -25,11 +25,6 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
-  // get circles that Tyus is inside of (by index) and circles
-  // that the END coordinates are inside of
-
-  const tyusCircles = [];
-  const destinationCircles = [];
   let circleCount = 0;
 
   for (let i = 0; i < x.length; i++) {
@@ -45,8 +40,4 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
   return circleCount;
 }
 
-const x = [1, 3];
-const y = [1, 4];
-const r = [1, 1];
-console.log(circleCountry(x, y, r, 1.5, 1, 3, 3.5));
 module.exports = circleCountry;
