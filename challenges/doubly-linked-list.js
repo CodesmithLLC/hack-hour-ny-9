@@ -17,7 +17,7 @@ function Node(val) {
 Adds a node to the end of the list
  */
 LinkedList.prototype.add = function(val) {
-  const newNode = new Node(value);
+  const newNode = new Node(val);
   if (!this.head) {
     this.head = newNode;
     this.tail = newNode;
