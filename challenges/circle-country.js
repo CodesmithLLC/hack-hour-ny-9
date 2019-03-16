@@ -24,8 +24,8 @@
 
 const circleCountry = (x, y, r, start_x, start_y, end_x, end_y) => (
   x.reduce((acc, xI, i) => {
-    let distanceToStart = Math.hypot(start_x - xI, start_y - y[i]);
-    let distanceToEnd = Math.hypot(end_x - xI, end_y - y[i]);
+    const distanceToStart = Math.hypot(start_x - xI, start_y - y[i]);
+    const distanceToEnd = Math.hypot(end_x - xI, end_y - y[i]);
     return (distanceToStart < r[i]) !== (distanceToEnd < r[i]) ? ++acc : acc;
   }, 0)
 )
