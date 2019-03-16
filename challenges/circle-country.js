@@ -22,27 +22,12 @@
  *
  */
 
-const circleCountry = (x, y, r, start_x, start_y, end_x, end_y) => {
-  let distanceToStart = 0;
-  let distanceToEnd = 0;
-  let bordersCount = 0;
-  for (let i = 0; i < x.length; i++) {
-    distanceToStart = getDistance(start_x, x[i], start_y, y[i]);
-    distanceToEnd = getDistance(end_x, x[i], end_y, y[i]);
-    // console.log('r', r[i]);
-    // console.log('distanceToStart', distanceToStart);
-    // console.log('distanceToEnd', distanceToEnd);
-    if (distanceToStart < r[i] && distanceToEnd < r[i]) continue;
-    if (distanceToStart < r[i] || distanceToEnd < r[i]) bordersCount += 1;
-    // console.log('bordersCount', bordersCount);
-  }
-  return bordersCount;
-};
-
-const getDistance = (x1, x2, y1, y2) => (
-  Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2))
-);
-
-// console.log(circleCountry([2,3,4], [2,3,4], [1,2,1], 2.5, 2, 4.5, 4));
+const circleCountry = (x, y, r, start_x, start_y, end_x, end_y) => (
+  x.reduce((acc, xI, i) => {
+    let distanceToStart = Math.hypot(start_x - xI, start_y - y[i]);
+    let distanceToEnd = Math.hypot(end_x - xI, end_y - y[i]);
+    return (distanceToStart < r[i]) !== (distanceToEnd < r[i]) ? ++acc : acc;
+  }, 0)
+)
 
 module.exports = circleCountry;
