@@ -26,11 +26,34 @@
 
 //  return the number associated with the name in the jazbook
 function findName(jazbook, name) {
-
+  const sorted = jazbook.sort((a,b) => a[0]-b[0])
+  for (let el of sorted) {
+    if (el[0] === name) {
+      return el[1];
+    }
+  }
+  return false;
 }
 
 // return an object literal representing the jazbook
-function makePhoneBookObject(jazbook){
+function makePhoneBookObject(jazbook, name){
+   this.book = jazbook.reduce((acc, curr) => {
+     if (!acc[curr[0]) {
+       acc[curr[0]] = curr[1];
+     }
+     return acc;
+    }, {})
+   }
+   function addNewName(name) {
+    if (!this.book(name)) this.book[name] = ;
+   }
+   function findName(name) {
+    if (this.book(name)) return this.book[name];
+   }
+
+   function removeName(name) {
+    if (this.book(name)) delete this.book[name];
+   }
 
 }
 
