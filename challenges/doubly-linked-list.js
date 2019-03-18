@@ -37,17 +37,16 @@ Removes the first node with the inputted value
  */
 LinkedList.prototype.remove = function (val) {
   let current = this.head
-  let post = current.next
   let pre = current.prev
   if (this.head.val === val) {
     post = this.head
     return current.val
   } else {
-    let post = current.next
-    let pre = current.prev
-    current = current.next
     if (current.val === val) {
-
+      pre.next = current.next
+      return current.val
+    } else {
+      current = current.next
     }
   }
 };
