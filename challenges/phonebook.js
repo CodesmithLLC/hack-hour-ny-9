@@ -34,19 +34,19 @@ function findName(jazbook, name) {
 
 // return an object literal representing the jazbook
 function makePhoneBookObject(jazbook) {
-  this.phonebook = jazbook.reduce((acc, curr) => {
+  return jazbook.reduce((acc, curr) => {
     acc[curr[0]] = curr[1];
     return acc;
   }, {})
-  this.add = (name, phonenumber) => {
-    this.phonebook[name] = phonenumber
-  }
-  this.findName = (name) => {
-    return this.phonebook[name];
-  }
-  this.remove = (name) => {
-    delete this.phonebook[name];
-  }
+  // this.add = (name, phonenumber) => {
+  //   this.phonebook[name] = phonenumber
+  // }
+  // this.findName = (name) => {
+  //   return this.phonebook[name];
+  // }
+  // this.remove = (name) => {
+  //   delete this.phonebook[name];
+  // }
 }
 
 // jazbook = [
