@@ -14,22 +14,30 @@ function knightjumps(str) {
   let valid = 0;
   const x = parseInt(str.split('')[1], 10);
   const y = parseInt(str.split('')[3], 10);
+  
+  if (x === 0 && y===0 ||
+      x === 8 && y===8 ||
+      x === 0 && y===8 ||
+      x === 8 && y===0 ) return 2;
+  
+  if (x === 0 || y === 0) return 4;
+      
   if (x + 1 <= 8 && y + 2 <= 8) {
     valid += 1;
   }
   if (x + 2 <= 8 && y + 1 <= 8) {
     valid += 1;
   }
-  if (x - 1 <= 8 && y + 2 <= 8) {
+  if (x - 1 >= 0 && y + 2 <= 8) {
     valid += 1;
   }
-  if (x - 2 <= 8 && y + 1 <= 8) {
+  if (x - 2 >= 0 && y + 1 <= 8) {
     valid += 1;
   }
-  if (x - 1 <= 8 && y - 2 <= 8) {
+  if (x - 1 >= 0 && y - 2 >= 0) {
     valid += 1;
   }
-  if (x - 2 <= 8 && y - 1 <= 8) {
+  if (x - 2 >= 0 && y - 1 >= 0) {
     valid += 1;
   }
   if (x + 1 <= 8 && y + 2 <= 8) {
