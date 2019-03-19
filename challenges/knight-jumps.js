@@ -23,11 +23,11 @@ function knightjumps(str) {
     if (y + 1 < 9) validJumps++;
     if (y - 1 > 0) validJumps++;
   }
-  if (x + 2 < 8) {
+  if (x + 2 < 9) {
     if (y + 1 < 9) validJumps++;
     if (y - 1 > 0) validJumps++;
   }
-  if (y + 2 < 8) {
+  if (y + 2 < 9) {
     if (x + 1 < 9) validJumps++;
     if (x - 1 > 0) validJumps++;
   }
