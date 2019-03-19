@@ -18,12 +18,18 @@ function knightjumps(str) {
   possible.push([a + 2, b + 1], [a - 2, b + 1], [a + 2, b - 1], [a - 2, b - 1])
   possible.push([a + 1, b + 2], [a - 1, b + 2], [a + 1, b - 2], [a - 1, b - 2])
 
+  console.log(possible)
+
   for (let i = 0; i < possible.length; i++) {
-    if (1 <= possible[i][0] <= 8 || 1 <= possible[i][1] <= 8) {
+    if (1 <= possible[i][0] && possible[i][0] <= 8 && 1 <= possible[i][1] && possible[i][1] <= 8) {
       real.push(possible[i])
     }
   }
+
+  console.log(real)
   return real.length
 }
+
+console.log(knightjumps("(1 1)"))
 
 module.exports = knightjumps;
