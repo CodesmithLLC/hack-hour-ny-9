@@ -11,27 +11,19 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-  let a = str[1]
-  let b = str[3]
-  console.log(a, b)
-}
-
-function possibilities(str) {
   let a = Number(str[1])
   let b = Number(str[3])
   let possible = []
   let real = []
   possible.push([a + 2, b + 1], [a - 2, b + 1], [a + 2, b - 1], [a - 2, b - 1])
   possible.push([a + 1, b + 2], [a - 1, b + 2], [a + 1, b - 2], [a - 1, b - 2])
-  // console.log(possible)
+
   for (let i = 0; i < possible.length; i++) {
     if (1 <= possible[i][0] <= 8 || 1 <= possible[i][1] <= 8) {
       real.push(possible[i])
     }
   }
-  console.log(real)
+  return real.length
 }
-
-console.log(possibilities("(4 5)"))
 
 module.exports = knightjumps;
