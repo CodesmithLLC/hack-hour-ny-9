@@ -11,6 +11,35 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  let valid = 0;
+  const x = parseInt(str.split('')[1], 10);
+  const y = parseInt(str.split('')[3], 10);
+  if (x + 1 <= 8 && y + 2 <= 8) {
+    valid += 1;
+  }
+  if (x + 2 <= 8 && y + 1 <= 8) {
+    valid += 1;
+  }
+  if (x - 1 <= 8 && y + 2 <= 8) {
+    valid += 1;
+  }
+  if (x - 2 <= 8 && y + 1 <= 8) {
+    valid += 1;
+  }
+  if (x - 1 <= 8 && y - 2 <= 8) {
+    valid += 1;
+  }
+  if (x - 2 <= 8 && y - 1 <= 8) {
+    valid += 1;
+  }
+  if (x + 1 <= 8 && y + 2 <= 8) {
+    valid += 1;
+  }
+  if (x + 2 <= 8 && y + 1 <= 8) {
+    valid += 1;
+  }
+
+  return valid;
 
 }
 
