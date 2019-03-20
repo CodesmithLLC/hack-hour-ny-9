@@ -18,7 +18,20 @@
  */
 
 function newIntersections(x, y){
-
+  // calculate bounds of the largest enclosing rectangle
+  // calculate left bounds of periphery
+  const x_max = x.reduce((acc,curr,idx) => acc[0] < curr ? [curr,idx] : acc, [Number.MIN_VALUE, -1])[1];
+  // calculate right bounds of periphery
+  const x_min = x.reduce((acc,curr,idx) => acc[0] > curr ? [curr,idx] : acc, [Number.MAX_VALUE, -1])[1];
+  // calculate top bounds of periphery
+  const y_max = y.reduce((acc,curr,idx) => acc[0] > curr ? [curr,idx] : acc, [Number.MIN_VALUE, -1])[1];
+  // calculate bottom bounds of periphery
+  const y_min = y.reduce((acc,curr,idx) => acc[0] < curr ? [curr,idx] : acc, [Number.MAX_VALUE, -1])[1];
+  
+  const rowNums = x_max - x_min - 1;
+  const colNums = y_max - y_min - 1;
+  
+  return rowNums * colNums;
 }
 
 module.exports = newIntersections;
