@@ -10,11 +10,14 @@
 //  example input:
 // var str = "(4 5)"
 
-const checkIfInside = (x, y) => x >= 0 && x <= 8 && y >= 0 && y <= 8;
+const checkIfInside = (x, y) => x > 0 && x <= 8 && y > 0 && y <= 8;
 
 const knightjumps = str => {
   const knightX = Number(str[1]);
   const knightY = Number(str[3]);
+
+  if (!checkIfInside(knightX, knightY)) return 0;
+
   let counter = 0;
 
   for (let x = -2; x <= 2; x++) {
