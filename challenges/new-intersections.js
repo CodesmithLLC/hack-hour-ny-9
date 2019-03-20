@@ -56,9 +56,9 @@ function newIntersections(x, y){
     const [y0, y1] = repeatedXInd[x];
 
     for (let y in repeatedYInd) {
-      if (y >= y0 && y <= y1) {
+      if (y > y0 && y < y1) {
         const [x0, x1] = repeatedYInd[y];
-        if (x >= x0 && x <= x1) crossCount++;
+        if (x > x0 && x < x1) crossCount++;
       }
     }
   }
