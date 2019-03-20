@@ -28,7 +28,6 @@ const knightjumps = str => {
     if (checkIfInside(x + knightX, y1 + knightY)) counter++;
     if (checkIfInside(x + knightX, y2 + knightY)) counter++;
   }
-  console.log(typeof counter);
   return counter;
 }
 
