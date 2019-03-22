@@ -15,3 +15,47 @@ function knightjumps(str) {
 }
 
 module.exports = knightjumps;
+
+//========================================ryan=========================================
+
+function knightjumps(str) {
+    const x = parseInt(str[1]);
+    const y = parseInt(str[3]);
+  
+    let spaces = 0;
+  
+    // if the knight can move to the LEFT ONE space...
+    if (x - 1 >= 1) {
+      // ...check if the knight can move DOWN TWO spaces
+      if (y - 2 >= 1) spaces += 1;
+      // ...check if the knight can move UP TWO spaces
+      if (y + 2 <= 8) spaces += 1;
+    }
+  
+    // if the knight can move to the LEFT TWO spaces...
+    if (x - 2 >= 1) {
+      // ...check if the knight can move DOWN ONE space
+      if (y - 1 >= 1) spaces += 1;
+      // ...check if the knight can move UP ONE space
+      if (y + 1 <= 8) spaces += 1;
+    }
+  
+    // if the knight can move to the RIGHT ONE space...
+    if (x + 1 <= 8) {
+      // ...check if the knight can move DOWN TWO spaces
+      if (y - 2 >= 1) spaces += 1;
+      // ...check if the knight can move UP TWO spaces
+      if (y + 2 <= 8) spaces += 1;
+    }
+  
+    // if the knight can move to the RIGHT TWO spaces...
+    if (x + 2 <= 8) {
+      // ...check if the knight can move DOWN ONE space    
+      if (y - 1 >= 1) spaces += 1;
+      // ...check if the knight can move UP ONE space
+      if (y + 1 <= 8) spaces += 1;
+    }
+  
+    return spaces;
+  }
+  
