@@ -43,7 +43,31 @@ expectations = {
 
 
 function getPINs(observed) {
-
+    const input = observed.toString();
+    let output = [];
+    const map = {   "1": [2,4,1],
+                    "2": [1,3,5,2],
+                    "3": [2,6,3],
+                    "4": [1,5,7,4],
+                    "5": [2,4,6,8,5],
+                    "6": [3,5,9,6],
+                    "7": [4,8,7],
+                    "8": [7,5,9,0,8],
+                    "9": [6,8,9],
+                    "0": [8,0]
+                };
+    function recurse(data, partialResults) {
+        if (!data.length) {
+            output.push(partialResults);
+            return;
+        }
+        const entry = map[data[0]];
+        for (let i=0; i < map[data[0]].length; i++) {
+            recurse(data.slice(1), partialResults.concat(entry[i]))
+        }
+    }
+    recurse(input, "")
+    return output;
 }
 
 
