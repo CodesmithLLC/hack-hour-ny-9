@@ -81,11 +81,9 @@ function getPINs(observed) {
     }
   }
 
-  helper(0, '')
+  helper(0, '');
   return results;
 }
-
-console.log(getPINs('11'));
 
 
 module.exports = getPINs
