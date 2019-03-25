@@ -39,34 +39,21 @@ expectations = {
 
 */
 
-
-const getPosibilities = (observed) => {
-  const posibilities = [];
-  observed.split('').forEach((numStr) => {
-    const tempArr = [];
-    const num = Number(numStr);
-    tempArr.push(num);
-    if (num + 1 > 0 && num + 1 <= 9) {
-      tempArr.push(num + 1);
-    }
-    if (num - 1 > 0 && num - 1 <= 9) {
-      tempArr.push(num - 1);
-    }
-    if (num + 3 > 0 && num + 3 <= 9) {
-      tempArr.push(num + 3);
-    }
-    if (num - 3 > 0 && num - 3 <= 9) {
-      tempArr.push(num -3);
-    }
-    if (num === 8) tempArr.push(0);
-    posibilities.push(tempArr);
-  })
-  return posibilities;
-}
-
 function getPINs(observed) {
   const results = [];
-  const posibilities = getPosibilities(observed);
+  const possibilities = {
+    0: [0, 8],
+    1: [1, 2, 4],
+    2: [1, 2, 3, 5],
+    3: [2, 3, 6],
+    4: [1, 4, 5, 7],
+    5: [2, 4, 5, 6, 8],
+    6: [3, 5, 6, 9],
+    7: [4, 7, 8],
+    8: [5, 7, 8, 9, 0],
+    9: [6, 8, 9],
+    0: [0, 8]
+  };
 
   const helper = (index, tempCombination) => {
     if (tempCombination.length === observed.length) {
@@ -74,9 +61,10 @@ function getPINs(observed) {
       return;
     } 
 
-    for (let i = index; i < posibilities.length; i++) {
-      for (let j = 0; j < posibilities[i].length; j++) {
-        helper(i + 1, tempCombination.concat(posibilities[i][j]));
+    for (let i = index; i < observed.length; i++) {
+      const num = Number(observed[i]);
+      for (let j = 0; j < possibilities[num].length; j++) {
+        helper(i + 1, tempCombination.concat(possibilities[num][j]));
       }
     }
   }
@@ -84,6 +72,5 @@ function getPINs(observed) {
   helper(0, '');
   return results;
 }
-
 
 module.exports = getPINs
