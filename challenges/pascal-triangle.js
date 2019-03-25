@@ -33,6 +33,22 @@
 */
 
 function pascalTriangle(numRows) {
+    var output = [];
+    for (let i = 0; i < numRows; i++) {
+        output.push([])
+    }
+
+    for (let j = 0; j < output.length; j++) {
+        for (let k = 0; k <= j; k++) {
+            if (k === 0 || k === j) {
+                output[j].push(1);
+            }
+            else {
+                output[j].push(output[j-1][k-1] + output[j-1][k])
+            }
+        }
+    }
+    return output;
 
 }
 
