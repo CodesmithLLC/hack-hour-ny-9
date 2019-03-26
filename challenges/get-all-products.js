@@ -1,4 +1,4 @@
-d/* Accepts an array of integers and returns an array of all the possible products made by
+/* Accepts an array of integers and returns an array of all the possible products made by
  * multiplying all but one number. In other words, find all the products of multiplying any
  * array.length-1 numbers in the array.
  *
