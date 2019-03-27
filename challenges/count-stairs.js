@@ -15,8 +15,11 @@
  */
 
 function countStairs(n) {
-    let counter = 0;
-
+    if ( n < 0) return 0;
+    if ( n === 0 || n === 1 ) return 1;
+    return countStairs(n-1) + countStairs(n-2)
 }
+
+console.log(countStairs(4))
 
 module.exports = countStairs;
