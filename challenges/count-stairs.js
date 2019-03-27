@@ -15,7 +15,22 @@
  */
 
 function countStairs(n) {
-
+  let arr = []
+  for (let i = 0; i < n; i++) {
+    arr.push(1)
+  }
+  console.log(arr)
+  let count = 0
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (i !== j) {
+        count++
+      }
+    }
+  }
+  console.log(count)
 }
+
+console.log(countStairs(5))
 
 module.exports = countStairs;
