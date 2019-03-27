@@ -25,7 +25,12 @@ Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
-function missingNum(Array) {
+function missingNum(array) {
+  let num = 0;
+  for (let i = 0; i < array.length; i++) {
+    num = num ^ (i + 1) ^ array[i];
+  }
+  return num ^ array.length + 1;
 }
 
 module.exports = missingNum;
