@@ -34,34 +34,26 @@ let jazbook = [
 ];
 //  return the number associated with the name in the jazbook
 
-function sortJaz(arr) {
-  let keys = []
-  for (let i = 0; i < jazbook.length; i++) {
-    keys.push([jazbook[i][0]])
-  }
-  keys.sort()
-  for (let i = 0; i < jazbook.length; i++) {
-    for (let j = 0; j < keys.length; j++) {
-      if (jazbook[i].indexOf(keys[j][0]) !== -1) {
 
-        (keys[j]).push(jazbook[i][1])
-      }
-    }
-  }
-  return keys
-}
 
 function findName(jazbook, name) {
-  let phonebook = sortJaz(jazbook)
-  console.log(phonebook)
+  jazbook.sort((a, b) => {
+    let aFirstChar = a[0][0].toLowerCase();
+    let bFirstChar = b[0][0].toLowerCase();
 
-  let middle = Math.floor(phonebook.length / 2)
-  console.log(middle)
-  if (phonebook[middle][0] === name) {
-    return phonebook[middle]
-  } else {
-    if
+    return aFirstChar < bFirstChar ? -1 : 1;
+    return 0
+  })
+
+  function binarySearch(array, value, left = 0, right = array.length - 1) {
+    if (left < right) {
+      let middle = Math.floor((left + right) / 2)
+      if (array[middle][0] === value) return array[middle][1]
+    }
+
+    console.log(middle)
   }
+
 
 }
 
@@ -76,6 +68,7 @@ function makePhoneBookObject(jazbook) {
       (output[jazbook[i][0]]).push(output[jazbook[i][1]])
     }
   }
+  console.log(output)
 }
 
 const objectToExport = {
