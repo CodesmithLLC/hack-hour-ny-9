@@ -27,8 +27,10 @@ Challange:
 */
 function missingNum(Array) {
   let sum = 0
-  for (let i = 0; i < Array.length + 1; i++) {
-    sum += 1
+
+  for (let i = 1; i <= Array.length + 1; i++) {
+    sum += i
+
   }
   for (let i = 0; i < Array.length; i++) {
     sum -= Array[i]
@@ -36,4 +38,5 @@ function missingNum(Array) {
   return sum;
 }
 
+console.log(missingNum([1, 2, 3, 5, 6]))
 module.exports = missingNum;
