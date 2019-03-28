@@ -10,7 +10,40 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
+  const length = items.length;
+  const arrayOfIndexes = items.map((el, i) => i);
 
-};
+  const indexes = [];
+  for (let i = 1; i <= length; i++) {
+    permutation([], 0, i);
+  }
+
+  let maxValue = -Infinity;
+  for (let indexArr of indexes) {
+    const currItems = indexArr.map(i => items[i]);
+    let currSum = 0;
+    let currWeight = 0;
+    let isValidCombination = true;
+    for (let item of currItems) {
+      currSum += item.value;
+      currWeight += item.weight;
+      if (currWeight > weightAvailable) {
+        isValidCombination = false;
+        break;
+      };
+    }
+
+    if (isValidCombination) maxValue = Math.max(maxValue, currSum);
+  }
+
+  return maxValue;
+
+  function permutation(arr, index, k) {
+    if (arr.length === k) return indexes.push(arr);
+    for (let i = index; i < arrayOfIndexes.length; i++) {
+      permutation([...arr, arrayOfIndexes[i]], i + 1, k);
+    }
+  }
+}
 
 module.exports = solveKnapsack;
