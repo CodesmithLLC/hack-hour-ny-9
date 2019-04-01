@@ -21,7 +21,15 @@ eachPermutation([1, 2, 3], function(perm) {
 */
 
 function eachPermutation(arr, callback) {
-
+  function recurse(array, partialResults) {
+    if (partialResults.length === array.length) {
+      callback(partialResults)
+    }
+    for (let i=0; i < array.length; i++) {
+      recurse(array.slice(0,i) + array.slice(i+1))), partialResults.concat(array[i]))
+    }
+  }
+  recurse(arr, [])
 }
 
 
