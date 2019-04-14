@@ -11,37 +11,29 @@
 
 
 function mergeRanges(array) {
-  let range = getNums(array)
-  let numbers;
-  console.log(range)
-  for (let i in range) {
-    for (let j in range[i]) {
-      console.log(range[i][j])
+  // sort the arrays based on the start time
+  // if start-time of second is equal or less than the end of first
+  // check endtime of second
+  // if endtime of second is less than or equal to endtime of first, first-end is the endtime
+  // if endtime of second is greater than first endtime, now endtime is the second-end
+  // if starttime is greater than the end of first, create new array
+  let sorted = array.sort((a, b) => a[0] - b[0])
+  let current;
+  let lastMerged
+  let output = [sorted[0]]
+  for (let i = 0; i < sorted.length; i++) {
+    current = sorted[i]
+    lastMerged = output[output.length - 1]
+    if (current[0] <= lastMerged[1]) {
+      lastMerged[1] = Math.max(lastMerged[1], current[1]);
+    } else {
+      output.push(current)
     }
   }
-}
-
-function getNums(array) {
-  let all = {}
-  let output = {}
-  let k = 0
-
-  for (let i = 0; i < array.length; i++) {
-    console.log(array[i][0])
-    for (let j = array[i][0]; j <= array[i][1]; j++) {
-      output[k] = j
-      k++
-    }
-    all[i] = output
-    output = {}
-    k = 0
-  }
-  console.log(all)
-  return all
+  return output;
 }
 
 const times = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]]
-console.log(getNums(times))
 console.log(mergeRanges(times))
 
 module.exports = mergeRanges;
