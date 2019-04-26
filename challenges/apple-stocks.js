@@ -12,23 +12,38 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
-    if (!Array.isArray(stock_prices_yesterday) || stock_prices_yesterday.length < 2) return 0
-    let maxVal = stock_prices_yesterday[stock_prices_yesterday.length-1]
-    let minVal = stock_prices_yesterday[stock_prices_yesterday.length-1]
-    let profit = 0;
-    for ( let i = stock_prices_yesterday.length-1; i >= 0; i--){
-        if(stock_prices_yesterday.length[i] > maxVal){
-            maxVal = stock_prices_yesterday.length[i];
-            minVal = stock_prices_yesterday.length[i];
-        } else if (stock_prices_yesterday.length[i] < minVal){
-            minVal = stock_prices_yesterday.length[i]
+// function bestProfit(stock_prices_yesterday) {
+//     if (!Array.isArray(stock_prices_yesterday) || stock_prices_yesterday.length < 2) return 0
+//     let maxVal = stock_prices_yesterday[stock_prices_yesterday.length-1]
+//     let minVal = stock_prices_yesterday[stock_prices_yesterday.length-1]
+//     let profit = 0;
+//     for ( let i = stock_prices_yesterday.length-1; i >= 0; i--){
+//         if(stock_prices_yesterday.length[i] > maxVal){
+//             maxVal = stock_prices_yesterday.length[i];
+//             minVal = stock_prices_yesterday.length[i];
+//         } else if (stock_prices_yesterday.length[i] < minVal){
+//             minVal = stock_prices_yesterday.length[i]
+//         }
+//     }
+//     if ( maxVal - minVal > profit){
+//         profit = maxVal - minVal
+//     }
+//     return profit
+// }
+function bestProfit (stockArr) {
+    if (!Array.isArray(stockArr)) return 0
+    let maxVal = stockArr[stockArr.length - 1] - stockArr[stockArr.length-2]
+    for ( let i = stockArr.length-1; i >=0; i--) {
+      for ( let j = i-1; j>=0; j-- ) {
+        if (stockArr[i] - stockArr[j] > maxVal) {
+          maxVal = stockArr[i] - stockArr[j]
         }
+      }
     }
-    if ( maxVal - minVal > profit){
-        profit = maxVal - minVal
-    }
-    return profit
-}
+    if ( maxVal <= 0) return 0
+    return maxVal
+  }
+
+
 
 module.exports = bestProfit;
