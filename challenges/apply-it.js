@@ -25,8 +25,9 @@
  *  DO NOT USE THE BUILT IN APPLY METHOD OR THE SPREAD OPERATOR
  */
 
-function applyIt(func, args) {
+function applyIt(func, args) {}
 
-}
+let arr = [[1, 2, 3], [4, 5, 6], [7]];
+console.table(arr);
 
 module.exports = applyIt;

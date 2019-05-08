@@ -16,9 +16,24 @@
  *   - if a new point is bounded by old points and lands on an old point, then count it
  * 	 
  */
+//FINISH THIS 
+function newIntersections(x, y) {
+  let coordinatesObj = {};
+  //build object
 
-function newIntersections(x, y){
-
+  x.forEach((num, index) => {
+    if (!coordinatesObj[num]) coordinatesObj[num] = [y[index]];
+    else coordinatesObj[num].push(y[index]);
+  })
+  x.forEach(num => {
+    for (let i = 0; i < coordinatesObj[x].length; i++) {
+      // check new point to right
+      if (coordinatesObj[num][i] && coordinatesObj[num + 2][i] && coordinatesObj[num + 1][i].includes(coordinatesObj[num + 1][i]))
+      // check new point to left
+      // check new point to top
+      // check new point to bottom
+    }
+  })
 }
 
 module.exports = newIntersections;
