@@ -14,7 +14,7 @@
 
 function anagrams(string) {
   let result = [];
-  if (string.length === 1) return [string];
+  if (string.length <= 1) return [string];
   for (let i = 0; i < string.length; i++) {
     let curr = string[i];
     let ana = anagrams(string.slice(0, i) + string.slice(i + 1, string.length));
@@ -25,5 +25,5 @@ function anagrams(string) {
   return result.filter((elem, index) => result.indexOf(elem) === index);
 }
 
-// console.log(anagrams("abc"));
+console.log(anagrams(""));
 module.exports = anagrams;
