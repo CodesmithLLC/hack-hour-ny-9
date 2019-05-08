@@ -6,6 +6,7 @@
 //[-100, -90, -80, -30, -2, -4, -6, -10, -12]
 function highestProduct(array) {
   if (array.length < 3) return 0;
+  if (!Array.isArray(array)) return 0;
   if (array.length === 3) return array.reduce((acc, curr) => acc * curr, 1);
   let sorted = array.sort((a, b) => a - b);
   const smallest3 = sorted[0] * sorted[1] * sorted[sorted.length - 1];

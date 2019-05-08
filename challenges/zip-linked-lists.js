@@ -16,26 +16,18 @@ function zip(l1, l2) {
   //result: node1 -> node4 -> node2 -> node5 -> node3 -> node6
   if (!l1) return l2;
   if (!l2) return l1;
-  // if (!l2.next) {
-  //   l2.next = l1.next;
-  //   l1.next = l2;
-  // }
-  // let tempNode1;
+
   let tempNode2;
   let head = l1;
   while (l2.next) {
-    // console.log(l1, "l1");
-    // console.log(l2, "l2");
     tempNode2 = l2.next;
-    l2.next = l1.next;
+    if (l1.next) l2.next = l1.next;
     l1.next = l2
     l1 = l2.next;
     l2 = tempNode2;
   }
   if (l2) {
     l1.next = l2;
-    // l2.next = l1.next;
-    // l1.next = l2;
   }
 
   return head;

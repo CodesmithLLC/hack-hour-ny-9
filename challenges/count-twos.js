@@ -10,7 +10,25 @@
 
 
 function countTwos(num) {
-
+  let digits = num.toString().length;
+  let numString = num.toString();
+  let result = 0;
+  for (let i = 0; i < digits; i++) {
+    let numString2 = numString;
+    numString2[i] = '1';
+    let product = 1;
+    for (let j = 0; j < digits; j++) {
+      // console.log('product ' + product + ' * digit' + numString2[j]);
+      if (i !== j) {
+        if (numString[j]) product *= (Number(numString2[j]) + 1);
+      }
+    }
+    console.log('product is now ' + product);
+    result += product;
+  }
+  return result;
 }
+
+console.log(countTwos(99));
 
 module.exports = countTwos;
