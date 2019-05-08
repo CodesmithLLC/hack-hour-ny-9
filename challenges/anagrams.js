@@ -22,7 +22,7 @@ function anagrams(string) {
       result.push(curr + an);
     });
   }
-  return result;
+  return result.filter((elem, index) => result.indexOf(elem) === index);
 }
 
 // console.log(anagrams("abc"));
