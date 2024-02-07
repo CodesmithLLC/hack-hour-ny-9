@@ -34,7 +34,7 @@ function getAllProducts(array) {
       products.push(p);
     }
   }
-  return products;
+  return Array.from(new Set(products));
 }
   
 module.exports = getAllProducts;
